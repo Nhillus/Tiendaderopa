@@ -33,14 +33,14 @@ return [
     'google' => [
         'client_id' => env('992765765863-clh7cq9f4j7o9vcei7l4pcumng978pon.apps.googleusercontent.com'),
         'client_secret' => env('nrXLHRWXZdNE4E8ciYbS7qj7'),
-        'redirect' => 'http://your-callback-url',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
     ],
     
     
     'facebook' => [
-        'client_id' => env('402967344122589'),
-        'client_secret' => env('289094315df0686785708b604d92538f'),
-        'redirect' => 'http://localhost:8000/auth/facebook/callback',
+        'client_id' => '402967344122589',
+        'client_secret' =>'289094315df0686785708b604d92538f',
+        'redirect' => 'http://localhost:8000/login/facebook/callback',
     ],
     
 
