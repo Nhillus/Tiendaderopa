@@ -64,7 +64,15 @@
                                 @endif
                             </div>
                         </div>
-                    </form>
+                    </form> 
+                        <p class="mt-3 mb-2 text-center">-o- </p>
+                            
+                                <a href="{{url('login/facebook') }}" class="btn btn-block btn-primary" ></i> Iniciar sesion con Facebook</a>
+                                <a href="{{url('login/google') }}" class="btn btn-block btn-danger" ></i> Iniciar sesion con Google</a>
+                      
+                        
+                        
+                                           
                 </div>
             </div>
         </div>

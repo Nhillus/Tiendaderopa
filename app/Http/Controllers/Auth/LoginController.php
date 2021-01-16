@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
+use App\Models\SocialProvider;
+use App\Models\User; 
 
-class LoginController extends Controller
+    class LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -39,22 +41,87 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToProvider()
+    public function redirectToProvider($redSocial)
     {
-        return Socialite::driver('facebook')->redirect();
+        $redSociales = ['facebook','google'];
+        
+        if(in_array($redSocial, $redSociales)){
+            # code...
+            return Socialite::driver($redSocial)->redirect();
+        }else
+            return redirect()->route('login');
     }
+
+        
 
     /**
      * Obtain the user information from GitHub.
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($redSocial)
     {
-        $user = Socialite::driver('facebook')->stateless()->user();
+        try {
+            //code...
 
-        return $user->getEmail();
+                $socialUser = Socialite::driver($redSocial)->stateless()->user();
+                //dd($socialUser);
+                
+                
+                //return $user->getEmail();
 
-        // $user->token;
+            } catch (\exception $e ) {
+            
+                return redirect('/ ');
+            }
+        $user = User::where('email',$socialUser->getEmail())->first();
+        
+        $socialProvider = SocialProvider::where('provider_id',$socialUser->getId())
+                                        ->where('provider',$redSocial)->first();
+
+        if (!$socialProvider) {
+            # code...
+            if(!$user)
+            {
+                $user = User::firstOrCreate(
+                    ['email'=> $socialUser->getEmail()],
+                    ['name'=> $socialUser->getName()],
+                );
+            
+        
+            }
+            $user->SocialProvider()->Create(
+                ['provider_id'=>$socialUser->getId(), 'provider' =>$redSocial,'user_id'=>$user->id,'avatar'=>$socialUser->getAvatar()]
+            );
+        };
+
+        auth()->login($user);
+
+        return redirect('/home');
+        
+        //$socialProvider = SocialProvider::where('provider_id',$socialUser->getID())->first();
+        //if(!$socialProvider)
+        /**if(!$socialUser)
+        {
+            //crear un nuevo usuario y provedor
+            $user = User::firstOrCreate(
+                ['email'=> $socialUser->getEmail()],
+                ['name'=> $socialUser->getName()],
+            );
+            $user->socialProvider()->create(
+                ['provider_id'=>$socialUser->getId(), 'provider' =>'facebook','user_id'=>$user->id,'avatar'=>$socialUser->getAvatar()]
+            );
+
+        }
+        else
+             $user = $socialUser->user;
+        auth()->login($user);
+
+        return redirect('/home');
+        */
+        
+        
+        
+        
     }
 }

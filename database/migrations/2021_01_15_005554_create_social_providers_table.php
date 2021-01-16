@@ -15,9 +15,11 @@ class CreateSocialProvidersTable extends Migration
     {
         Schema::create('social_providers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->references('id')->on('users');
-            $table->string('provider_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('provider_id')->unique();
             $table->string('provider');
+            $table->string('avatar');
             $table->timestamps();
         });
     }
