@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Models\SocialProvider;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,8 +39,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    function socialProvider()
+    //Relacion 1:n con la clase SocialProvider.
+     public function socialProvider()
     {
-        return $this->hasmMany(socialProvider::class);
+        return $this->hasMany(SocialProvider::class);
     }
 }
