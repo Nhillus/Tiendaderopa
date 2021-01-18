@@ -16,5 +16,10 @@ class SocialProvider extends Model
         return $this->belongTo(User::class);
     }
 
+    public function userRol()
+    {
+        return $this->belongTo(User::class);
+    }
+
 }
 
