@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 use App\Models\SocialProvider;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -43,5 +43,10 @@ class User extends Authenticatable
      public function socialProvider()
     {
         return $this->hasMany(SocialProvider::class);
+    }
+
+    public function rols()
+    {
+        return $this->belongTo(Rol::class);
     }
 }

@@ -1,7 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+ 
+@if (session('info'))
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="alert alert-danger" role="alert">
+                        <strong>{{session('info')}}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>  
+@endif
+        <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

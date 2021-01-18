@@ -19,11 +19,16 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->unsignedInteger('id_rol')->nullable();
+            $table->foreign('id_rol')->references('id')->on('rols')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
     }
 
+
+
+    
     /**
      * Reverse the migrations.
      *
