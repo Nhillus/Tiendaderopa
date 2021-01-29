@@ -1,10 +1,13 @@
 require('./bootstrap');
 
 
+
 window.Vue = require('vue');
+
 
 import VueRouter from 'vue-router';
 import routes from './routes';
+import jQuery from 'jQuery'
 
 Vue.use(VueRouter); 
 
