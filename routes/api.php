@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,10 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
 Route::post('register', 'RegisterController@register');
 Route::post('login', 'LoginController@login');
 Route::post('logout', 'LoginController@logout');
+Route::post('login/{redSocial}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::post('oauth/{driver}', [OAuthController::class, 'redirect']);
+Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
 
 
