@@ -4,7 +4,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-
+import axios from 'axios';
 import VueRouter from 'vue-router';
 import routes from './routes';
 import jQuery from 'jQuery'
@@ -15,5 +15,9 @@ Vue.use(VueRouter);
 
 const app = new Vue({
     el: '#app',
-    router: new VueRouter(routes)
+    router: new VueRouter(routes),
+    components:
+    {
+        axios,
+    }
 });
