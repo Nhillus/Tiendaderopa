@@ -1,12 +1,25 @@
+<style>
+
+.subnav
+{
+ display: inline-block;
+ margin-top:-30px;
+}
+
+
+
+
+
+</style>
+
 <template>
-    <div>
-        Dashboard <br>
-        <div v-if="user">
-        Name: {{user.name}} <br>
-        Email: {{user.email}}<br><br>
+    <div class="subnav" >
+        Dashboard 
+        <div class="subnav"   v-if="user">
+        Name: {{user.name}} 
+        Email: {{user.email}}
         <button @click.prevent="logout">Logout</button>
         </div>
-
     </div>
 </template>
 <script>

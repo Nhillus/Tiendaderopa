@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->unsignedInteger('id_rol')->nullable();
             $table->foreign('id_rol')->references('id')->on('rols')->onDelete('cascade');
+            $table->string('api_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -27,8 +27,8 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 */
-Route::get('login/{redSocial}', 'Auth\LoginController@redirectToProvider');
-Route::get('login/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
+//Route::get('login/{redSocial}', 'Auth\LoginController@redirectToProvider');
+//Route::get('login/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
  
 
 

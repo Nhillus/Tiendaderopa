@@ -119,6 +119,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
 .select-container, .textarea-container, .input-container {
     padding-bottom: 20px;
     position: relative;
+    
 }
 .select-container, .textarea-container, .input-container {
     padding-bottom: 20px;
@@ -143,7 +144,13 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    max-width: 50%;
+    
+}
+
+select {
+max-width: 50%; /* La clave para cambiar la dimension del container select esta aqui */
+width:auto;
+
 }
 
 .panel_connection .hide_register .cityregister {
@@ -151,7 +158,6 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
     background-color: #F8F8F8;
     margin-bottom: 20px;
     padding: 5px 15px ;
-    
     }
 
 .panel_connection .hide_register .offer {
@@ -385,6 +391,7 @@ form .row .row .column, form .row .row .columns {
                             <div id="facebookbutton" class="small-12 medium-6 columns">
                                 <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" data-options="{&quot;appId&quot;:&quot;114118805282255&quot;,&quot;successUrl&quot;:&quot;https:\/\/www.deindeal.ch\/de\/customer\/account\/sociallogin\/&quot;,&quot;locale&quot;:&quot;de_DE&quot;,&quot;scopeComplement&quot;:&quot;&quot;}">
                                     <span>
+                                        
                                         Facebook                    
                                     </span>
                                 </a>
@@ -461,15 +468,12 @@ form .row .row .column, form .row .row .columns {
                                 </p>
                                 <div class="row">
                                     <div id="facebookbutton" class="small-12 medium-6 columns">
-                                        <a type="button" id="button-fb600c585ad5465" class="button button-xs button-facebook" @click="loginFacebook()"   >
-                                            <span>
-                                                Facebook
-                                                           
-                                            </span>
+                                        <a type="button" id="button-fb600c585ad5465" class="button button-xs button-facebook" @click.stop="socialLogin('facebook')">
+                                             <span >facebook</span>
                                         </a>
                                     </div>
                                     <div id="googlebutton" class="small-12 medium-6 columns">
-                                        <a id="button-google600c585ad5466" class="button button-xs button-google" @click="loginGoogle()">
+                                        <a id="button-google600c585ad5466" class="button button-xs button-google" @click.stop="socialLogin('google')">
                                             <span>
                                                 Google                    
                                             </span>
@@ -489,6 +493,7 @@ form .row .row .column, form .row .row .columns {
 
 <script>
 import {mapActions} from 'vuex';
+import {get,post} from '../helpers/api'
 export default {
     
 
@@ -502,6 +507,7 @@ export default {
                     password: ''
             },
             errors: [],
+            isProcessing: false,
             login:
                     {
                      email: '',
@@ -512,77 +518,61 @@ export default {
     },
  
     methods:{
-    visualizarLogin(event)
+        visualizarLogin(event)
+            {
+                this.showLogin=!this.showLogin, 
+                this.showRegister=!this.showRegister
+            },
+        visualizarRegistro(event)
+            {
+                this.showLogin=!this.showLogin, 
+                this.showRegister=!this.showRegister
+            },
+        loginUser()
         {
-            this.showLogin=!this.showLogin, 
-            this.showRegister=!this.showRegister
-        },
-    visualizarRegistro(event)
-        {
-            this.showLogin=!this.showLogin, 
-            this.showRegister=!this.showRegister
-        },
-    loginUser()
-    {
-      axios.post('/api/login',this.login).then(() =>{
-          this.$router.push({name: "Dashboard"});
-      }).catch((error) =>{
-         this.errors = error.response.data.errors;   
-    })
-   },
-   saveForm(){
-            axios.post('/api/register', this.form).then(() =>{
-                console.log('saved');
-            }).catch((error) =>{
-                this.errors = error.response.data.errors;
+        axios.post('/api/login',this.login).then(() =>{
+            this.$router.push({name: "Dashboard"});
+        }).catch((error) =>{
+            this.errors = error.response.data.errors;   
         })
         },
-    loginFacebook()
-    {
-      //escribir codigo de facebook o llamada
-    },
-    loginGoogle() {
-              console.log("Entre en google");
-              const newWindow = openWindow('', 'message')
-              axios.get('oauth/google')
-                    .then(response => {
-                     $data => response.data;
-                     console.log($data);
+        saveForm(){
+                axios.post('/api/register', this.form).then(() =>{
+                    console.log('saved');
+                }).catch((error) =>{
+                    this.errors = error.response.data.errors;
+            })
+            },
+        loginFacebook()
+        {
+        //escribir codigo de facebook o llamada
+        },
+        socialLogin(provider){
+                    this.isProcessing = true;
+                    this.error = {};
+                    console.log("Entre a socialLogin");
+                    get(`/api/social/${provider}`)
+                        .then((response) => {
+                        if(response.data.error){
+                            this.error = err.response.data.error;
+                            console.log("Entre a response error");
+                        } else if(response.data.redirectUrl){
+                            window.location.href = response.data.redirectUrl
+                            console.log("Entre a response ");
+                        }
                     })
-                    .catch(function (error) {
-                      console.error(error);
+                        .catch((err) => {
+                        if(err.response.data.error){
+                            this.error = err.response.data.error;
+                            console.log("Entre en catch error ");
+                        }
+                        console.log("Segundo if ");
+                        this.isProcessing = false;
                     });
+                    this.isProcessing = false;
+                }
+    
     }
-  }
+  
 }
-
-function openWindow (url, title, options = {}) {
-      if (typeof url === 'object') {
-        options = url
-        url = ''
-      }
-
-      options = { url, title, width: 600, height: 720, ...options }
-
-      const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screen.left
-      const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screen.top
-      const width = window.innerWidth || document.documentElement.clientWidth || window.screen.width
-      const height = window.innerHeight || document.documentElement.clientHeight || window.screen.height
-
-      options.left = ((width / 2) - (options.width / 2)) + dualScreenLeft
-      options.top = ((height / 2) - (options.height / 2)) + dualScreenTop
-
-      const optionsStr = Object.keys(options).reduce((acc, key) => {
-        acc.push(`${key}=${options[key]}`)
-        return acc
-      }, []).join(',')
-
-      const newWindow = window.open(url, title, optionsStr)
-
-      if (window.focus) {
-        newWindow.focus()
-      }
-
-      return newWindow
-    }
 </script>
