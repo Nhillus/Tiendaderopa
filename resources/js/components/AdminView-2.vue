@@ -19,9 +19,9 @@
                                 <td v-text="products.category"></td>
                                 <td>
                                     <!--Botón modificar, que carga los datos del formulario con la tarea seleccionada-->
-                                    <button class="btn" @click="loadFieldsUpdate(task)">Modificar</button>
+                                    <button class="btn" @click="loadFieldsUpdate(products)">Modificar</button>
                                     <!--Botón que borra la tarea que seleccionemos-->
-                                    <button class="btn" @click="deleteProduct(task)">Borrar</button>
+                                    <button class="btn" @click="deleteProduct(products)">Borrar</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -114,8 +114,8 @@
                 let url = '/api/productos/buscar?id='+this.update;
                 axios.get(url).then(function (response) {
                     me.name= response.data.name;
-                    me.email= response.data.email;
-                    me.password= response.data.password;
+                    me.description= response.data.description;
+                    me.category= response.data.category;
 
                 })
                 .catch(function (error) {
@@ -125,9 +125,9 @@
             },
             deleteProduct(data){//Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegido
                 let me =this;
-                let user_id = data.id
+                let product_id = data.id
                 if (confirm('¿Seguro que deseas borrar esta tarea?')) {
-                    axios.delete('/api/usuarios/borrar/'+user_id
+                    axios.delete('/api/productos/borrar/'+product_id
                     ).then(function (response) {
                         me.getTasks();
                     })
@@ -138,8 +138,8 @@
             },
             clearFields(){/*Limpia los campos e inicializa la variable update a 0*/
                 this.name = "";
-                this.email = "";
-                this.password = "";
+                this.description = "";
+                this.category = "";
                 this.update = 0;
             }
         },

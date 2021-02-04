@@ -16,12 +16,12 @@
                             <tr v-for="user in arrayUsers" :key="user.id"> <!--Recorremos el array y cargamos nuestra tabla-->
                                 <td v-text="user.name"></td>
                                 <td v-text="user.email"></td>
-                                <td v-text="user.password"></td>
+                                <td v-text="user.id_rol"></td>
                                 <td>
                                     <!--Botón modificar, que carga los datos del formulario con la tarea seleccionada-->
-                                    <button class="btn" @click="loadFieldsUpdate(task)">Modificar</button>
+                                    <button class="btn" @click="loadFieldsUpdate(user)">Modificar</button>
                                     <!--Botón que borra la tarea que seleccionemos-->
-                                    <button class="btn" @click="deleteUser(task)">Borrar</button>
+                                    <button class="btn" @click="deleteUser(user)">Borrar</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -35,7 +35,7 @@
                     <label>Email</label>
                     <input v-model="email" type="text" class="form-control">
 
-                    <select  v-model="password" v-on:change="sortBy()" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <select  v-model="id_rol" v-on:change="sortBy()" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
                         <option selected>Roles </option>
                         <option value="1">AdminG</option>
                         <option value="2">Admin</option>
@@ -64,6 +64,7 @@
                 name:"", //Esta variable, mediante v-model esta relacionada con el input del formulario
                 email:"", //Esta variable, mediante v-model esta relacionada con el input del formulario
                 password:"", //Esta variable, mediante v-model esta relacionada con el input del formulario
+                id_rol:"",
                 update:0, /*Esta variable contrarolará cuando es una nueva tarea o una modificación, si es 0 significará que no hemos seleccionado
                           ninguna tarea, pero si es diferente de 0 entonces tendrá el id de la tarea y no mostrará el boton guardar sino el modificar*/
                 arrayUsers:[], //Este array contendrá las tareas de nuestra bd
@@ -104,13 +105,13 @@
             updateUsers(){/*Esta funcion, es igual que la anterior, solo que tambien envia la variable update que contiene el id de la
                 tarea que queremos modificar*/
                 let me = this;
-                axios.put('/api/ususarios/actualizar',{
+                axios.put('/api/usuarios/actualizar/',{
                     'id':this.update,
                     'name':this.name,
-                    'email':this.description,
-                    'password':this.content,
+                    'email':this.email,
+                    'id_rol':this.id_rol,
                 }).then(function (response) {
-                   me.getTasks();//llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
+                   me.getUsers();//llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
                    me.clearFields();//Limpiamos los campos e inicializamos la variable update a 0
                 })
                 .catch(function (error) {
@@ -153,7 +154,7 @@
             }
         },
         mounted() {
-           this.getTasks();
+           this.getUsers();
         }
     }
 </script>
