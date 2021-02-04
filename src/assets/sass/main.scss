@@ -42,21 +42,71 @@ ul {
     padding: 0;
 }
 
-.column, 
-.columns {
-    padding-left: 0.9375rem;
-    padding-right: 0.9375rem;
-    width: 100%;
-    float: left;
+
+a {
+    color: #2F2F2F;
+
+    &:hover {
+	    text-decoration: none;
+	}
 }
 
-.wrapper {
-    width: 100%;
+p {
+    font-size: 1.4rem;
+}
 
-    @media only screen and (min-width: 1024px) {
-	    margin: 0 auto;
-	    max-width: 1130px;
+.button {
+    font-size: 1.8rem;
+    text-decoration: none;
+    outline: none;
+    height: auto;
+    top: auto;
+    width: 100%;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 400;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-weight: normal;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+}
+
+
+.wrapper{
+    width:100%;
+
+    @media only screen and (min-width:1024px){
+	    margin:0 auto;
+	    max-width:1130px
 	}
+
+}
+
+.columns {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-dark {
+    background-color: white;
+    border: 1px solid #C01C3C;
+    color: #C01C3C;
+
+    &:focus, 
+	&:hover {
+	    background-color: #C01C3C;
+	}
+
+}
+
+.button-md {
+    width: 100%;
+    max-width: 240px;
+    font-size: 1.4rem;
+    height: 50px;
+    line-height: 50px;
 }
 
 
@@ -138,4 +188,759 @@ ul {
 .header_login-block_inner{
 	margin: 0 auto;
     position: relative;
+
+}
+
+.header_login-block_elements {
+    display: inline-block;
+    font-size: 12px;
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+
+    li {
+	    display: inline;
+
+	    &::after {
+		    content: "•";
+		    padding: 0 10px;
+		}
+
+		&:last-child::after{
+			content: "";
+		}
+	}
+}
+
+.header_menu {
+    display: inline-block;
+    padding-right: 0;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.header_menu_account {
+    display: inline-block;
+
+    & > * {
+	    border-right: 1px solid;
+	    margin-right: 10px;
+	    padding-right: 10px;
+	    display: inline-block;
+    }
+}
+
+.header_menu_languages {
+    display: inline-block;
+}
+
+@media only screen and (min-width: 641px){
+	.language-switcher {
+	    position: relative;
+	    height: 23px;
+	}
+}
+
+.language-switcher__button {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    transition: none;
+    line-height: 1;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 400;
+    color: #2F2F2F;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: default;
+
+
+}
+
+.language-switcher__button:active,
+.language-switcher__button:focus,
+.language-switcher__button:hover{
+    background:none
+}
+.language-switcher__button:hover,
+.language-switcher__button:active,
+.language-switcher__button:focus{
+    color:#2F2F2F
+}
+
+@media only screen and (min-width: 641px){
+   	.language-switcher__button, 
+   	.language-switcher__flag {
+	    display: inline-flex;
+	    width: 100%;
+	    justify-content: flex-end;
+	    align-items: center;
+
+	    &::after, 
+	 	&::after {
+		    content: '';
+		    display: block;
+		    width: 20px;
+		    height: 13px;
+		    margin-left: 10px;
+		    background-position: 0 0;
+		    background-repeat: no-repeat;
+		    background-size: 20px auto;
+
+		}
+
+		&.flag-de{
+			&::after{
+				background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/flags/de.svg');
+			}
+		}
+
+		&.flag-fr{
+			&::after{
+				background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/flags/fr.svg');
+			}
+		}
+	}
+}
+
+
+.language-switcher__list{
+    list-style:none;
+
+    @media only screen and (min-width:641px){
+	    width:1px;
+	    height:1px;
+	    padding:0;
+	    margin:-1px;
+	    overflow:hidden;
+	    clip:rect(0, 0, 0, 0);
+	    border:0;
+	    position:absolute;
+	    right:-20px;
+	    top:22px;
+	    box-shadow:1px 1px 4px 0 rgba(0,0,0,0.2);
+	    background-color:#F2F2F2
+
+    }
+
+
+	.language-switcher__item {
+		@media only screen and (max-width: 640px){
+			display: inline-block;
+		}
+	}
+
+	
+	.language-switcher__flag {
+		@media only screen and (min-width: 641px) {
+		    font-size: 1.4rem;
+		}
+		@media only screen and (min-width: 641px){
+			color: #2F2F2F;
+		    padding: 6px 20px;
+		    font-family: 'Open Sans',arial,sans-serif;
+		    font-weight: 300;
+		}
+
+		@media only screen and (max-width: 640px) {
+		    font-size: 1.3rem;
+		} 
+
+		@media only screen and (max-width: 640px){
+		    color: #9B9B9B;
+		}
+		
+	}
+}
+
+.language-switcher__list.active .language-switcher__list,
+.language-switcher:hover .language-switcher__list{
+    position:inherit;
+    width:auto;
+    height:auto;
+    padding:inherit;
+    margin:inherit;
+    overflow:auto;
+    clip:auto;
+    border:inherit;
+    position:absolute
+}
+
+.navigation_wrapper {
+    height: 44px;
+
+    @media only screen and (max-width: 640px) {
+	    overflow: hidden;
+	}
+
+    @media only screen and (min-width: 641px) {
+	    border-bottom: 1px solid rgba(0,0,0,0.05);
+	}
+}
+.navigation_sub-nav {
+    width: 100%;
+    max-width: 1110px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-right: 1px solid rgba(0,0,0,0.05);
+    border-left: 1px solid rgba(0,0,0,0.05);
+    background-color: transparent;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.85)), color-stop(100% #fff));
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.85) 0%, #fff 100%);
+    background-image: -moz-linear-gradient(top, rgba(255,255,255,0.85) 0%, #fff 100%);
+    background-image: -ms-linear-gradient(top, rgba(255,255,255,0.85) 0%, #fff 100%);
+    background-image: -o-linear-gradient(top, rgba(255,255,255,0.85) 0%, #fff 100%);
+    background-image: linear-gradient(top, rgba(255,255,255,0.85) 0%, #fff 100%);
+
+
+
+    @media only screen and (min-width: 64.063em) and (max-width: 1140px) {
+	    padding-left: 10px;
+	    padding-right: 10px;
+	}
+
+	@media (min-width: 40.063em) and (max-width: 64em) {
+	    padding: 0 10px;
+	}
+
+	@media screen and (max-width: 40em){
+		position: relative;
+	}
+
+	.sub-nav {
+	    justify-content: center;
+	    padding: 0;
+	    margin: 0;
+	    line-height: 44px;
+	    white-space: nowrap;
+
+	    @media only screen and (min-width: 1025px) {
+		    display: flex;
+		}
+
+
+		@media only screen and (max-width: 1024px)  {
+		    overflow: auto;
+		    display: block;
+		    text-align: center;
+		}
+
+		@media screen and (max-width: 40em) {
+		    display: block;
+		    line-height: 4.5rem;
+		    height: 55px;
+		}
+
+
+		li {
+		    
+
+    		@media screen and (min-width: 40.063em) and (max-width: 64em){
+			    padding-right: 10px;
+			}
+
+			@media screen and (max-width: 40em) {
+			    margin-left: 0;
+			    padding: 0;
+			    float: none;
+			    display: inline-block;
+			    line-height: 1.4rem;
+			}
+
+			float: none;
+    		display: inline-block;
+
+    		a{
+    			@media screen and (max-width: 40em) {
+				    padding: 15px 15px;
+				}
+    			display: block;
+			    position: relative;
+			    padding: 0 10px;
+			    color: black;
+			    font-size: 1.4rem;
+			    text-transform: uppercase;
+			    white-space: nowrap;
+			    font-family: 'Open Sans',arial,sans-serif;
+			    font-weight: 400;
+
+
+    		}
+
+    		&.active{
+    			a{
+    				background-color: transparent;
+    				color: #C01C3C;
+
+    				&::after{
+    					content: "";
+					    border-bottom: 3px solid #C01C3C;
+					    position: absolute;
+					    bottom: 0;
+					    left: 0;
+					    right: 0;
+    				}
+    			}
+    		}
+		}
+	}
+
+}
+
+
+.off-canvas-wrap {
+    background: white;
+}
+
+
+.content {
+	@media only screen and (min-width: 1024px){
+		.wrapper {
+		    margin: 0 auto;
+		    max-width: 1130px;
+		}
+	}
+		
+	@media only screen and (min-width: 1110px){
+		.wrapper {
+		    padding-top: 20px;
+		}
+	}
+}
+
+
+.select-fake, 
+select.dd-select, 
+select {
+    height: 40px;
+    background-color: white;
+    font-size: 1.4rem;
+    padding: 0 40px 0 10px;
+    background-image: url(data:image/svg+xml;base64,PCEtLSBHZW5lcmF0ZWQgYnkgSWNvTW9vbi5pbyAtLT4KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMzIgMzIiPgo8dGl0bGU+ZHJvcGRvd248L3RpdGxlPgo8cGF0aCBkPSJNMTYgMjUuNjk5bC0xMy42OTktMTMuNjk5LTAuOTY4IDAuOTY4IDAuNDg0IDAuNDg1IDE0LjE4MyAxNC4xODEgMC4yNDMtMC4yNDEgMC4yNDEtMC4yNDMgMTQuMTgzLTE0LjE4My0wLjk2OC0wLjk2OC0wLjQ4NSAwLjQ4NC0xMy4yMTMgMTMuMjEzeiI+PC9wYXRoPgo8L3N2Zz4K);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right 10px center;
+    top: auto;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.select-fake.select-xl, 
+select.dd-select.select-xl, 
+select.select-xl {
+    display: inline-block;
+    border-width: 0 0 1px 0;
+    border-color: #C01C3C;
+    font-size: 2.4rem;
+    width: auto;
+    cursor: pointer;
+    padding-left: 0;
+    background-size: 15px;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 300;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.channel-filters {
+    margin-bottom: 20px;
+    text-align: center;
+
+    @media only screen and (min-width: 64.063em) and (max-width: 1140px) {
+	    padding: 0 10px;
+	}
+
+	@media screen and (min-width: 40.063em) and (max-width: 64em) {
+	    padding-left: 20px;
+	    padding-right: 20px;
+	}
+
+	@media screen and (max-width: 40em){
+	    margin: 10px 0px;
+	}
+
+	span {
+	    display: none;
+	}
+
+	span {
+	    font-size: 2.4rem;
+	    margin: 0 10px;
+	    font-family: 'Playfair Display',serif;
+	    font-weight: 400;
+	}
+
+	.filter_default_label {
+	    display: inline-block;
+	}
+
+	.select-xl{
+		color: #C01C3C;
+	    border-width: 0 !important;
+	    font-family: 'Playfair Display',serif !important;
+	    font-weight: 400 !important;
+
+	    option {
+	    	color: black;
+		    font-family: 'Open Sans',arial,sans-serif;
+		    font-weight: 300;
+	    }
+	}
+
+	option {
+	    font-size: 1.4rem;
+	}
+}
+
+@media screen and (min-width: 40.063em) and (max-width: 64em){
+	.channel-filters .filter_default_label, 
+	.channel-filters .filter_default_select {
+	    font-size: 1.7rem !important;
+	}
+}
+
+@media screen and (max-width: 40em){
+	.channel-filters .filter_default_label, 
+	.channel-filters .filter_default_select {
+	    font-size: 1.7rem !important;
+	}
+}
+
+@media only screen and (max-device-width: 768px){
+	.off-canvas-wrap .content .select-xl {
+	    margin-right: 3px;
+	    font-size: 1.7rem;
+	}
+
+}
+
+.wrapper-current-sales{
+	@media only screen and (min-width: 64.063em) and (max-width: 1140px) {
+	    padding: 0 10px;
+	}
+
+	@media screen and (min-width: 40.063em) and (max-width: 64em){
+	    padding: 0 20px;
+	}
+}
+
+.current-sales  {
+	.container-sales{
+		margin: 0 -1.1rem;
+
+		& > li {
+		    padding: 1.1rem 1.1rem 1.1rem;
+		}
+	}
+    
+}
+
+.sale{
+	position: relative;
+    border: 1px solid #D8D8D8;
+    z-index: 1;
+    text-align: left;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 400;
+
+    .sale a {
+	    color: #2F2F2F;
+	}
+}
+
+.sale-media {
+    position: relative;
+    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/ajax-loader.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    img {
+	    display: block;
+	    width: 100%;
+	}
+}
+
+.media-552x224 {
+    position: relative;
+
+    &::before {
+	    display: block;
+	    content: "";
+	    width: 100%;
+	    padding-top: 40.57971014%;
+	}
+
+	img {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	}
+}
+
+figure {
+    margin: 0;
+    overflow: hidden;
+}
+
+.sale-infos {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.9);
+    line-height: 2.4;
+    font-size: 1rem;
+}
+
+.row {
+    max-width: none;
+}
+.nomarge {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sale-content-expedition{
+	text-align: right;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #B0012E;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 600;
+}
+
+.a-right {
+    text-align: right !important;
+}
+
+.a-center{
+	text-align: center !important;
+}
+
+.sale-footer {
+    text-align: left;
+    padding: 0 10px;
+    border-top: 1px solid #f2f2f2;
+    width: 100%;
+    display: table;
+    vertical-align: middle;
+    height: 40px;
+
+    @media screen and (max-width: 40em) {
+	    height: 35px;
+	}
+
+	& > * {
+	    display: table-cell;
+	    vertical-align: middle;
+	}
+}
+
+.sale_title {
+    font-size: 1.3rem;
+    margin: 0;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 600;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.sale-content-price {
+    text-align: right;
+}
+
+.small {
+    font-size: 1rem;
+}
+
+.sale-content-price  {
+	span:first-child{
+		vertical-align: bottom;
+	}
+}
+
+.sale-percent {
+    color: #C01C3C;
+    font-size: 2.2rem;
+    line-height: 1;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 600;
+
+    @media screen and (max-width: 40em){
+    	font-size: 1.6rem;
+    }
+}
+
+.footer {
+    background-color: #FAFAFA;
+    padding: 20px 0 0;
+    margin-top: 40px;
+    border-top: 1px solid #D8D8D8;
+
+    .columns{
+    	padding: 0;
+    }
+
+    h5 {
+	    font-size: 1.4rem;
+	    font-weight: normal;
+	    margin-bottom: 20px;
+	    font-family: 'Open Sans',arial,sans-serif;
+	    font-weight: 600;
+
+	    @media screen and (max-width: 40em) {
+		    margin-top: 20px;
+		}
+	}
+
+	ul {
+	    font-size: 1.3rem;
+	    font-family: 'Open Sans',arial,sans-serif;
+	    font-weight: 400;
+
+	    li {
+		    list-style-type: none;
+		    margin-bottom: 10px;
+		}
+	}
+
+	p {
+	    font-size: 1.2rem;
+	    line-height: 1.2;
+	    font-family: 'Open Sans',arial,sans-serif;
+	    font-weight: 300;
+	}
+
+	.apptodate {
+		p{
+			padding: 0 50px;
+		}
+	    
+	}
+
+	.footer-social-icons {
+		h5{
+			font-size: 2rem;
+		    color: #8C8C8C;
+		    font-family: 'Open Sans',arial,sans-serif;
+		    font-weight: 300;
+		}
+	    
+	}
+
+	.footer-partner-area {
+	    margin-top: 36px;
+
+	    h5 {
+		    font-size: 2rem;
+		    color: #8C8C8C;
+		    margin-bottom: 1.5rem;
+		    padding: 0;
+		    font-family: 'Open Sans',arial,sans-serif;
+		    font-weight: 300;
+		}
+
+		p {
+		    text-transform: initial;
+		    margin-bottom: 1.5rem;
+		}
+
+		.button {
+		    text-transform: initial;
+		    width: auto;
+		}
+	}
+
+	.row:last-child {
+	    margin-top: 60px;
+
+	    @media screen and (max-width: 40em) {
+		    margin-top: 20px;
+		}
+	}
+
+	.terms * {
+	    display: inline-block;
+	    margin-bottom: 0;
+	    font-family: 'Open Sans',arial,sans-serif;
+	    font-weight: 400;
+	}
+
+	.terms a {
+	    margin-right: 20px;
+	}
+
+	.payment-container {
+	    text-align: right;
+
+	    @media screen and (max-width: 40em) {
+		    margin: 20px 0;
+		    text-align: center;
+		}
+	}
+
+	.payment {
+	    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/payment.gif');
+	    background-repeat: no-repeat;
+	    vertical-align: middle;
+	    width: 299px;
+	    height: 20px;
+	    display: inline-block;
+	}
+
+	.copyright-container {
+	    background-color: white;
+	    border-top: 1px solid #D8D8D8;
+	    padding: 20px 0;
+	}
+
+	.copyright {
+	    font-size: 1rem;
+	}
+}
+
+.button-appstore {
+    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/appstore.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-indent: -5000em;
+    width: 90px;
+    height: 32px;
+    background-color: transparent;
+}
+
+.button-googleplay {
+    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/googleplay.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-indent: -5000em;
+    width: 109px;
+    height: 32px;
+    background-color: transparent;
+}
+
+.footer-contact{
+	display: block;
+
+	.contact-tel {
+	    font-family: 'Open Sans',arial,sans-serif;
+	    font-weight: 400;
+	}
+}
+
+.footer-bottom {
+    padding: 25px 0 0;
 }
