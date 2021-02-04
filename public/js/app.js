@@ -2053,6 +2053,7 @@ __webpack_require__.r(__webpack_exports__);
       //Esta variable, mediante v-model esta relacionada con el input del formulario
       password: "",
       //Esta variable, mediante v-model esta relacionada con el input del formulario
+      id_rol: "",
       update: 0,
 
       /*Esta variable contrarolará cuando es una nueva tarea o una modificación, si es 0 significará que no hemos seleccionado
@@ -2098,13 +2099,13 @@ __webpack_require__.r(__webpack_exports__);
       /*Esta funcion, es igual que la anterior, solo que tambien envia la variable update que contiene el id de la
       tarea que queremos modificar*/
       var me = this;
-      axios.put('/api/ususarios/actualizar', {
+      axios.put('/api/usuarios/actualizar/', {
         'id': this.update,
         'name': this.name,
-        'email': this.description,
-        'password': this.content
+        'email': this.email,
+        'id_rol': this.id_rol
       }).then(function (response) {
-        me.getTasks(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
+        me.getUsers(); //llamamos al metodo getTask(); para que refresque nuestro array y muestro los nuevos datos
 
         me.clearFields(); //Limpiamos los campos e inicializamos la variable update a 0
       })["catch"](function (error) {
@@ -2147,7 +2148,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.getTasks();
+    this.getUsers();
   }
 });
 
@@ -2286,8 +2287,8 @@ __webpack_require__.r(__webpack_exports__);
       var url = '/api/productos/buscar?id=' + this.update;
       axios.get(url).then(function (response) {
         me.name = response.data.name;
-        me.email = response.data.email;
-        me.password = response.data.password;
+        me.description = response.data.description;
+        me.category = response.data.category;
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -2296,10 +2297,10 @@ __webpack_require__.r(__webpack_exports__);
     deleteProduct: function deleteProduct(data) {
       //Esta nos abrirá un alert de javascript y si aceptamos borrará la tarea que hemos elegido
       var me = this;
-      var user_id = data.id;
+      var product_id = data.id;
 
       if (confirm('¿Seguro que deseas borrar esta tarea?')) {
-        axios["delete"]('/api/usuarios/borrar/' + user_id).then(function (response) {
+        axios["delete"]('/api/productos/borrar/' + product_id).then(function (response) {
           me.getTasks();
         })["catch"](function (error) {
           console.log(error);
@@ -2309,8 +2310,8 @@ __webpack_require__.r(__webpack_exports__);
     clearFields: function clearFields() {
       /*Limpia los campos e inicializa la variable update a 0*/
       this.name = "";
-      this.email = "";
-      this.password = "";
+      this.description = "";
+      this.category = "";
       this.update = 0;
     }
   },
@@ -33579,7 +33580,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("td", { domProps: { textContent: _vm._s(user.email) } }),
                 _vm._v(" "),
-                _c("td", { domProps: { textContent: _vm._s(user.password) } }),
+                _c("td", { domProps: { textContent: _vm._s(user.id_rol) } }),
                 _vm._v(" "),
                 _c("td", [
                   _c(
@@ -33588,7 +33589,7 @@ var render = function() {
                       staticClass: "btn",
                       on: {
                         click: function($event) {
-                          return _vm.loadFieldsUpdate(_vm.task)
+                          return _vm.loadFieldsUpdate(user)
                         }
                       }
                     },
@@ -33601,7 +33602,7 @@ var render = function() {
                       staticClass: "btn",
                       on: {
                         click: function($event) {
-                          return _vm.deleteUser(_vm.task)
+                          return _vm.deleteUser(user)
                         }
                       }
                     },
@@ -33672,8 +33673,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.password,
-                  expression: "password"
+                  value: _vm.id_rol,
+                  expression: "id_rol"
                 }
               ],
               staticClass: "form-select form-select-lg mb-3",
@@ -33689,7 +33690,7 @@ var render = function() {
                         var val = "_value" in o ? o._value : o.value
                         return val
                       })
-                    _vm.password = $event.target.multiple
+                    _vm.id_rol = $event.target.multiple
                       ? $$selectedVal
                       : $$selectedVal[0]
                   },
@@ -33842,7 +33843,7 @@ var render = function() {
                       staticClass: "btn",
                       on: {
                         click: function($event) {
-                          return _vm.loadFieldsUpdate(_vm.task)
+                          return _vm.loadFieldsUpdate(products)
                         }
                       }
                     },
@@ -33855,7 +33856,7 @@ var render = function() {
                       staticClass: "btn",
                       on: {
                         click: function($event) {
-                          return _vm.deleteProduct(_vm.task)
+                          return _vm.deleteProduct(products)
                         }
                       }
                     },
@@ -53233,13 +53234,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*************************************!*\
   !*** ./resources/js/helpers/api.js ***!
   \*************************************/
-/*! exports provided: get, post */
+/*! exports provided: get, post, put */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "post", function() { return post; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "put", function() { return put; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _store_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/auth */ "./resources/js/store/auth.js");
@@ -53257,6 +53259,16 @@ function get(url) {
 function post(url, data) {
   return axios__WEBPACK_IMPORTED_MODULE_0___default()({
     method: 'POST',
+    url: url,
+    data: data,
+    headers: {
+      'Authorization': "Bearer ".concat(_store_auth__WEBPACK_IMPORTED_MODULE_1__["default"].state.api_token)
+    }
+  });
+}
+function put(url, data) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default()({
+    method: 'PUT',
     url: url,
     data: data,
     headers: {

@@ -493,7 +493,7 @@ form .row .row .column, form .row .row .columns {
 
 <script>
 import {mapActions} from 'vuex';
-import {get,post} from '../helpers/api'
+import {get,post,put} from '../helpers/api'
 export default {
     
 
