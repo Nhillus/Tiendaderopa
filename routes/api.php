@@ -78,6 +78,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
   | Controller:     API\AuthController@register
   | Method:         POST
   | Description:    Creates a user after its validated by UserRegisterRequest
+  |
   */
   Route::post('/register', 'Api\AuthController@register')->name('api.register');
   /*|-------------------------------------------------------------------------------
