@@ -4,20 +4,15 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import axios from 'axios';
-import VueRouter from 'vue-router';
-import routes from './routes';
-import jQuery from 'jQuery'
+//import store from './store/index.js'
 
-Vue.use(VueRouter); 
+Vue.component(
+    'login-component', 
+    require('./components/prueba.vue').default); 
 
 
 
 const app = new Vue({
     el: '#app',
-    router: new VueRouter(routes),
-    components:
-    {
-        axios,
-    }
+    
 });

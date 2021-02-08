@@ -493,7 +493,7 @@ form .row .row .column, form .row .row .columns {
 
 <script>
 import {mapActions} from 'vuex';
-import {get,post,put} from '../helpers/api'
+//import {get,post,put} from '../helpers/api'
 export default {
     
 
@@ -531,7 +531,7 @@ export default {
         loginUser()
         {
         axios.post('/api/login',this.login).then(() =>{
-            this.$router.push({name: "Dashboard"});
+          //  this.$router.push({name: "Dashboard"}); esto debe ser cambiado en routes de laravel o dentro del metodo de login
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })

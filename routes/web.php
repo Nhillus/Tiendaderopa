@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('home/home');
 });
 
-Route::get('/{any}', function () {
-    return view('welcome');
-})->where('any', '.*');
+Route::get('Login', function() {
+    return view('auth/login');
+});
 
 /**Route::get('/', function () {
     return view('welcome');
