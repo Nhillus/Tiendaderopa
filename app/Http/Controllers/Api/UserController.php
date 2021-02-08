@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserDetails;
 
 class UserController extends Controller
 {
@@ -23,7 +24,14 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = $request->password;
 
-        $task->save();
+        $user->save();
+        $iduser=$user->id;
+        dd($iduser);
+
+        $UserDetails = new UserDetails;
+        $UserDetails->name = Input::get('name');
+        $UserDetails->save();
+        
         //Esta función guardará las tareas que enviaremos mediante vuejs
     }
     public function show(Request $request)

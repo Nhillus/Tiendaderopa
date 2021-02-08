@@ -14,5 +14,5 @@ Vue.component(
 
 const app = new Vue({
     el: '#app',
-    
+
 });

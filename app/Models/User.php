@@ -44,7 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(SocialProvider::class);
     }
-
+    //Relacion 1:1 con la clase Rols
     public function rols()
     {
         return $this->belongTo(Rol::class);
@@ -52,5 +52,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function oauth()
     {
         return $this->hasOne(OAuth::class, 'user_id');
+    }
+    //Relacion 1:1 con la clase UserDetails
+    public function userDetails()
+    {
+        return $this->belongTo(userDetails::class);
     }
 }

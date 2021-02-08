@@ -2478,7 +2478,8 @@ __webpack_require__.r(__webpack_exports__);
     loginUser: function loginUser() {
       var _this = this;
 
-      axios.post('/api/login', this.login).then(function () {//  this.$router.push({name: "Dashboard"}); esto debe ser cambiado en routes de laravel o dentro del metodo de login
+      axios.post('/api/login', this.login).then(function () {//  this.$router.push({name: "Dashboard"}); esto debe ser cambiado a routes de laravel mediante otro post a una ruta en web
+        //window.location.href = '/home';
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
