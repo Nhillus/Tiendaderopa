@@ -16,6 +16,10 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
+Route::get('/', function () {
+    return view('home/home');
+});
+
 Route::get('/{any}', function () {
     return view('welcome');
 })->where('any', '.*');
@@ -30,7 +34,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('login/{redSocial}', 'Auth\LoginController@redirectToProvider');
 //Route::get('login/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
  
-
 
     
 Auth::routes();
