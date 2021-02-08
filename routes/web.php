@@ -16,11 +16,11 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-Route::get('/', function () {
-    return view('home/home');
+Route::get('/home', function () {
+    return view('home/home')    ;
 });
 
-Route::get('Login', function() {
+Route::get('login', function() {
     return view('auth/login');
 });
 
@@ -36,10 +36,10 @@ Route::get('/home', 'HomeController@index')->name('home');
  
 
     
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

@@ -1,5 +1,4 @@
 @extends('overall.layout')
-
 @section('appBody')
     <div class="std">
         <div class="wrapper">

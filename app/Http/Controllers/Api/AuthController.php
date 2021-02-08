@@ -7,6 +7,7 @@ use App\Http\Requests\UserRegisterRequest;
 use App\Http\Requests\UserLoginRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserDetails;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Client;
 
@@ -27,7 +28,18 @@ class AuthController extends Controller
                 'scope' => '*',
         ];
         $tokenRequest = Request::create('/oauth/token','post',$data);
-        return app()->handle($tokenRequest);
+        
+        $tokenResponse = app()->handle($tokenRequest);
+        $contentString = $tokenResponse->content();
+        $tokenContent = json_decode($contentString, true);
+        
+        if(!empty($tokenContent['access_token'])) {
+            return $tokenResponse;
+        }
+        return response()->json([
+            'message' => 'Unauthenthicated'
+        ]);
+        
     }
 
     public function register(UserRegisterRequest $request)
@@ -36,6 +48,11 @@ class AuthController extends Controller
         'email' => $request->email,
         'password' => Hash::Make($request->password)
         ]);
+        $iduser=$user->id;
+
+        $UserDetails = new UserDetails;
+        $UserDetails->user_id = $iduser;
+        $UserDetails->save();
 
         if(!$user)
         {

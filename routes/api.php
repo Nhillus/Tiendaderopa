@@ -24,9 +24,9 @@ Route::middleware('auth:sanctum')->get('/athenticated', function () {
     return true;
 });
 
-Route::post('register', 'RegisterController@register');
-Route::post('login', 'LoginController@login');
-Route::post('logout', 'LoginController@logout');
+//Route::post('register', 'RegisterController@register');
+//Route::post('login', 'LoginController@login');
+//gitRoute::post('logout', 'LoginController@logout');
 
 Route::post('social/{redSocial}', 'Auth\LoginController@redirectToProvider');
 Route::get('social/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
@@ -85,5 +85,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     */
       
   Route::post('/login', 'Api\AuthController@login')->name('api.login');
+
+  Route::post('/home','Api\RedirectController@index')->name('api.redirect');
 
 
