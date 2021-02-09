@@ -88,4 +88,6 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
   Route::post('/home','Api\RedirectController@index')->name('api.redirect');
 
+  Route::post('/forgot-password', 'Api\ForgotPasswordController@sendResetLinkEmail')->name('api.forgot-password');
+
 
