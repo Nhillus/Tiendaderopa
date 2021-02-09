@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+use App\Notifications\ResetPasswordNotification;
+use App\Notifications\VerifyNotification;
+use App\Traits\HasPermissions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 use App\Models\SocialProvider;
 
@@ -57,5 +61,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function userDetails()
     {
         return $this->belongTo(userDetails::class);
+    }
+    //Envia la notificacion de password reset por medio de un token
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
