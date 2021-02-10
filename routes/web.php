@@ -16,9 +16,7 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-Route::get('/', function () {
-    return view('home/home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('Login', function() {
     return view('auth/login');
