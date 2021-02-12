@@ -29,6 +29,8 @@
         </div>
 
         <form role="form" id="promotions_form">
+            @method('PUT')
+
             <div class="card-body">
                 <div class="row">
                     <div class="form-group col-md-6 col-lg-6">
@@ -61,21 +63,23 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-clock"></i></span>
                             </div>
-                            <input type="text" placeholder="Rango de tiempo de la oferta" class="form-control float-right date-range" id="id_offer_time" name="offer_time">
+                            <input type="text" placeholder="Rango de tiempo de la oferta" class="form-control float-right date-range" id="id_offer_time" name="offer_time" value="{{ $promotion->offer_time }}">
                         </div>
                         <span class="error-message" validation-name="offer_time"></span>
                     </div>
 
                     <div class="form-group col-md-6 col-lg-6">
                         <label for="id_description">Descripción <span class="required">*</span></label>
-                        <textarea name="description" rows="9" id="id_description" class="form-control" placeholder="Descripción de la promoción"></textarea>
+                        <textarea name="description" rows="9" id="id_description" class="form-control" placeholder="Descripción de la promoción">
+                            {{ trim(str_replace('<br />', '', $promotion->description)) }}
+                        </textarea>
                         <span class="error-message" validation-name="description"></span>
                     </div>
 
                     <div class="form-group col-md-6">
                         <div class="form-group">
                             <label for="id_image">Asignar imagen</label>
-                            <input type="file" id="id_image" name="image_promotion" class="dropify" data-default-file="" data-height="218" data-width="200px" data-allowed-file-extensions="jpg jpeg png gif"/>
+                            <input type="file" id="id_image" data-default-file="{{ $promotion->image }}" name="image_promotion" class="dropify" data-default-file="" data-height="218" data-width="200px" data-allowed-file-extensions="jpg jpeg png gif"/>
                             <span class="error-message" validation-name="image_promotion"></span>
                         </div>
                     </div>
@@ -144,5 +148,5 @@
 
     $('.dropify').dropify();
 </script>
-<script src="{{ asset('admin/jscontrollers/promotions/edit.js') }}"></script>
+<script src="{{ asset('admin/jscontrollers/promotions/edit.js') }}" data-id_promotion="{{ $promotion->id }}"></script>
 @endsection

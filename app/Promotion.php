@@ -97,4 +97,35 @@ class Promotion extends Model
             $promotion->save();
         }
     }
+
+     /**
+     * Obtiene un string cn el rango de fechas de la oferta
+     *
+     * @param int $offer_from: Unix con la fecha desde
+     * @param int $offer_to : Unix con la fecha hasta
+     *
+     * @return string con el rango de la oferta
+     */
+    public function offer_range($offer_from, $offer_to){
+        # Solo si existe las dos ofertas
+        if(null != $offer_from && null != $offer_to ){
+            return \date('d/m/Y g:i a', $offer_from) . ' - ' . \date('d/m/Y g:i a', $offer_to);
+        }
+        return null;
+    }
+
+    /**
+     * Obtiene una imagen de una promoción
+     *
+     * @param int $id: Id de la promoción
+     * @param string|null $image: nombre de la imagen
+     *
+     * @return string con el nombre de la imagen | null
+     */
+    public function getImage($id, $image){
+        if(null != $image)
+            return asset(self::DIRECTORY . $id . '/' . $image);
+
+        return null;
+    }
 }

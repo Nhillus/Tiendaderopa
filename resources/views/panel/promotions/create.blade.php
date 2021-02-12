@@ -61,7 +61,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="far fa-clock"></i></span>
                             </div>
-                            <input type="text" class="form-control float-right date-range" id="id_offer_time" name="offer_time">
+                            <input type="text" class="form-control float-right date-range" id="id_offer_time" name="offer_time" placeholder="Rango de tiempo de la oferta">
                         </div>
                         <span class="error-message" validation-name="offer_time"></span>
                     </div>

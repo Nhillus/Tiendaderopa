@@ -105,12 +105,19 @@ class PromotionsController extends Controller
     {
         $promotion = Promotion::find($id);
 
-        if(null != $promotion->offer_from && null != $promotion->offer_to ){
+        if(null != $promotion){
 
-        }
+            # Rango de fecha
+            $promotion->offer_time = $promotion->offer_range(
+                $promotion->offer_from,
+                $promotion->offer_to
+            );
 
-        if(null != $promotion)
+            # imagen
+            $promotion->image = $promotion->getImage($promotion->id, $promotion->image);
+
             return view('panel.promotions.edit')->with([ 'promotion' => $promotion ]);
+        }
         else
             return redirect()->route('promotions.index');
     }
@@ -125,6 +132,51 @@ class PromotionsController extends Controller
     public function update(Request $request, $id)
     {
 
+        # Validaciones
+        $data = $this->validate($request,[
+            'title' => 'required|string',
+            'shipping' => 'nullable',
+            'offer_percent' => 'nullable|numeric',
+            'offer_time' => 'nullable',
+            'description' => 'required',
+            'image_promotion' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        ],[
+            'required' => 'Este campo es requerido.',
+            'image_promotion.image' => 'Debe subir una imagen.',
+            'image_promotion.mimes' => 'La imagen debe ser tipo :values.',
+            'image_promotion.max' => 'La imagen no puede superar los :max kilobytes.'
+        ]);
+
+        # Converti el tiempo en unix
+        $offer_time = getTimeOffer($data['offer_time']);
+
+        # Modelo
+        $promotion = Promotion::find($id);
+
+        # Datos a guardar
+        $promotion->title = $data['title'];
+        $promotion->shipping = $data['shipping'];
+        $promotion->offer_percent = $data['offer_percent'];
+
+        # Si existe el tiempo de oferta
+        if (null != $offer_time) {
+            $promotion->offer_from = $offer_time['offer_from'];
+            $promotion->offer_to = $offer_time['offer_to'];
+        }
+
+        $promotion->description = \nl2br($data['description']);
+
+        # Guardar
+        $promotion->save();
+
+        # Subir imagen
+        $promotion->uploadFile($promotion, $request->image_promotion);
+
+        return [
+            'success' => true,
+            'message' => 'Guardado exitosamente',
+            'url' => route('promotions.index')
+        ];
     }
 
     /**
