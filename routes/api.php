@@ -62,10 +62,22 @@ Route::get('/productos/buscar', 'Api\ProductController@show');
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     Route::get('/user', function( Request $request ){
           return $request->user();
+   
         });
 
 });
-/*|-------------------------------------------------------------------------------
+
+
+  Route::post('/home','Api\RedirectController@index')->name('api.redirect');
+ 
+
+  Route::post('/forgot-password', 'Api\ForgotPasswordController@sendResetLinkEmail')->name('api.forgot-password');
+  Route::post('/reset-password', 'Api\ResetPasswordController@reset')->name('api.reset-password');
+
+  Route::group(["middleware" => "auth:api" ], function () {
+  
+    });
+  /*|-------------------------------------------------------------------------------
   | Register a User in the app.
   |-------------------------------------------------------------------------------
   | URL:            /api/register
@@ -83,11 +95,6 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     | Method:         POST
     | Description:    Login a user after its create a passWordGrantClient provided for passport API, validate by UserLoginRequest  and return the token
     */
-      
-  Route::post('/login', 'Api\AuthController@login')->name('api.login');
-
-  Route::post('/home','Api\RedirectController@index')->name('api.redirect');
-
-  Route::post('/forgot-password', 'Api\ForgotPasswordController@sendResetLinkEmail')->name('api.forgot-password');
+  Route::post('/login', 'Api\AuthController@loginC')->name('api.login');
 
 
