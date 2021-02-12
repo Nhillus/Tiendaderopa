@@ -31,13 +31,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 */
 //Route::get('login/{redSocial}', 'Auth\LoginController@redirectToProvider');
 //Route::get('login/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
- 
-
-    
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('panel')->group(function () {
+    Route::get('', 'Panel\DashboardController@index');
+
+    Route::resources([
+        'promotions' => Panel\PromotionsController::class,
+        'categories' => Panel\CategoriesController::class,
+        'subcategories' => Panel\SubcategoriesController::class,
+        'products' => Panel\ProductsController::class
+    ]);
+});
+

@@ -20,7 +20,8 @@ class CreatePromotionsTable extends Migration
             $table->string('image', 100)->nullable();
             $table->string('shipping')->nullable();
             $table->integer('offer_percent')->unsigned()->nullable();
-            $table->integer('offer_time')->unsigned()->nullable();
+            $table->integer('offer_from')->unsigned()->nullable();
+            $table->integer('offer_to')->unsigned()->nullable();
             $table->timestamps();
         });
     }

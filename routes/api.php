@@ -83,7 +83,19 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     | Method:         POST
     | Description:    Login a user after its create a passWordGrantClient provided for passport API, validate by UserLoginRequest  and return the token
     */
-      
+
   Route::post('/login', 'Api\AuthController@login')->name('api.login');
+
+
+/*|-------------------------------------------------------------------------------
+  |
+  |-------------------------------------------------------------------------------
+*/
+Route::get('/promotions', function(){
+    $promotion = new \App\Promotion;
+    return response()->json([
+        'data' => $promotion->get()
+    ]);
+});
 
 
