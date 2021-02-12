@@ -18,11 +18,22 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/home', function () {
     return view('home/home')    ;
+})->name('web.home');
+
+Route::get('/dashboard', function () {
+    return view('dashboard')    ;
 });
 
-Route::get('login', function() {
+Route::get('/micuenta', 'UserDetailsController@index')->name('web.details');
+
+Route::patch('/userDetailsUpdated','UserDetailsController@update')->name('web.details.update');
+
+Route::get('/logout', 'LoginController@logout')->name('logout');
+
+
+Route::get('/login', function() {
     return view('auth/login');
-});
+})->name('web.login');
 
 /**Route::get('/', function () {
     return view('welcome');

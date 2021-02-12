@@ -13,5 +13,8 @@
             </div>
         </div>  
 @endif
-<login-component/>
+
+<login-component></login-component>
+ 
+
 @endsection

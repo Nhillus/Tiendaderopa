@@ -10,11 +10,12 @@ use App\Models\User;
 use App\Models\UserDetails;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Client;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     //
-    public function login(UserLoginRequest $request)
+    public function loginC(UserLoginRequest $request)
     {
         $passWordGrantClient = Client::where('password_client', 1)->first();
         
@@ -32,9 +33,15 @@ class AuthController extends Controller
         $tokenResponse = app()->handle($tokenRequest);
         $contentString = $tokenResponse->content();
         $tokenContent = json_decode($contentString, true);
+
+        $credentials = $request->only(['email','password']);
+        Auth::attempt($credentials);
         
         if(!empty($tokenContent['access_token'])) {
-            return $tokenResponse;
+            return [
+                "response" => $tokenResponse,
+                "content" => json_decode($contentString, true)
+            ];
         }
         return response()->json([
             'message' => 'Unauthenthicated'
@@ -51,7 +58,9 @@ class AuthController extends Controller
         $iduser=$user->id;
 
         $UserDetails = new UserDetails;
+        $UserDetails->id = $iduser;
         $UserDetails->user_id = $iduser;
+        $UserDetails->correo_eletronico = $request->email; 
         $UserDetails->save();
 
         if(!$user)

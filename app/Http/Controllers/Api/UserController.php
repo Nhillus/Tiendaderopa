@@ -30,6 +30,7 @@ class UserController extends Controller
 
         $UserDetails = new UserDetails;
         $UserDetails->name = Input::get('name');
+        
         $UserDetails->save();
         
         //Esta función guardará las tareas que enviaremos mediante vuejs

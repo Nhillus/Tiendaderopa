@@ -1,5 +1,4 @@
 <style>
-<style>
 .button-xs {
     width: 100%;
     max-width: 240px;
@@ -7,16 +6,16 @@
     height: 30px;
     line-height: 30px;
 }
-<style>
+
 .button-facebook {
     background-color: #3B5998;
     text-decoration:none;
 }
-<style>
+
 .button-facebook, .button-twitter, .button-google, .button-instagram {
     vertical-align: bottom;
 }
-<style>
+
 .button {
     font-size: 1.8rem;
     text-decoration: none;
@@ -532,7 +531,7 @@ export default {
         {
         axios.post('/api/login',this.login).then(() =>{
           //  this.$router.push({name: "Dashboard"}); esto debe ser cambiado a routes de laravel mediante otro post a una ruta en web
-          //window.location.href = '/home';
+          window.location.href = '/home';
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })

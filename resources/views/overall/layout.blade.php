@@ -17,13 +17,24 @@
             <div class="header_login-block hide-for-small-only">
                 <div class="header_login-block_inner wrapper">
                     <ul class="header_login-block_elements columns large-6 hide-for-medium-only">
+                        @auth
+                           {{Auth::user()->email}}
+                        @else
+                            Desconectado
+                        @endauth
                         <li class="home-delivery">Bis zu 70% günstiger *</li>
                         <li>Lokaltarif 0848 500 501</li>
                     </ul>
 
                     <div class="header_menu columns large-4 medium-6">
                         <div class="header_menu_account">
-                            <a href="#" class="signin hide-for-small-only">Anmelden</a>
+                            @auth
+                            <a href="{{ route('web.details') }}" class="signin hide-for-small-only">mein konto</a>
+
+                            <a href="{{ route('logout') }}" class="signin hide-for-small-only">Abmelden</a>
+                            @else
+                            <a href="{{ route('web.login') }}" class="signin hide-for-small-only">Anmelden</a>
+                            @endauth
                         </div>
 
                         <div class="header_menu_languages">

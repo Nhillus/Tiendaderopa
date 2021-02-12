@@ -14,7 +14,7 @@ class CreateUserDetails extends Migration
     public function up()
     {
         Schema::create('user_details', function (Blueprint $table) {
-            //$table->id();
+            $table->id();
             $table->string("saludo")->default("");
             $table->string("primer_nombre")->nullable();
             $table->string("primer_apellido")->nullable();
