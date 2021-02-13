@@ -15,7 +15,7 @@ class ResetPasswordController extends Controller
     //
     public function reset(ResetPasswordRequest $request)
     {
-        dd($request);
+        
         $response = $this->broker()->reset(
             $this->credentials($request), function ($user, $password) {
             $this->resetPassword($user, $password);
@@ -35,7 +35,7 @@ class ResetPasswordController extends Controller
     }
 
 
-    protected function resetPassword($user, $password)
+     protected function resetPassword($user, $password)
     {
         $user->password = Hash::make($password);
 
