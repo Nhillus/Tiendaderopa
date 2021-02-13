@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
     return [
-        'id_category' => factory(\App\Category::class),
-		'id_subcategory' => factory(\App\Subcategory::class),
+        'category_id' => factory(\App\Category::class),
+		'subcategory_id' => factory(\App\Subcategory::class),
 		'title' => $faker->sentence(4),
 		'description' => $faker->paragraph,
 		'real_price' => $faker->randomFloat(2, 1, 100),

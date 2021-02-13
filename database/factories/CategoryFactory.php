@@ -9,6 +9,6 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence(2),
         'image' => $faker->imageUrl,
-        'id_promotion' => factory(\App\Promotion::class)
+        'promotion_id' => factory(\App\Promotion::class)
     ];
 });

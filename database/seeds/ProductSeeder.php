@@ -15,8 +15,8 @@ class ProductSeeder extends Seeder
 
         $subcategories->each(function ($data) {
             factory(\App\Product::class)->times(rand(12, 28))->create([
-                'id_category' => $data->id_category,
-                'id_subcategory' => $data->id
+                'category_id' => $data->id_category,
+                'subcategory_id' => $data->id
             ]);
         });
     }

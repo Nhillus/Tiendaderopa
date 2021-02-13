@@ -12,6 +12,7 @@ $factory->define(Promotion::class, function (Faker $faker) {
         'image' => $faker->imageUrl(552, 224),
         'shipping' => 'SCHNELLE LIEFERUNG',
         'offer_percent' => $faker->numberBetween(1, 100),
-        'offer_time' => $faker->unixTime
+        'offer_from' => $faker->unixTime,
+        'offer_to' => $faker->unixTime,
     ];
 });

@@ -15,10 +15,10 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_promotion')->unsigned()->nullable();
+            $table->integer('promotion_id')->unsigned()->nullable();
             $table->string('name', 100);
             $table->string('image', 100)->nullable();
-            $table->foreign('id_promotion')->references('id')->on('promotions')->onDelete('cascade')->onUpdate('set null');
+            $table->foreign('promotion_id')->references('id')->on('promotions')->onDelete('cascade')->onUpdate('set null');
             $table->timestamps();
         });
     }

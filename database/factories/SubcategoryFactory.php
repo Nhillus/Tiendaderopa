@@ -9,6 +9,6 @@ $factory->define(Subcategory::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence(2),
         'image' => $faker->imageUrl,
-        'id_category' => factory(\App\Category::class)
+        'category_id' => factory(\App\Category::class)
     ];
 });

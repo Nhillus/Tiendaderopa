@@ -15,7 +15,7 @@ class SubcategorySeeder extends Seeder
 
         $categories->each(function ($category) {
             factory(\App\Subcategory::class)->times(rand(12, 28))->create([
-                'id_category' => $category,
+                'category_id' => $category,
             ]);
         });
     }

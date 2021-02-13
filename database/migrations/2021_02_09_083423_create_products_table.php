@@ -15,17 +15,17 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_category')->unsigned();
-            $table->integer('id_subcategory')->unsigned();
+            $table->integer('category_id')->unsigned();
+            $table->integer('subcategory_id')->unsigned()->nullable();
             $table->string('title', 100);
-            $table->text('description');
+            $table->longText('description');
             $table->double('real_price')->unsiged();
-            $table->double('offer_price')->unsiged();
-            $table->integer('offer_percent')->unsigned();
-            $table->string('shipping_days', 100);
-            $table->double('shipping_price')->unsiged();
-            $table->foreign('id_category')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('id_subcategory')->references('id')->on('subcategories')->onDelete('cascade');
+            $table->double('offer_price')->unsiged()->nullable();
+            $table->integer('offer_percent')->unsigned()->nullable();
+            $table->integer('shipping_days')->unsigned()->nullable();
+            $table->double('shipping_price')->unsiged()->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade')->onUpdate('set null');
             $table->timestamps();
         });
     }

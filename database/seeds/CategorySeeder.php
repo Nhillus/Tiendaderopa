@@ -15,7 +15,7 @@ class CategorySeeder extends Seeder
 
         $promotions->each(function ($id_promotion) {
             factory(\App\Category::class)->times(rand(12, 28))->create([
-                'id_promotion' => $id_promotion
+                'promotion_id' => $id_promotion
             ]);
         });
     }
