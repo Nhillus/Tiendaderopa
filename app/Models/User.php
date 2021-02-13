@@ -12,6 +12,7 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
 
 
+
 use App\Models\SocialProvider;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -45,6 +46,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function sendPasswordResetNotification($token) {
+
+        $this->notify(new ResetPasswordNotification($token));
+    
+    }
+
     //Relacion 1:n con la clase SocialProvider.
      public function socialProvider()
     {
@@ -65,8 +72,5 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongTo(userDetails::class);
     }
     //Envia la notificacion de password reset por medio de un token
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPasswordNotification($token));
-    }
+    
 }

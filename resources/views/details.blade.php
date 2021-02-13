@@ -402,11 +402,58 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
                                             <span class="Button__label" id="label-changePasswordToggle">Passwort ändern</span>
                                         </button>
                                     </div>
-                                    <div class="MyProfile__form-element">
-                                        <button class="Button__highlighted MyProfile__submit" data-look="default" type="submit">
-                                            <span class="Button__label">Änderungen übernehmen</span>
-                                        </button>
+                                    
+                                    <div class="MyProfile__title">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;">Cambiar la contraseña</font>
+                                        </font>
                                     </div>
+                                    <div class="Input__wrapper--password">
+                                        <label for="user-current-password" class="Input__label--password mandatory">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Contraseña actual</font>
+                                            </font>
+                                        </label>
+                                        <div class="Input__password-container">
+                                            <input autocomplete="new-password" class="Input__password" id="user-current-password" name="user-current-password" required="" type="password" value="">
+                                            <button class="Button__eye" data-look="default" type="button">
+                                                <span class="ripple"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="Input__wrapper--password">
+                                        <label for="user-new-password" class="Input__label--password mandatory">
+                                            <font style="vertical-align: inherit;">
+                                                <font style="vertical-align: inherit;">Nueva contraseña</font>
+                                            </font>
+                                        </label>
+                                        <div class="Input__password-container">
+                                            <input autocomplete="new-password" class="Input__password" id="user-new-password" name="user-new-password" required="" type="password" value="">
+                                            <button class="Button__eye" data-look="default" type="button">
+                                                <span class="ripple">
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="Input__wrapper--password">
+                                            <label for="user-new-password-verification" class="Input__label--password mandatory">
+                                                <font style="vertical-align: inherit;">
+                                                    <font style="vertical-align: inherit;">Confirme la nueva contraseña</font>
+                                                </font>
+                                            </label>
+                                            <div class="Input__password-container">
+                                                <input autocomplete="new-password" class="Input__password" id="user-new-password-verification" name="user-new-password-verification" required="" type="password" value="">
+                                                <button class="Button__eye" data-look="default" type="button">
+                                                    <span class="ripple">
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        <div class="MyProfile__form-element">
+                                            <button class="Button__highlighted MyProfile__submit" data-look="default" type="submit">
+                                                <span class="Button__label">Änderungen übernehmen</span>
+                                            </button>
+                                        </div>
                                 </form>
                             </div>
                         </div>
