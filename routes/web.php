@@ -31,6 +31,9 @@ Route::patch('/userDetailsUpdated','UserDetailsController@update')->name('web.de
 Route::get('/logout', 'LoginController@logout')->name('logout');
 
 
+Route::get('/send-reset-password', 'Api\ResetPasswordController@showResetForm')->name('password.request');
+
+
 Route::get('/login', function() {
     return view('auth/login');
 })->name('web.login');

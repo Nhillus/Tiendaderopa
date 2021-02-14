@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Auth\Events\PasswordReset;
@@ -10,17 +11,30 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 
+
+
+
 class ResetPasswordController extends Controller
 {
     //
-    public function reset(ResetPasswordRequest $request)
+    public function showResetForm(Request $request)
     {
+        //dd($request);   
+        return view('resetpassword')->with(
+            ["token" => $request->token]
+        );
         
+    }
+    public function reset(request $request)
+    {
+        //dd($request);
         $response = $this->broker()->reset(
             $this->credentials($request), function ($user, $password) {
+                
             $this->resetPassword($user, $password);
         }
         );
+        
 
         return $response == Password::PASSWORD_RESET
             ? $this->sendResetResponse($request, $response)
@@ -29,8 +43,9 @@ class ResetPasswordController extends Controller
 
     protected function credentials(Request $request)
     {
+        //dd($request);
         return $request->only(
-            'email', 'password', 'password_confirmation', 'token'
+            'password', 'password_confirmation', 'token'
         );
     }
 
@@ -42,6 +57,8 @@ class ResetPasswordController extends Controller
         $user->setRememberToken(Str::random(60));
 
         $user->save();
+
+        //dd($user);
 //        event(new PasswordReset($user));
     }
 
@@ -61,6 +78,7 @@ class ResetPasswordController extends Controller
 
     protected function sendResetFailedResponse(Request $request, $response)
     {
+       
         return response()->json([
             "message" => 'Password reset failed',
             "response" => $response

@@ -1,4 +1,5 @@
 <style>
+<style>
 .button-xs {
     width: 100%;
     max-width: 240px;
@@ -6,16 +7,16 @@
     height: 30px;
     line-height: 30px;
 }
-
+<style>
 .button-facebook {
     background-color: #3B5998;
     text-decoration:none;
 }
-
+<style>
 .button-facebook, .button-twitter, .button-google, .button-instagram {
     vertical-align: bottom;
 }
-
+<style>
 .button {
     font-size: 1.8rem;
     text-decoration: none;
@@ -357,167 +358,6 @@ form .row .row .column, form .row .row .columns {
 .button-facebook, .button-twitter, .button-google, .button-instagram {
     vertical-align: bottom;
 }
-/*----------------------zona de recuperar contraseña------------------------ */
-element.style {
-    display: block;
-}
-
-.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p, .panel li, .panel dl {
-    color: #333;
-}
-
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
-}
-form {
-    margin: 0 0 1rem;
-}
-
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-form {
-    display: block;
-    margin-top: 0em;
-}
-input {
-    line-height: normal;
-}
-button, input, optgroup, select, textarea {
-    color: inherit;
-    font: inherit;
-    margin: 0;
-}
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-input[type="hidden" i] {
-    display: none;
-    appearance: initial;
-    background-color: initial;
-    cursor: default;
-    padding: initial;
-    border: initial;
-}
-input {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: -internal-light-dark(black, white);
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    appearance: textfield;
-    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    padding: 1px 2px;
-    border-width: 2px;
-    border-style: inset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-image: initial;
-}
-.select-container, .textarea-container, .input-container {
-    padding-bottom: 20px;
-    position: relative;
-}
-div {
-    display: block;
-}
-.panel {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #d8d8d8;
-    margin-bottom: 1.25rem;
-    padding: 1.25rem;
-    background: #f2f2f2;
-    color: #333;
-}
-.select-container input, .textarea-container input, .input-container input {
-    margin-bottom: 0;
-}
-input[type='tel'], input[type='password'], input[type='email'], input[type='text'] {
-    border: 1px solid #C7C7C7;
-    color: #2F2F2F;
-    height: 40px;
-    line-height: 40px;
-    font-size: 1.4rem;
-    box-shadow: none;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-.row .row {
-    margin: 0 -0.9375rem;
-    max-width: none;
-    width: auto;
-}
-.row {
-    max-width: none;
-}
-
-.row {
-    margin: 0 auto;
-    max-width: 62.5rem;
-    width: 100%;
-}
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
-}
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-div {
-    display: block;
-}
-element.style {
-    width: 256px;
-    height: 60px;
-    position: fixed;
-    visibility: hidden;
-}
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
-    margin: 0;
-    padding: 0;
-}
-
-*, *:before, *:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-div {
-    display: block;
-}
-iframe[Attributes Style] {
-    width: 256px;
-    height: 60px;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-}
-iframe {
-    border-width: 2px;
-    border-style: inset;
-    border-color: initial;
-    border-image: initial;
-}
-
-
 </style>
 <template>
 <form>
@@ -537,7 +377,7 @@ iframe {
                     <button v-if="showLogin" type="button" class="btn btn-lebuya"@click.prevent="loginUser()">Anmelden</button>
                     <button v-if="showRegister" class="btn btn-fake-lebuya" @click.prevent="visualizarLogin()">Anmelden </button>
                       <div class="mb-3 form-check">
-                          <div v-if="showLogin" class="resetpassword-container" @click.prevent="visualizarOlvidoContraseña()">
+                          <div v-if="showLogin" class="resetpassword-container">
                             <label  class="Other" >passwort vergessen?</label>
                         </div>
                     </div>
@@ -568,42 +408,7 @@ iframe {
                 </div>
             </div> 
         </div>
-        <div id="container-forgotPassword" class="hide" style="display: block;" v-if="showForgot">
-            <div class="box-subhead">
-                <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Para restablecer su contraseña, ingrese la dirección de correo electrónico de su cuenta My-store.ch a continuación y le enviaremos un enlace para cambiar su contraseña.</font></font></p>
-            </div>
-
-            <form action="https://www.deindeal.ch/de/customer/account/forgotpasswordpost/" method="post" id="form-customer-forgot-password6026f373ec691" data-abide="ajax" novalidate="novalidate" data-invalid="">
-                <input name="form_key" type="hidden" value="V0L3sDrqzUumC1u1">
-                <div class="input-container empty error">
-                    <label class="inline label-required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Por favor, introduzca su dirección de correo electrónico</font></font></label>
-                    <input type="email" name="email_address" required="" data-invalid="" aria-invalid="true">
-                </div>
-                <div class="form-submit-container row">
-                    <div id="recaptcha_forgot_password" class="g-recaptcha" data-sitekey="6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue" data-callback="callbackUniqueId6026f373ec692" data-size="invisible">
-                        <div class="grecaptcha-badge" data-style="none" style="width: 256px; height: 60px; position: fixed; visibility: hidden;">
-                            <div class="grecaptcha-logo">
-                                <iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue&amp;co=aHR0cHM6Ly93d3cuZGVpbmRlYWwuY2g6NDQz&amp;hl=es-419&amp;v=2Mfykwl2mlvyQZQ3PEgoH710&amp;size=invisible&amp;cb=5lz4gwl546bf" width="256" height="60" role="presentation" name="a-xzfexeg1ysz6" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
-                            </div>
-                            <div class="grecaptcha-error"></div>
-                            <textarea id="g-recaptcha-response-2" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
-                        </div>
-                            <iframe style="display: none;"></iframe>
-                    </div>
-                    <div class="columns small-12 ">
-                        <button type="submit" data-button="initmdp" class="btn btn-lebuya">
-                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Restablecen</font></font>
-                        </button>
-                    </div>
-                    <div class="columns small-12 " @click.prevent="visualizarOlvidoContraseña()" >
-                        <a href="#" id="showLogin" class="btn btn-lebuya"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-                            Abortar                </font></font></a>
-                    </div>
-                </div>
-            </form>
-        </div>  
-    </div> 
-       
+    </div>       
             <div id="registro" class="colums small-12 small-centered medium-6">
                     <div class="container-form">
                         <div class="mb-3">
@@ -651,7 +456,7 @@ iframe {
                                     </div>
                                 </div>
                              </div>
-                        <button v-if="showRegister" type="button" class="btn btn-lebuya" @click.prevent="saveForm()">Registrieren</button>
+                        <button v-if="showRegister" type="button" class="btn btn-lebuya" @click.prevent="saveForm()"  >Registrieren</button>
                         <button v-if="showLogin" class="btn btn-fake-lebuya" @click.prevent="visualizarRegistro()">Registrieren </button>
                         </div>
                     </div>
@@ -697,7 +502,6 @@ export default {
         return{
             showLogin:true,
             showRegister:false,
-            showForgot:false,
              form:{
                     email: '',
                     password: ''
@@ -724,11 +528,6 @@ export default {
                 this.showLogin=!this.showLogin, 
                 this.showRegister=!this.showRegister
             },
-        visualizarOlvidoContraseña(event)
-            {   
-                this.showLogin=!this.showLogin, 
-                this.showForgot=!this.showForgot
-            },    
         loginUser()
         {
         axios.post('/api/login',this.login).then(() =>{
