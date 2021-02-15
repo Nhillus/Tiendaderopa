@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
+    public function index() {
+        return view('loginprueba');
+    }
     //
-    public function loginC(UserLoginRequest $request)
+    public function login(UserLoginRequest $request)
     {
         $passWordGrantClient = Client::where('password_client', 1)->first();
         

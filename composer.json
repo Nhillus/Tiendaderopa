@@ -17,7 +17,8 @@
         "laravel/sanctum": "^2.8",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "2.4"
+        "laravel/ui": "2.4",
+        "laraveles/spanish": "^1.5"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
@@ -43,6 +44,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/Helper/helpers.php"
         ]
     },
     "autoload-dev": {

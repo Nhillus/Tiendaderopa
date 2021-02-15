@@ -5,16 +5,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/vendor/foundation/foundation.css') }}">
         <link rel="stylesheet" href="{{ asset('/vendor/normalize/normalize.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
         @yield('appHeader')
 
         <link rel="stylesheet" href="{{ asset('/css/main.min.css') }}">
     </head>
     <body>
-        <header class="header">
-            <div class="header_background"></div>
-            <div class="header_login-block hide-for-small-only">
+        <header class="header" id="header">
+            <div class="header_background">
+                <div class="slider_carousel" id="carousel">
+                    <agile :nav-buttons="false" :autoplay-speed="5000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" :dots="false" autoplay="autoplay">
+
+                        <img class="slide" src="https://images.unsplash.com/photo-1509549649946-f1b6276d4f35?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ"/>
+
+                        <img class="slide" src="https://images.unsplash.com/photo-1511469054436-c7dedf24c66b?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"/>
+
+                        <img class="slide" src="https://images.unsplash.com/photo-1511135232973-c3ee80040060?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"/>
+
+                        <img class="slide" src="https://images.unsplash.com/photo-1511231683436-44735d14c11c?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"/>
+
+                        <img class="slide" src="https://images.unsplash.com/photo-1517677129300-07b130802f46?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"/>
+                    </agile>
+                </div>
+                <div class="banner_header"></div>
+            </div>
+            <div class="header_login-block hide-for-small-only" v-if="topHeader">
                 <div class="header_login-block_inner wrapper">
                     <ul class="header_login-block_elements columns large-6 hide-for-medium-only">
                         @auth
@@ -51,7 +69,31 @@
                 </div>
             </div>
 
-            <div class="sticky navigation_wrapper">
+            <transition name="slide-fade">
+                <section v-if="search" class="navigation_top-menu wrapper top-bar-section" id="search">
+                    <button type="button" class="left-off-canvas-toggle show-for-small-only navigation_top-menu_button">
+                        <span class="material-icons icon">menu</span>
+                    </button>
+                    <h1 class="header-title">
+                        <a href="{{url('/')}}">
+                            <img src="https://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/logo/logo-white-dd.png" class="logo">
+                        </a>
+                    </h1>
+                    <div class="navigation_top-menu_search-cart-block">
+                        <div class="my-cart has-dropdown my-cart-header hide-for-small-only not-click"></div>
+                        <div class="search-container">
+                            <form action="#" class="form">
+                                <input type="text" class="search_field" placeholder="Was suchst Du?">
+                                <button class="search-button" type="submit">
+                                    <span class="material-icons icon">search</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </transition>
+
+            <div class="sticky navigation_wrapper" id="navbar_wrapper">
                 <div class="navigation_sub-nav">
                     <ul class="sub-nav">
                         <li class="active"><a href="#">Home</a></li>
@@ -194,14 +236,14 @@
                         </div>
                     </div>
                 </footer>
-            </div>      
+            </div>
         </div>
 
 
         <script src="{{ asset('/vendor/vuejs/vue.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-
-
+        <script src="https://unpkg.com/vue-agile"></script>
+        <script src="{{ asset('js/header.js') }}"></script>
         @yield('appFooter')
     </body>
 </html>

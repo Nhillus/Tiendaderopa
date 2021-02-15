@@ -27,8 +27,10 @@ h1, h2, h3, h4, h5, p, body {
 }
 
 
-ul, 
-ol, 
+
+
+ul,
+ol,
 dl {
     font-family: inherit;
     font-size: 1rem;
@@ -53,6 +55,21 @@ a {
 
 p {
     font-size: 1.4rem;
+}
+
+input[type='tel'],
+input[type='password'],
+input[type='email'],
+input[type='text'] {
+    border: 1px solid #C7C7C7;
+    color: #2F2F2F;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.4rem;
+    box-shadow: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .button {
@@ -91,6 +108,7 @@ p {
 	align-items: center;
 	align-content: center;
 	justify-content: center;
+    margin-bottom: 30px;
 
 	.brand-item{
 		margin: 0 20px;
@@ -119,7 +137,7 @@ p {
     border: 1px solid #C01C3C;
     color: #C01C3C;
 
-    &:focus, 
+    &:focus,
 	&:hover {
 	    background-color: #C01C3C;
 	}
@@ -152,19 +170,33 @@ p {
 	@media only screen and (max-width: 640px) {
 	    padding-top: 146px;
 	}
-
-
-
 }
 
 .header_background{
     position: fixed;
     top: 0;
     width: 100%;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
     opacity: 1;
     z-index: -1;
+    display: flex;
+
+    .slider_carousel,
+    .banner_header{
+        height: 100%;
+    }
+    .slider_carousel{
+        background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/desktop_nouvelan_21.jpg&v=1609156539);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: auto 444px;
+        background-position: center 26px;
+        width: 75%;
+    }
+
+    .banner_header{
+        width: 35%;
+        background-color: #B0012E;
+    }
 
     @media only screen and (min-width: 1441px) {
 	    background-position: center 26px;
@@ -190,13 +222,13 @@ p {
 	    height: 190px;
 	}
 
-	@media only screen and (min-width: 40.063em) {
-	    background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/desktop_nouvelan_21.jpg&v=1609156539);
-	}
+	// @media only screen and (min-width: 40.063em) {
+	//     background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/desktop_nouvelan_21.jpg&v=1609156539);
+	// }
 
-	@media only screen and (max-width: 40.062em) {
-	    background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/mobile_nouvelan-21.jpg&v=1609156526);
-	}
+	// @media only screen and (max-width: 40.062em) {
+	//     background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/mobile_nouvelan-21.jpg&v=1609156526);
+	// }
 }
 
 .header_login-block{
@@ -301,14 +333,14 @@ p {
 }
 
 @media only screen and (min-width: 641px){
-   	.language-switcher__button, 
+   	.language-switcher__button,
    	.language-switcher__flag {
 	    display: inline-flex;
 	    width: 100%;
 	    justify-content: flex-end;
 	    align-items: center;
 
-	    &::after, 
+	    &::after,
 	 	&::after {
 		    content: '';
 		    display: block;
@@ -362,7 +394,7 @@ p {
 		}
 	}
 
-	
+
 	.language-switcher__flag {
 		@media only screen and (min-width: 641px) {
 		    font-size: 1.4rem;
@@ -376,12 +408,12 @@ p {
 
 		@media only screen and (max-width: 640px) {
 		    font-size: 1.3rem;
-		} 
+		}
 
 		@media only screen and (max-width: 640px){
 		    color: #9B9B9B;
 		}
-		
+
 	}
 }
 
@@ -397,9 +429,175 @@ p {
     border:inherit;
     position:absolute
 }
+.navigation_top-menu{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: top 250ms ease-in-out;
+    top: 26px;
 
+    @media only screen and (min-width: 641px) and (max-width: 1130px) {
+        padding: 0 10px;
+    }
+
+    @media only screen and (min-width: 641px) {
+        left: 0;
+        right: 0;
+        z-index: 80;
+        margin-top: 20px;
+    }
+
+    .navigation_top-menu_search-cart-block{
+        display: flex;
+
+        @media only screen and (min-width: 641px) {
+            align-items: center;
+            flex-direction: row-reverse;
+            justify-content: left;
+            min-height: 55px;
+        }
+
+        @media only screen and (max-width: 640px) {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .menu_checkout_content{
+            @media only screen and (max-width: 640px) {
+                margin-right: 10px;
+            }
+        }
+    }
+    .my-cart {
+        text-align: center;
+
+        & > a {
+            display: block;
+            padding: 0 !important;
+        }
+    }
+
+    .mini-cart_button{
+        color: white;
+
+        @media only screen and (min-width: 640px) {
+            min-height: 55px;
+        }
+    }
+
+}
+.navigation_top-menu_button{
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    transition: none;
+    line-height: 1;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 400;
+    margin-left: 10px;
+    .icon{
+        color: #FFF;
+        @media screen and (max-width: 40em) {
+            font-size: 4rem;
+        }
+    }
+}
+.search-container{
+    @media only screen and (min-width: 641px) {
+        margin-right: 10px;
+    }
+
+    @media only screen and (max-width: 640px) {
+        position: absolute;
+        top: 70px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .form{
+        display: flex;
+        justify-content: right;
+        align-items: center;
+    }
+
+    .search_field {
+        margin: 0;
+        padding: 6px;
+        border-radius: 0;
+        border-color: #E4E4E4;
+        background-color: rgba(255,255,255,0.9);
+        transition: all ease-in-out 150ms;
+
+        &:hover,
+        &:focus,
+        &:focus + .search-button{
+            background-color: white;
+            border-top-color: #cbcbcb;
+            border-bottom-color: #cbcbcb;
+            border-right-color: #E4E4E4;
+            border-left-color: #cbcbcb;
+        }
+        @media only screen and (min-width: 641px) {
+            width: 343px;
+        }
+    }
+
+    .search-button{
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+        transition: none;
+        line-height: 1;
+        font-family: 'Open Sans',arial,sans-serif;
+        font-weight: 400;
+        border-top: 1px solid #E4E4E4;
+        border-right: 1px solid #E4E4E4;
+        border-bottom: 1px solid #E4E4E4;
+        background: rgba(255,255,255,0.9);
+        padding: 6px 10px;
+        height: 40px;
+        line-height: 40px;
+        transition: all ease-in-out 150ms;
+
+        .icon{
+            font-size: 2.4rem;
+            color: #CD1D39;
+        }
+    }
+}
+.header-title{
+    padding: 0;
+    margin: 0;
+
+    a{
+        max-width: 100%;
+        margin: 0;
+        display: inline-block;
+
+        .logo{
+            @media(max-width: 640px){
+                margin-left: -10px;
+            }
+        }
+    }
+}
 .navigation_wrapper {
     height: 44px;
+
+    &.fixed{
+        background: white;
+        transition: background .3s cubic-bezier(.08, .82, .17, 1);
+
+        .navigation_sub-nav {
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 16%) !important;
+            max-width: 100% !important;
+            transition: max-width .3s cubic-bezier(.08, .82, .17, 1) !important;
+        }
+
+    }
 
     @media only screen and (max-width: 640px) {
 	    overflow: hidden;
@@ -465,7 +663,7 @@ p {
 
 
 		li {
-		    
+
 
     		@media screen and (min-width: 40.063em) and (max-width: 64em){
 			    padding-right: 10px;
@@ -532,7 +730,7 @@ p {
 		    max-width: 1130px;
 		}
 	}
-		
+
 	@media only screen and (min-width: 1110px){
 		.wrapper {
 		    padding-top: 20px;
@@ -541,8 +739,8 @@ p {
 }
 
 
-.select-fake, 
-select.dd-select, 
+.select-fake,
+select.dd-select,
 select {
     height: 40px;
     background-color: white;
@@ -561,8 +759,8 @@ select {
     border-radius: 3px;
 }
 
-.select-fake.select-xl, 
-select.dd-select.select-xl, 
+.select-fake.select-xl,
+select.dd-select.select-xl,
 select.select-xl {
     display: inline-block;
     border-width: 0 0 1px 0;
@@ -630,14 +828,14 @@ select.select-xl {
 }
 
 @media screen and (min-width: 40.063em) and (max-width: 64em){
-	.channel-filters .filter_default_label, 
+	.channel-filters .filter_default_label,
 	.channel-filters .filter_default_select {
 	    font-size: 1.7rem !important;
 	}
 }
 
 @media screen and (max-width: 40em){
-	.channel-filters .filter_default_label, 
+	.channel-filters .filter_default_label,
 	.channel-filters .filter_default_select {
 	    font-size: 1.7rem !important;
 	}
@@ -669,7 +867,7 @@ select.select-xl {
 		    padding: 1.1rem 1.1rem 1.1rem;
 		}
 	}
-    
+
 }
 
 .sale{
@@ -694,6 +892,10 @@ select.select-xl {
     img {
 	    display: block;
 	    width: 100%;
+	}
+
+	&.media-552x224{
+		overflow: hidden;
 	}
 }
 
@@ -863,7 +1065,7 @@ figure {
 		p{
 			padding: 0 50px;
 		}
-	    
+
 	}
 
 	.footer-social-icons {
@@ -873,7 +1075,7 @@ figure {
 		    font-family: 'Open Sans',arial,sans-serif;
 		    font-weight: 300;
 		}
-	    
+
 	}
 
 	.footer-partner-area {
@@ -980,4 +1182,22 @@ figure {
     padding: 25px 0 0;
 }
 
+.slide {
+    display: block;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+}
 
+
+.slide-fade-enter-active {
+    transition: all .3s ease;
+}
+.slide-fade-leave-active {
+    transition: all .3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to{
+    transform: translateY(-20px);
+    opacity: 0;
+}
