@@ -3,10 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ asset('/vendor/foundation/foundation.css') }}">
         <link rel="stylesheet" href="{{ asset('/vendor/normalize/normalize.css') }}">
+        <link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         @yield('appHeader')
 
         <link rel="stylesheet" href="{{ asset('/css/main.min.css') }}">
@@ -33,7 +38,8 @@
 
                             <a href="{{ route('logout') }}" class="signin hide-for-small-only">Abmelden</a>
                             @else
-                            <a href="{{ route('web.login') }}" class="signin hide-for-small-only">Anmelden</a>
+                            <a href="{{ url('login') }}" class="signin hide-for-small-only">Anmelden</a>
+                                
                             @endauth
                         </div>
 
@@ -196,12 +202,23 @@
                 </footer>
             </div>      
         </div>
-
-
         <script src="{{ asset('/vendor/vuejs/vue.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
 
 
         @yield('appFooter')
+        @yield('scripts')
+    <script>
+        $(document).ready(function () {
+        
+        /* When click New customer button */
+        $('#new-customer').click(function () {
+        $('#crud-modal').modal('show');
+        });
+        
+      });
+        
+        </script>
+        
     </body>
 </html>

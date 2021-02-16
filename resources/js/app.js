@@ -1,3 +1,5 @@
+
+
 require('./bootstrap');
 
 
@@ -13,5 +15,10 @@ Vue.component('dashboard-component', require('./components/Dashboard.vue').defau
 
 const app = new Vue({
     el: '#app',
+<<<<<<< HEAD
 
+=======
+  
+    
+>>>>>>> Merge Entre Productos y Nhillus( Login, register, details user, aut, social)
 });
