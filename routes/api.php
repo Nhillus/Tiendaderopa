@@ -97,6 +97,83 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     | Method:         POST
     | Description:    Login a user after its create a passWordGrantClient provided for passport API, validate by UserLoginRequest  and return the token
     */
-  Route::post('/login', 'Api\AuthController@loginC')->name('api.login');
+
+  Route::post('/login', 'Api\AuthController@login')->name('api.login');
+
+/*|-------------------------------------------------------------------------------
+  | Obtener subcategorias mediante la categoría
+  |-------------------------------------------------------------------------------
+*/
+Route::get('/subcategories/bycategory', function(){
+    $category_id = request()->get('category_id');
+
+    return response()->json(
+        \App\Subcategory::where('category_id', '=', $category_id)->get()
+    );
+});
 
 
+/*|-------------------------------------------------------------------------------
+  | Listado de promociones
+  |-------------------------------------------------------------------------------
+*/
+Route::get('/promotions', function(){
+    $promotion = new \App\Promotion;
+    return response()->json([
+        'data' => $promotion->get()
+    ]);
+});
+
+
+/*|-------------------------------------------------------------------------------
+  | Listado de categorías
+  |-------------------------------------------------------------------------------
+*/
+Route::get('/categories', function(){
+    $category = new \App\Category;
+    return response()->json([
+        'data' => $category->get()
+    ]);
+});
+
+
+/*|-------------------------------------------------------------------------------
+  | Listado de sub-categorías
+  |-------------------------------------------------------------------------------
+*/
+Route::get('/subcategories', function(){
+    $subcategory = new \App\Subcategory;
+    return response()->json([
+        'data' => $subcategory->get()
+    ]);
+});
+
+/*|-------------------------------------------------------------------------------
+  | Subir archivos a carpeta temporal
+  |-------------------------------------------------------------------------------
+*/
+Route::post('/tmp', function(){
+    $product = new \App\Product;
+    return response()->json($product->uploadTmp(request()));
+});
+
+
+/*|-------------------------------------------------------------------------------
+  | Subir archivos a carpeta temporal
+  |-------------------------------------------------------------------------------
+*/
+Route::post('/tmp/delete', function(){
+    $product = new \App\Product;
+    return response()->json($product->deleteFromTmp(request()));
+});
+
+/*|-------------------------------------------------------------------------------
+  | Listado de productos
+  |-------------------------------------------------------------------------------
+*/
+Route::get('/products', function(){
+    $product = new \App\Product;
+    return response()->json([
+        'data' => $product->get()
+    ]);
+});

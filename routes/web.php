@@ -16,13 +16,19 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-Route::get('/home', function () {
-    return view('home/home')    ;
-})->name('web.home');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard')    ;
-});
+Route::get('/micuenta', 'UserDetailsController@index')->name('web.details');
+
+Route::patch('/userDetailsUpdated','UserDetailsController@update')->name('web.details.update');
+
+Route::get('/logout', 'LoginController@logout')->name('logout');
+
+
+Route::get('/send-reset-password', 'Api\ResetPasswordController@showResetForm')->name('password.request');
+
+
+Route::get('/login', 'Api\AuthController@index')->name('web.login');
 
 Route::get('/micuenta', 'UserDetailsController@index')->name('web.details');
 
@@ -45,13 +51,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 */
 //Route::get('login/{redSocial}', 'Auth\LoginController@redirectToProvider');
 //Route::get('login/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
- 
-
-    
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('panel')->group(function () {
+    Route::get('', 'Panel\DashboardController@index');
+
+    Route::resources([
+        'promotions' => Panel\PromotionsController::class,
+        'categories' => Panel\CategoriesController::class,
+        'subcategories' => Panel\SubcategoriesController::class,
+        'products' => Panel\ProductsController::class
+    ]);
+});
+
