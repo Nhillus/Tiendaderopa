@@ -77,9 +77,6 @@
             </div> -->
         </div>
     </div>
-<<<<<<< HEAD
-@endsection
-=======
     <div class="modal fade" id="crud-modal" aria-hidden="true" >
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
@@ -98,4 +95,3 @@
     </div>
 @endsection
 
->>>>>>> Merge Entre Productos y Nhillus( Login, register, details user, aut, social)
