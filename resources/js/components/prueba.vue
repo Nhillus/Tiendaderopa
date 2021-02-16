@@ -723,7 +723,7 @@ export default {
         {
         axios.post('/api/login',this.login).then(() =>{
           //  this.$router.push({name: "Dashboard"}); esto debe ser cambiado a routes de laravel mediante otro post a una ruta en web
-          window.location.href = '/home';
+          window.location.href = '/';
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })

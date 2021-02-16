@@ -28,7 +28,7 @@ Route::get('/logout', 'LoginController@logout')->name('logout');
 Route::get('/send-reset-password', 'Api\ResetPasswordController@showResetForm')->name('password.request');
 
 
-Route::get('/loginC', 'Api\AuthController@index')->name('web.login');
+Route::get('/login', 'Api\AuthController@index')->name('web.login');
 
 /**Route::get('/', function () {
     return view('welcome');

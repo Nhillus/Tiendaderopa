@@ -16,7 +16,8 @@ class AuthController extends Controller
 {
 
     public function index() {
-        return view('loginprueba');
+        return view('/welcomecopy');
+       
     }
     //
     public function login(UserLoginRequest $request)

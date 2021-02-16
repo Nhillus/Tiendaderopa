@@ -1,3 +1,5 @@
+
+
 require('./bootstrap');
 
 
@@ -13,4 +15,6 @@ Vue.component('dashboard-component', require('./components/Dashboard.vue').defau
 
 const app = new Vue({
     el: '#app',
+  
+    
 });
