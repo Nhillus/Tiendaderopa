@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/vendor/foundation/foundation.css') }}">
         <link rel="stylesheet" href="{{ asset('/vendor/normalize/normalize.css') }}">
         <link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
@@ -53,10 +52,9 @@
                             @auth
                             <a href="{{ route('web.details') }}" class="signin hide-for-small-only">mein konto</a>
 
-                            <a href="{{ route('logout') }}" class="signin hide-for-small-only">Abmelden</a>
+                            <a href="{{ url('/api/logout') }}" class="signin hide-for-small-only">Abmelden</a>
                             @else
-                            <a href="{{ url('login') }}" class="signin hide-for-small-only">Anmelden</a>
-                                
+                            <a href="javascript:void(0)" class="signin hide-for-small-only" id="new-customer" data-toggle="modal" >Anmelden</a>
                             @endauth
                         </div>
 

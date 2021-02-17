@@ -9,7 +9,6 @@ window.Vue = require('vue');
 //import store from './store/index.js'
 
 Vue.component('login-component', require('./components/prueba.vue').default); 
-Vue.component('dashboard-component', require('./components/Dashboard.vue').default); 
 
 
 

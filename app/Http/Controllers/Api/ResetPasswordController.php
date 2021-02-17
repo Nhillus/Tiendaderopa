@@ -34,6 +34,7 @@ class ResetPasswordController extends Controller
             $this->resetPassword($user, $password);
         }
         );
+        dd($response);
         
 
         return $response == Password::PASSWORD_RESET
@@ -43,7 +44,7 @@ class ResetPasswordController extends Controller
 
     protected function credentials(Request $request)
     {
-        //dd($request);
+        dd($request);
         return $request->only(
             'password', 'password_confirmation', 'token'
         );

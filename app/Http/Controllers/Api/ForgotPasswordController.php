@@ -12,7 +12,7 @@ class ForgotPasswordController extends Controller
 {
    
     //
-    public function sendResetLinkEmail(ForgotPasswordRequest $request)
+    public function sendResetLinkEmail(request $request)
     {
         $response = $this->broker()->sendResetLink(
             $request->only('email')

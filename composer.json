@@ -1,4 +1,4 @@
-{
+{   
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
@@ -18,7 +18,8 @@
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
-        "laraveles/spanish": "^1.5"
+        "laraveles/spanish": "^1.5",
+        "securionpay/securionpay-php": "^2.2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

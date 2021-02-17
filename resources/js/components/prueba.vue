@@ -1,5 +1,4 @@
 <style>
-<style>
 .button-xs {
     width: 100%;
     max-width: 240px;
@@ -7,16 +6,13 @@
     height: 30px;
     line-height: 30px;
 }
-<style>
 .button-facebook {
     background-color: #3B5998;
     text-decoration:none;
 }
-<style>
 .button-facebook, .button-twitter, .button-google, .button-instagram {
     vertical-align: bottom;
 }
-<style>
 .button {
     font-size: 1.8rem;
     text-decoration: none;
@@ -513,7 +509,25 @@ iframe {
     border-image: initial;
 }
 
+#inside-button-google
+{
+ color: #dd4b39;
+}
+
+#inside-button-facebook
+{
+  background-color: #f8fafc;   
+}
+{
+    background-color: #007095;
+}
+
+.button:hover {
+    background-color:#d0021b;
+
+}
 </style>
+
 <template>
 <form>
     <div class="pannel pannel_connection">
@@ -544,18 +558,17 @@ iframe {
                         </p>
                         <div class="row">
                             <div id="facebookbutton" class="small-12 medium-6 columns">
-                                <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" data-options="{&quot;appId&quot;:&quot;114118805282255&quot;,&quot;successUrl&quot;:&quot;https:\/\/www.deindeal.ch\/de\/customer\/account\/sociallogin\/&quot;,&quot;locale&quot;:&quot;de_DE&quot;,&quot;scopeComplement&quot;:&quot;&quot;}">
-                                    <span>
-                                        
+                                <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
                                         Facebook                    
-                                    </span>
                                 </a>
                             </div>
                             <div id="googlebutton" class="small-12 medium-6 columns">
-                                <a id="button-google600c585ad5466" class="button button-xs button-google" href="#1" data-role="connect-google" data-options="{&quot;clientId&quot;:&quot;949885915158-9s6aruuf433upfbe5e6cnp9ma5raukhd.apps.googleusercontent.com&quot;,&quot;successUrl&quot;:&quot;https:\/\/www.deindeal.ch\/de\/customer\/account\/sociallogin\/&quot;}">
-                                    <span>
-                                        Google                    
-                                    </span>
+                                <a id="inside-button-google" class="button button-xs button-google" href="#1" data-role="connect-google" >
+                                    <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
+                               
+                                        Google   
+                                    </a>
+                
                                 </a>
                             </div>
                         </div>
@@ -574,13 +587,13 @@ iframe {
             <input name="form_key" type="hidden" value="zEnIhZZjjg1m5sme">
             <div class="input-container empty">
                 <label class="inline label-required">Bitte gib Deine E-Mail-Adresse ein</label>
-                <input type="email" name="email_address" required="">
+                <input type="email" name="email_address" required=""v-model="emailForgot.email">
                 <small class="error">Bitte geben Sie eine E-Mail-Adresse ein.</small>
             </div>
             <div class="form-submit-container row">
                                 <div id="recaptcha_forgot_password" class="g-recaptcha" data-sitekey="6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue" data-callback="callbackUniqueId6028adc54aacb" data-size="invisible"><div class="grecaptcha-badge" data-style="none" style="width: 256px; height: 60px; position: fixed; visibility: hidden;"><div class="grecaptcha-logo"><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue&amp;co=aHR0cHM6Ly93d3cuZGVpbmRlYWwuY2g6NDQz&amp;hl=en&amp;v=2Mfykwl2mlvyQZQ3PEgoH710&amp;size=invisible&amp;cb=8vtrwagpo61k" width="256" height="60" role="presentation" name="a-w8z8b129nyy3" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-2" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
                             <div class="columns small-12 ">
-                    <button type="submit" data-button="initmdp" class="button button-accent button-md">Zurücksetzen</button>
+                    <button type="submit" data-button="initmdp" class="button button-accent button-md" @click.prevent="forgotPassword()">Zurücksetzen</button>
                 </div>
                 <div class="columns small-12 ">
                     <a href="#" id="showLogin" class="button button-md button-dark" @click.prevent="visualizarOlvidoContraseña()">
@@ -652,15 +665,13 @@ iframe {
                                 </p>
                                 <div class="row">
                                     <div id="facebookbutton" class="small-12 medium-6 columns">
-                                        <a type="button" id="button-fb600c585ad5465" class="button button-xs button-facebook" @click.stop="socialLogin('facebook')">
-                                             <span >facebook</span>
+                                        <a type="button" id="inside-button-facebook" class="button button-xs button-facebook" @click.stop="socialLogin('facebook')">
+                                            facebook
                                         </a>
                                     </div>
                                     <div id="googlebutton" class="small-12 medium-6 columns">
-                                        <a id="button-google600c585ad5466" class="button button-xs button-google" @click.stop="socialLogin('google')">
-                                            <span>
-                                                Google                    
-                                            </span>
+                                        <a id="inside-button-google" class="button button-xs button-google" @click.stop="socialLogin('google')">
+                                            Google                    
                                         </a>
                                     </div>
                                 
@@ -678,7 +689,6 @@ iframe {
 
 <script>
 import {mapActions} from 'vuex';
-//import {get,post,put} from '../helpers/api'
 export default {
     
 
@@ -698,7 +708,11 @@ export default {
                     {
                      email: '',
                     password: ''   
-                    }
+                    },
+            emailForgot:
+            {
+                email: '',
+            }
            
         }
     },
@@ -724,6 +738,16 @@ export default {
         axios.post('/api/login',this.login).then(() =>{
           //  this.$router.push({name: "Dashboard"}); esto debe ser cambiado a routes de laravel mediante otro post a una ruta en web
           window.location.href = '/';
+        }).catch((error) =>{
+            this.errors = error.response.data.errors;   
+        })
+        },
+        forgotPassword()
+        {
+        axios.post('/api/forgot-password',this.emailForgot).then(() =>{
+          //  this.$router.push({name: "Dashboard"}); esto debe ser cambiado a routes de laravel mediante otro post a una ruta en web
+          //window.location.href = '/';
+          console.log(emailForgot);
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })

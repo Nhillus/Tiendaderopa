@@ -1946,67 +1946,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      user: null
-    };
-  },
-  methods: {
-    logout: function logout() {
-      var _this = this;
-
-      axios.post('/api/logout').then(function () {
-        _this.$router.push({
-          name: "Home"
-        });
-      });
-    }
-  },
-  mounted: function mounted() {
-    var _this2 = this;
-
-    axios.get('/api/user').then(function (res) {
-      _this2.user = res.data;
-    });
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/prueba.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/prueba.vue?vue&type=script&lang=js& ***!
@@ -2695,7 +2634,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
- //import {get,post,put} from '../helpers/api'
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2712,6 +2661,9 @@ __webpack_require__.r(__webpack_exports__);
       login: {
         email: '',
         password: ''
+      },
+      emailForgot: {
+        email: ''
       }
     };
   },
@@ -2735,26 +2687,37 @@ __webpack_require__.r(__webpack_exports__);
         _this.errors = error.response.data.errors;
       });
     },
-    saveForm: function saveForm() {
+    forgotPassword: function forgotPassword() {
       var _this2 = this;
+
+      axios.post('/api/forgot-password', this.emailForgot).then(function () {
+        //  this.$router.push({name: "Dashboard"}); esto debe ser cambiado a routes de laravel mediante otro post a una ruta en web
+        //window.location.href = '/';
+        console.log(emailForgot);
+      })["catch"](function (error) {
+        _this2.errors = error.response.data.errors;
+      });
+    },
+    saveForm: function saveForm() {
+      var _this3 = this;
 
       axios.post('/api/register', this.form).then(function () {
         console.log('saved');
       })["catch"](function (error) {
-        _this2.errors = error.response.data.errors;
+        _this3.errors = error.response.data.errors;
       });
     },
     loginFacebook: function loginFacebook() {//escribir codigo de facebook o llamada
     },
     socialLogin: function socialLogin(provider) {
-      var _this3 = this;
+      var _this4 = this;
 
       this.isProcessing = true;
       this.error = {};
       console.log("Entre a socialLogin");
       get("/api/social/".concat(provider)).then(function (response) {
         if (response.data.error) {
-          _this3.error = err.response.data.error;
+          _this4.error = err.response.data.error;
           console.log("Entre a response error");
         } else if (response.data.redirectUrl) {
           window.location.href = response.data.redirectUrl;
@@ -2762,36 +2725,17 @@ __webpack_require__.r(__webpack_exports__);
         }
       })["catch"](function (err) {
         if (err.response.data.error) {
-          _this3.error = err.response.data.error;
+          _this4.error = err.response.data.error;
           console.log("Entre en catch error ");
         }
 
         console.log("Segundo if ");
-        _this3.isProcessing = false;
+        _this4.isProcessing = false;
       });
       this.isProcessing = false;
     }
   }
 });
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css&":
-/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.subnav\r\n{\r\n display: inline-block;\r\n margin-top:-30px;\n}\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
-
-// exports
-
 
 /***/ }),
 
@@ -2807,7 +2751,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n<style>\r\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n<style>\r\n.button-facebook {\r\n    background-color: #3B5998;\r\n    text-decoration:none;\n}\n<style>\r\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\n<style>\r\n.button {\r\n    font-size: 1.8rem;\r\n    text-decoration: none;\r\n    outline: none;\r\n    height: auto;\r\n    top: auto;\r\n    width: 100%;\r\n    font-family: 'Open Sans',arial,sans-serif;\r\n    font-weight: 400;\r\n    border-radius: 3px;\r\n    font-weight: normal;\r\n    height: 50px;\r\n    line-height: 50px;\r\n    padding: 0 20px;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n.row {\r\n    max-width: none;\r\n    flex-wrap: nowrap;\n}\n.row {\r\n    margin: 0 auto;\r\n    max-width: 62.5rem;\r\n    width: 100%;\n}\n.row:before, .row:after {\r\n    content: \" \";\r\n    display: table;\n}\n.row:after {\r\n    clear: both;\n}\n.row:before, .row:after {\r\n    content: \" \";\r\n    display: table;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.columns {\r\n    padding-left: 5px;\r\n    padding-right: 5px;\n}\n.column, .columns {\r\n    position: relative;\r\n   \r\n    \r\n    float: left;\r\n    width:34%;\n}\n.btn-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#ffffff;\r\n    background-color: #c01c3c;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    margin-bottom: 10px;\n}\n.btn-fake-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#c1203d;\r\n    background-color: #ffffff;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    border: 1px solid #c1203d;\n}\n.container-form {\r\n    padding: 0 40px;\r\n    display:grid;\n}\n#login\r\n{   \r\n    border-right-color: #d3d3d3;\r\n    border-right-style: solid;\r\n    border-right-width: 1px; \r\n    height: 495px;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\r\n    padding: 0px 10px;\r\n    -moz-text-align-last:center;\r\n         text-align-last:center;\r\n    padding-right: 29px;\n}\n.select-fake, select.dd-select, select {\r\n    height: 40px;\r\n    background-color: white;\r\n    font-size: 1.4rem;\r\n    padding: 0 40px 0 10px;\r\n    background-repeat: no-repeat;\r\n    background-size: 20px;\r\n    background-position: right 10px center;\r\n    top: auto;\r\n    margin: 0;\r\n    outline: none;\r\n    overflow: hidden;\r\n    border-radius: 3px;\n}\nselect {\r\nmax-width: 50%; /* La clave para cambiar la dimension del container select esta aqui */\r\nwidth:auto;\n}\n.panel_connection .hide_register .cityregister {\r\n    border: 1px solid #D4D4D4;\r\n    background-color: #F8F8F8;\r\n    margin-bottom: 20px;\r\n    padding: 5px 15px ;\n}\n.panel_connection .hide_register .offer {\r\n    font-size: 10px;\r\n    font-weight: 600;\n}\n.row .row {\r\n    \r\n    max-width: 100%;\r\n    width: 100%;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.panel_connection .hide_register .radio-container {\r\n    padding-top: 10px;\n}\n.radio-container {\r\n    height: 40px;\n}\n.panel_connection .hide_register .radio-container label {\r\n    vertical-align: top;\r\n    margin-right: 0px;\n}\n.panel_connection .hide_register .radio-container label span {\r\n    margin-left: 0px;\r\n    vertical-align: top;\r\n    text-decoration:none;\n}\n.row .small-12 span:hover{\r\n color:#f8fafc; \r\n text-decoration:none;\n}\n.panel_connection .hide_login .social-buttons-container_description {\r\n    padding-top: 20px;\r\n    text-align: center;\r\n    font-size: 12px;\n}\n.radio-container label {\r\n    display: inline-block;\r\n    margin-right:1px;\n}\nlabel.inline {\r\n    margin: 0 0 1rem 0;\r\n    padding: 0.5625rem 0;\n}\nlabel {\r\n    font-size: 1.2rem;\n}\n.radio-container label>input {\r\n    height: 20px;\r\n    width: 20px;\n}\ninput[type=\"file\"], input[type=\"checkbox\"], input[type=\"radio\"], select {\r\n    margin: 0 0 1rem 0;\n}\ninput[type=checkbox], input[type=radio] {\r\n    box-sizing: border-box;\r\n    padding: 0;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n.resetpassword-container{\r\n    padding: 0px 115px;\n}\n.Other{\r\n    text-decoration: underline;\r\n    transition: text-shadow 0.2s linear;\r\n    font-size:16px;\n}\n.Other:hover{\r\n     text-shadow: 0 0 1px #000000;\n}\n.form-check{\r\n    border-bottom-color: #d3d3d3;\r\n    border-bottom-style: solid;\r\n    border-bottom-width: 1px;\n}\n#ciudades\r\n{\r\n padding:0px 10px;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.a-center {\r\n    text-align: center !important;\n}\n.panel_connection .hide_login .social-buttons-container {\r\n    border-top: 1px solid #D8D8D8;\r\n    margin-top: 20px;\n}\n.small-12 {\r\n    width: 100%;\n}\n.column.medium-centered:last-child, .columns.medium-centered:last-child {\r\n    float: none;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    outline: none;\n}\n#facebookbutton\r\n{\r\n    background-color: #3B5998;\r\n    border-radius:7%;\r\n    margin-right:10px;\n}\n#facebookbutton:hover\r\n{\r\n    background-color:#2d4373;\n}\n#googlebutton{\r\n    background-color: #DD4B39;\r\n    border-radius:5%;\n}\n#googlebutton:hover\r\n{\r\n background-color: #c23321;\n}\n.button-facebook {\r\n    \r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\nform .row .row .column, form .row .row .columns {\r\n    padding: 0 0.5rem;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n.button-xs:hover {\r\n    text-decoration:none;\n}\n.button-google {\r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\r\n    max-width:80%;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\r\n/*----------------------zona de recuperar contraseña------------------------ */\nelement.style {\r\n    display: block;\n}\n.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p, .panel li, .panel dl {\r\n    color: #333;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\nform {\r\n    margin: 0 0 1rem;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\nform {\r\n    display: block;\r\n    margin-top: 0em;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ninput[type=\"hidden\" i] {\r\n    display: none;\r\n    -webkit-appearance: initial;\r\n       -moz-appearance: initial;\r\n            appearance: initial;\r\n    background-color: initial;\r\n    cursor: default;\r\n    padding: initial;\r\n    border: initial;\n}\ninput {\r\n    -webkit-writing-mode: horizontal-tb !important;\r\n    text-rendering: auto;\r\n    color: -internal-light-dark(black, white);\r\n    letter-spacing: normal;\r\n    word-spacing: normal;\r\n    text-transform: none;\r\n    text-indent: 0px;\r\n    text-shadow: none;\r\n    display: inline-block;\r\n    text-align: start;\r\n    -webkit-appearance: textfield;\r\n       -moz-appearance: textfield;\r\n            appearance: textfield;\r\n    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));\r\n    -webkit-rtl-ordering: logical;\r\n    cursor: text;\r\n    margin: 0em;\r\n    font: 400 13.3333px Arial;\r\n    padding: 1px 2px;\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\ndiv {\r\n    display: block;\n}\n.panel {\r\n    border-style: solid;\r\n    border-width: 1px;\r\n    border-color: #d8d8d8;\r\n    margin-bottom: 1.25rem;\r\n    padding: 1.25rem;\r\n    background: #f2f2f2;\r\n    color: #333;\n}\n.select-container input, .textarea-container input, .input-container input {\r\n    margin-bottom: 0;\n}\ninput[type='tel'], input[type='password'], input[type='email'], input[type='text'] {\r\n    border: 1px solid #C7C7C7;\r\n    color: #2F2F2F;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    font-size: 1.4rem;\r\n    box-shadow: none;\r\n    border-radius: 3px;\n}\n.row .row {\r\n    margin: 0 -0.9375rem;\r\n    max-width: none;\r\n    width: auto;\n}\n.row {\r\n    max-width: none;\n}\n.row {\r\n    margin: 0 auto;\r\n    max-width: 62.5rem;\r\n    width: 100%;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\nelement.style {\r\n    width: 256px;\r\n    height: 60px;\r\n    position: fixed;\r\n    visibility: hidden;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\niframe[Attributes Style] {\r\n    width: 256px;\r\n    height: 60px;\r\n    border-top-width: 0px;\r\n    border-right-width: 0px;\r\n    border-bottom-width: 0px;\r\n    border-left-width: 0px;\n}\niframe {\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: initial;\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n.button-facebook {\r\n    background-color: #3B5998;\r\n    text-decoration:none;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\n.button {\r\n    font-size: 1.8rem;\r\n    text-decoration: none;\r\n    outline: none;\r\n    height: auto;\r\n    top: auto;\r\n    width: 100%;\r\n    font-family: 'Open Sans',arial,sans-serif;\r\n    font-weight: 400;\r\n    border-radius: 3px;\r\n    font-weight: normal;\r\n    height: 50px;\r\n    line-height: 50px;\r\n    padding: 0 20px;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n.row {\r\n    max-width: none;\r\n    flex-wrap: nowrap;\n}\n.row {\r\n    margin: 0 auto;\r\n    max-width: 62.5rem;\r\n    width: 100%;\n}\n.row:before, .row:after {\r\n    content: \" \";\r\n    display: table;\n}\n.row:after {\r\n    clear: both;\n}\n.row:before, .row:after {\r\n    content: \" \";\r\n    display: table;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.columns {\r\n    padding-left: 5px;\r\n    padding-right: 5px;\n}\n.column, .columns {\r\n    position: relative;\r\n   \r\n    \r\n    float: left;\r\n    width:34%;\n}\n.btn-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#ffffff;\r\n    background-color: #c01c3c;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    margin-bottom: 10px;\n}\n.btn-fake-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#c1203d;\r\n    background-color: #ffffff;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    border: 1px solid #c1203d;\n}\n.container-form {\r\n    padding: 0 40px;\r\n    display:grid;\n}\n#login\r\n{   \r\n    border-right-color: #d3d3d3;\r\n    border-right-style: solid;\r\n    border-right-width: 1px; \r\n    height: 495px;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\r\n    padding: 0px 10px;\r\n    -moz-text-align-last:center;\r\n         text-align-last:center;\r\n    padding-right: 29px;\n}\n.select-fake, select.dd-select, select {\r\n    height: 40px;\r\n    background-color: white;\r\n    font-size: 1.4rem;\r\n    padding: 0 40px 0 10px;\r\n    background-repeat: no-repeat;\r\n    background-size: 20px;\r\n    background-position: right 10px center;\r\n    top: auto;\r\n    margin: 0;\r\n    outline: none;\r\n    overflow: hidden;\r\n    border-radius: 3px;\n}\nselect {\r\nmax-width: 50%; /* La clave para cambiar la dimension del container select esta aqui */\r\nwidth:auto;\n}\n.panel_connection .hide_register .cityregister {\r\n    border: 1px solid #D4D4D4;\r\n    background-color: #F8F8F8;\r\n    margin-bottom: 20px;\r\n    padding: 5px 15px ;\n}\n.panel_connection .hide_register .offer {\r\n    font-size: 10px;\r\n    font-weight: 600;\n}\n.row .row {\r\n    \r\n    max-width: 100%;\r\n    width: 100%;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.panel_connection .hide_register .radio-container {\r\n    padding-top: 10px;\n}\n.radio-container {\r\n    height: 40px;\n}\n.panel_connection .hide_register .radio-container label {\r\n    vertical-align: top;\r\n    margin-right: 0px;\n}\n.panel_connection .hide_register .radio-container label span {\r\n    margin-left: 0px;\r\n    vertical-align: top;\r\n    text-decoration:none;\n}\n.row .small-12 span:hover{\r\n color:#f8fafc; \r\n text-decoration:none;\n}\n.panel_connection .hide_login .social-buttons-container_description {\r\n    padding-top: 20px;\r\n    text-align: center;\r\n    font-size: 12px;\n}\n.radio-container label {\r\n    display: inline-block;\r\n    margin-right:1px;\n}\nlabel.inline {\r\n    margin: 0 0 1rem 0;\r\n    padding: 0.5625rem 0;\n}\nlabel {\r\n    font-size: 1.2rem;\n}\n.radio-container label>input {\r\n    height: 20px;\r\n    width: 20px;\n}\ninput[type=\"file\"], input[type=\"checkbox\"], input[type=\"radio\"], select {\r\n    margin: 0 0 1rem 0;\n}\ninput[type=checkbox], input[type=radio] {\r\n    box-sizing: border-box;\r\n    padding: 0;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n.resetpassword-container{\r\n    padding: 0px 115px;\n}\n.Other{\r\n    text-decoration: underline;\r\n    transition: text-shadow 0.2s linear;\r\n    font-size:16px;\n}\n.Other:hover{\r\n     text-shadow: 0 0 1px #000000;\n}\n.form-check{\r\n    border-bottom-color: #d3d3d3;\r\n    border-bottom-style: solid;\r\n    border-bottom-width: 1px;\n}\n#ciudades\r\n{\r\n padding:0px 10px;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.a-center {\r\n    text-align: center !important;\n}\n.panel_connection .hide_login .social-buttons-container {\r\n    border-top: 1px solid #D8D8D8;\r\n    margin-top: 20px;\n}\n.small-12 {\r\n    width: 100%;\n}\n.column.medium-centered:last-child, .columns.medium-centered:last-child {\r\n    float: none;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    outline: none;\n}\n#facebookbutton\r\n{\r\n    background-color: #3B5998;\r\n    border-radius:7%;\r\n    margin-right:10px;\n}\n#facebookbutton:hover\r\n{\r\n    background-color:#2d4373;\n}\n#googlebutton{\r\n    background-color: #DD4B39;\r\n    border-radius:5%;\n}\n#googlebutton:hover\r\n{\r\n background-color: #c23321;\n}\n.button-facebook {\r\n    \r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\nform .row .row .column, form .row .row .columns {\r\n    padding: 0 0.5rem;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n.button-xs:hover {\r\n    text-decoration:none;\n}\n.button-google {\r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\r\n    max-width:80%;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\r\n/*----------------------zona de recuperar contraseña------------------------ */\nelement.style {\r\n    display: block;\n}\n.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p, .panel li, .panel dl {\r\n    color: #333;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\nform {\r\n    margin: 0 0 1rem;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\nform {\r\n    display: block;\r\n    margin-top: 0em;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ninput[type=\"hidden\" i] {\r\n    display: none;\r\n    -webkit-appearance: initial;\r\n       -moz-appearance: initial;\r\n            appearance: initial;\r\n    background-color: initial;\r\n    cursor: default;\r\n    padding: initial;\r\n    border: initial;\n}\ninput {\r\n    -webkit-writing-mode: horizontal-tb !important;\r\n    text-rendering: auto;\r\n    color: -internal-light-dark(black, white);\r\n    letter-spacing: normal;\r\n    word-spacing: normal;\r\n    text-transform: none;\r\n    text-indent: 0px;\r\n    text-shadow: none;\r\n    display: inline-block;\r\n    text-align: start;\r\n    -webkit-appearance: textfield;\r\n       -moz-appearance: textfield;\r\n            appearance: textfield;\r\n    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));\r\n    -webkit-rtl-ordering: logical;\r\n    cursor: text;\r\n    margin: 0em;\r\n    font: 400 13.3333px Arial;\r\n    padding: 1px 2px;\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\ndiv {\r\n    display: block;\n}\n.panel {\r\n    border-style: solid;\r\n    border-width: 1px;\r\n    border-color: #d8d8d8;\r\n    margin-bottom: 1.25rem;\r\n    padding: 1.25rem;\r\n    background: #f2f2f2;\r\n    color: #333;\n}\n.select-container input, .textarea-container input, .input-container input {\r\n    margin-bottom: 0;\n}\ninput[type='tel'], input[type='password'], input[type='email'], input[type='text'] {\r\n    border: 1px solid #C7C7C7;\r\n    color: #2F2F2F;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    font-size: 1.4rem;\r\n    box-shadow: none;\r\n    border-radius: 3px;\n}\n.row .row {\r\n    margin: 0 -0.9375rem;\r\n    max-width: none;\r\n    width: auto;\n}\n.row {\r\n    max-width: none;\n}\n.row {\r\n    margin: 0 auto;\r\n    max-width: 62.5rem;\r\n    width: 100%;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\nelement.style {\r\n    width: 256px;\r\n    height: 60px;\r\n    position: fixed;\r\n    visibility: hidden;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\niframe[Attributes Style] {\r\n    width: 256px;\r\n    height: 60px;\r\n    border-top-width: 0px;\r\n    border-right-width: 0px;\r\n    border-bottom-width: 0px;\r\n    border-left-width: 0px;\n}\niframe {\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: initial;\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\n#inside-button-google\r\n{\r\n color: #dd4b39;\n}\n#inside-button-facebook\r\n{\r\n  background-color: #f8fafc;\n}\n{\r\n    background-color: #007095;\n}\n.button:hover {\r\n    background-color:#d0021b;\n}\r\n", ""]);
 
 // exports
 
@@ -20459,36 +20403,6 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Dashboard.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/prueba.vue?vue&type=style&index=0&lang=css&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/prueba.vue?vue&type=style&index=0&lang=css& ***!
@@ -21103,55 +21017,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=template&id=040e2ab9&":
-/*!************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Dashboard.vue?vue&type=template&id=040e2ab9& ***!
-  \************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "subnav" }, [
-    _vm._v("\n    Dashboard \n    "),
-    _vm.user
-      ? _c("div", { staticClass: "subnav" }, [
-          _vm._v(
-            "\n    Name: " +
-              _vm._s(_vm.user.name) +
-              " \n    Email: " +
-              _vm._s(_vm.user.email) +
-              "\n    "
-          ),
-          _c(
-            "button",
-            {
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.logout($event)
-                }
-              }
-            },
-            [_vm._v("Logout")]
-          )
-        ])
-      : _vm._e()
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/prueba.vue?vue&type=template&id=207d1548&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/prueba.vue?vue&type=template&id=207d1548& ***!
@@ -21359,15 +21224,72 @@ var render = function() {
                           }
                         }),
                         _vm._v(" "),
-                        _vm._m(3),
+                        _c("div", { staticClass: "input-container empty" }, [
+                          _c(
+                            "label",
+                            { staticClass: "inline label-required" },
+                            [_vm._v("Bitte gib Deine E-Mail-Adresse ein")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.emailForgot.email,
+                                expression: "emailForgot.email"
+                              }
+                            ],
+                            attrs: {
+                              type: "email",
+                              name: "email_address",
+                              required: ""
+                            },
+                            domProps: { value: _vm.emailForgot.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.emailForgot,
+                                  "email",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("small", { staticClass: "error" }, [
+                            _vm._v("Bitte geben Sie eine E-Mail-Adresse ein.")
+                          ])
+                        ]),
                         _vm._v(" "),
                         _c(
                           "div",
                           { staticClass: "form-submit-container row" },
                           [
-                            _vm._m(4),
+                            _vm._m(3),
                             _vm._v(" "),
-                            _vm._m(5),
+                            _c("div", { staticClass: "columns small-12 " }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "button button-accent button-md",
+                                  attrs: {
+                                    type: "submit",
+                                    "data-button": "initmdp"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.forgotPassword()
+                                    }
+                                  }
+                                },
+                                [_vm._v("Zurücksetzen")]
+                              )
+                            ]),
                             _vm._v(" "),
                             _c("div", { staticClass: "columns small-12 " }, [
                               _c(
@@ -21498,9 +21420,9 @@ var render = function() {
                         )
                       ]),
                       _vm._v(" "),
-                      _vm._m(6),
+                      _vm._m(4),
                       _vm._v(" "),
-                      _vm._m(7)
+                      _vm._m(5)
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -21546,7 +21468,7 @@ var render = function() {
                 [
                   _vm.showRegister
                     ? _c("div", { staticClass: "social-buttons-container" }, [
-                        _vm._m(8),
+                        _vm._m(6),
                         _vm._v(" "),
                         _c("div", { staticClass: "row" }, [
                           _c(
@@ -21563,7 +21485,7 @@ var render = function() {
                                     "button button-xs button-facebook",
                                   attrs: {
                                     type: "button",
-                                    id: "button-fb600c585ad5465"
+                                    id: "inside-button-facebook"
                                   },
                                   on: {
                                     click: function($event) {
@@ -21572,7 +21494,11 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_c("span", [_vm._v("facebook")])]
+                                [
+                                  _vm._v(
+                                    "\r\n                                            facebook\r\n                                        "
+                                  )
+                                ]
                               )
                             ]
                           ),
@@ -21588,7 +21514,7 @@ var render = function() {
                                 "a",
                                 {
                                   staticClass: "button button-xs button-google",
-                                  attrs: { id: "button-google600c585ad5466" },
+                                  attrs: { id: "inside-button-google" },
                                   on: {
                                     click: function($event) {
                                       $event.stopPropagation()
@@ -21597,11 +21523,9 @@ var render = function() {
                                   }
                                 },
                                 [
-                                  _c("span", [
-                                    _vm._v(
-                                      "\r\n                                                Google                    \r\n                                            "
-                                    )
-                                  ])
+                                  _vm._v(
+                                    "\r\n                                            Google                    \r\n                                        "
+                                  )
                                 ]
                               )
                             ]
@@ -21646,17 +21570,13 @@ var staticRenderFns = [
               attrs: {
                 id: "button-fb600c585ad5465",
                 href: "#1",
-                "data-role": "connect-fb",
-                "data-options":
-                  '{"appId":"114118805282255","successUrl":"https:\\/\\/www.deindeal.ch\\/de\\/customer\\/account\\/sociallogin\\/","locale":"de_DE","scopeComplement":""}'
+                "data-role": "connect-fb"
               }
             },
             [
-              _c("span", [
-                _vm._v(
-                  "\r\n                                        \r\n                                        Facebook                    \r\n                                    "
-                )
-              ])
+              _vm._v(
+                "\r\n                                        Facebook                    \r\n                                "
+              )
             ]
           )
         ]
@@ -21674,19 +21594,28 @@ var staticRenderFns = [
             {
               staticClass: "button button-xs button-google",
               attrs: {
-                id: "button-google600c585ad5466",
+                id: "inside-button-google",
                 href: "#1",
-                "data-role": "connect-google",
-                "data-options":
-                  '{"clientId":"949885915158-9s6aruuf433upfbe5e6cnp9ma5raukhd.apps.googleusercontent.com","successUrl":"https:\\/\\/www.deindeal.ch\\/de\\/customer\\/account\\/sociallogin\\/"}'
+                "data-role": "connect-google"
               }
             },
             [
-              _c("span", [
-                _vm._v(
-                  "\r\n                                        Google                    \r\n                                    "
-                )
-              ])
+              _c(
+                "a",
+                {
+                  staticClass: "button button-xs button-facebook",
+                  attrs: {
+                    id: "button-fb600c585ad5465",
+                    href: "#1",
+                    "data-role": "connect-fb"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\r\n                               \r\n                                        Google   \r\n                                    "
+                  )
+                ]
+              )
             ]
           )
         ]
@@ -21702,24 +21631,6 @@ var staticRenderFns = [
         _vm._v(
           "Um Dein Passwort zurückzusetzen, gib bitte nachfolgend die E-Mail-Adresse Deines My-store.ch Kontos an und wir senden Dir einen Link, um das Passwort zu ändern."
         )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input-container empty" }, [
-      _c("label", { staticClass: "inline label-required" }, [
-        _vm._v("Bitte gib Deine E-Mail-Adresse ein")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "email", name: "email_address", required: "" }
-      }),
-      _vm._v(" "),
-      _c("small", { staticClass: "error" }, [
-        _vm._v("Bitte geben Sie eine E-Mail-Adresse ein.")
       ])
     ])
   },
@@ -21790,21 +21701,6 @@ var staticRenderFns = [
         _c("iframe", { staticStyle: { display: "none" } })
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns small-12 " }, [
-      _c(
-        "button",
-        {
-          staticClass: "button button-accent button-md",
-          attrs: { type: "submit", "data-button": "initmdp" }
-        },
-        [_vm._v("Zurücksetzen")]
-      )
-    ])
   },
   function() {
     var _vm = this
@@ -35332,7 +35228,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //import store from './store/index.js'
 
 Vue.component('login-component', __webpack_require__(/*! ./components/prueba.vue */ "./resources/js/components/prueba.vue")["default"]);
-Vue.component('dashboard-component', __webpack_require__(/*! ./components/Dashboard.vue */ "./resources/js/components/Dashboard.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -35349,93 +35244,6 @@ var app = new Vue({
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-/***/ }),
-
-/***/ "./resources/js/components/Dashboard.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/components/Dashboard.vue ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=template&id=040e2ab9& */ "./resources/js/components/Dashboard.vue?vue&type=template&id=040e2ab9&");
-/* harmony import */ var _Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=script&lang=js& */ "./resources/js/components/Dashboard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Dashboard_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Dashboard.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/Dashboard.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/Dashboard.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/Dashboard.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Dashboard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css& ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./Dashboard.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Dashboard.vue?vue&type=template&id=040e2ab9&":
-/*!******************************************************************************!*\
-  !*** ./resources/js/components/Dashboard.vue?vue&type=template&id=040e2ab9& ***!
-  \******************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Dashboard.vue?vue&type=template&id=040e2ab9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Dashboard.vue?vue&type=template&id=040e2ab9&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_040e2ab9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
 
 /***/ }),
 

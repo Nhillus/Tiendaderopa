@@ -11,16 +11,13 @@ use App\Models\UserDetails;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Passport\Client;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 
 class AuthController extends Controller
 {
 
-    public function index() {
-        return view('/welcomecopy');
-       
-    }
     //
-    public function loginC(UserLoginRequest $request)
+    public function login(UserLoginRequest $request)
     {
         $passWordGrantClient = Client::where('password_client', 1)->first();
         
@@ -39,7 +36,7 @@ class AuthController extends Controller
         $contentString = $tokenResponse->content();
         $tokenContent = json_decode($contentString, true);
 
-        $credentials = $request->only(['email','password']);
+        $credentials = $request->only(['email','password'],$remember);
         Auth::attempt($credentials);
         
         if(!empty($tokenContent['access_token'])) {
@@ -73,5 +70,13 @@ class AuthController extends Controller
             return response()->json(['succes'=>false, "message" => 'Registration Failed']);
         }
         return response()->json(['succes'=>true, "message"=> 'Registration Succeeded']);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        Session()->flush();
+
+        return redirect()->action([HomeController::class, 'index']);
     }
 }

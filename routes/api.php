@@ -14,27 +14,12 @@ use Laravel\Socialite\Facades\Socialite;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::middleware('auth:sanctum')->get('/athenticated', function () {
-    return true;
-});
-
-//Route::post('register', 'RegisterController@register');
-//Route::post('login', 'LoginController@login');
-//gitRoute::post('logout', 'LoginController@logout');
+/*----------------------------------------------------rutas sin utilizar para login social----------------------------------------------------------------------------------------------------------------*/
 
 Route::post('social/{redSocial}', 'Auth\LoginController@redirectToProvider');
 Route::get('social/{redSocial}/callback', 'Auth\LoginController@handleProviderCallback');
 
-//Route::post('oauth/{driver}', [OAuthController::class, 'redirect']);
-//Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
-
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------rutas sin utilizar para ver la informacion de los usuarios en la app----------------------------------------------------------------------------------------------------------------*/
 
 Route::get('/usuarios', 'Api\UserController@index');
 
@@ -48,17 +33,7 @@ Route::get('/usuarios/buscar', 'Api\UserController@show');
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-Route::get('/productos', 'Api\ProductController@index');
 
-Route::put('/productos/actualizar', 'Api\ProductController@update');
-
-Route::post('/productos/guardar', 'Api\ProductController@store');
-
-Route::delete('/productos/borrar/{id}', 'Api\ProductController@destroy');
-
-Route::get('/productos/buscar', 'Api\ProductController@show');
-
-/*----------------------------------------------------------del backend-separado--------------------------------------------------------------------------------------*/
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     Route::get('/user', function( Request $request ){
           return $request->user();
@@ -67,15 +42,10 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
 });
 
-
-  Route::post('/home','Api\RedirectController@index')->name('api.redirect');
- 
-  
   Route::post('/forgot-password', 'Api\ForgotPasswordController@sendResetLinkEmail')->name('api.forgot-password');
+ 
   Route::post('/reset-password', 'Api\ResetPasswordController@reset')->name('api.reset-password');
-
   
-
   Route::group(["middleware" => "auth:api" ], function () {
   
     });
@@ -99,6 +69,9 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     */
 
   Route::post('/login', 'Api\AuthController@login')->name('api.login');
+
+  Route::get('/logout', 'Api\AuthController@logout')->name('logout');
+
 
 /*|-------------------------------------------------------------------------------
   | Obtener subcategorias mediante la categoría

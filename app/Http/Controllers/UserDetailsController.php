@@ -8,20 +8,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\HomeController;
+
 
 class UserDetailsController extends Controller
 {
     public function index() 
     {   
-        /*$details = UserDetails::userDetails();
-        $subdetails = $details->map(function ($details) 
-        {
-            return collect($details->toArray())
-            ->only(['saludo', 'primer_nombre', 'primer_apellido', 
-                    'correo_eletronico', 'idioma', 'pueblo_favorito'])
-            ->all();
-        });*/
-        //dd($subdetails['0']['saludo']);
+      
         $UserDetails = UserDetails::findOrFail(Auth::user()->id);
         
         return view('details')->with('UserDetail', $UserDetails);
@@ -48,12 +42,8 @@ class UserDetailsController extends Controller
     public function update(Request $request)
     {   
         $array=$request->request->all();
-        //dd($request);
 
-        //$idUser = User::findOrFail(Auth::user()->id);
-        //dd($idUser);
         $UserDetails = UserDetails::findOrFail(Auth::user()->id);
-        //dd($UserDetails);
         $UserDetails->saludo = $request->user_prefix;
         $UserDetails->primer_nombre = $request->user_first_name;
         $UserDetails->primer_apellido = $request->user_last_name;
@@ -62,6 +52,6 @@ class UserDetailsController extends Controller
         $UserDetails->pueblo_favorito = $request->user_favorite_city;
         $UserDetails->save();
         
-         return view('home/home')
+        return redirect()->action([HomeController::class, 'index']);
 ;    }
 }
