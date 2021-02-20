@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Laravel</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/vendor/foundation/foundation.css') }}">
         <link rel="stylesheet" href="{{ asset('/vendor/normalize/normalize.css') }}">
         <link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
@@ -249,15 +250,15 @@
         @yield('scripts')
     <script>
         $(document).ready(function () {
-        
+
         /* When click New customer button */
         $('#new-customer').click(function () {
         $('#crud-modal').modal('show');
         });
-        
+
       });
-        
+
         </script>
-        
+
     </body>
 </html>

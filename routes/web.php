@@ -30,6 +30,10 @@ Route::patch('/userDetailsUpdated','UserDetailsController@update')->name('web.de
 
 Route::get('/send-reset-password', 'Api\ResetPasswordController@showResetForm')->name('password.request');
 
+Route::get('/product/{id}', function($id){
+    return view('product/product');
+});
+
 Route::prefix('panel')->group(function () {
     Route::get('', 'Panel\DashboardController@index');
 
