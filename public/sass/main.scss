@@ -1251,6 +1251,9 @@ figure {
             font-weight: 600;
         }
     }
+    @media(max-width: 768px){
+        margin-top: 20px;
+    }
 }
 
 
@@ -1269,6 +1272,11 @@ figure {
 
     .my-carousel-wrapper{
         min-height: 556px;
+
+        @media(max-width: 768px){
+            min-height: auto;
+            padding-bottom: 20px;
+        }
     }
 
     .price-box{
@@ -1330,6 +1338,29 @@ figure {
     width: 450px;
     left: auto;
     bottom: auto;
+
+    @media(max-width: 1025px){
+        width: 100%;
+    }
+}
+.nomgsmall{
+    @media(max-width: 768px){
+        margin: 0;
+    }
+
+}
+.product-details{
+    @media(max-width: 768px){
+        .content-left,
+        .aside-right,
+        .description{
+            width: 100%;
+        }
+        .content-left,
+        .description{
+            padding: 10px !important;
+        }
+    }
 }
 
 
@@ -1427,37 +1458,24 @@ figure {
     width: 100%;
     display: flex;
 
-    .image-container{
+    .zoom-main{
         width: 500px;
         height: 541px;
-        border: 1px solid #D8D8D8;
 
-        .image-preview{
-            height: 100%;
-            background-position: center center;
-            background-size: contain;
-            background-repeat: no-repeat;
+        img{
+            object-fit: contain;
+            object-position: center center;
+        }
+
+        span{
+            border: 1px solid #D8D8D8 !important;
         }
     }
 
-    .image-control{
-        margin-left: 20px;
-
-        li{
-            width: 80px;
-            cursor: pointer;
-            opacity: .5;
-            transition: opacity .3s;
-
-            &:hover{
-                opacity: 1;
-            }
-
-            img{
-                display: block;
-                object-fit: contain;
-                object-position: center center;
-            }
+    .zoom-thumb{
+        a{
+            border: 1px solid #D8D8D8 !important;
         }
     }
+
 }

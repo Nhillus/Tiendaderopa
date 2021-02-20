@@ -1,12 +1,12 @@
 @extends('overall.layout')
 @section('appHeader')
-
+<link rel="stylesheet" href="{{ asset('vendor/zoomy/zoomy.css') }}">
 @endsection
 
 @section('appBody')
     <div class="std">
         <div class="wrapper">
-            <div class="row">
+            <div class="row nomgsmall">
                 <div class="small-12 columns nopadding-left">
                     <ul class="breadcrumbs">
                         <li>
@@ -28,27 +28,19 @@
                 </div>
             </div>
             <section class="sale-details product-details clearfix">
-                <div class="sale-details_container row clearfix">
-                    <div class="small-12 medium-7 columns nomarge">
+                <div class="sale-details_container row nomgsmall clearfix">
+                    <div class="small-12 medium-7 columns nomarge content-left">
                         <div class="row">
                             <div class="columns small-12 nopadding-left">
-                                <div class="my-carousel-wrapper slider-zoom" id="slider">
-                                    <div class="slider">
-                                        <div class="image-container">
-                                            <figure class="image-preview" id="image-preview" :style="{backgroundImage: 'url('+image+')'}">
-                                            </figure>
-                                        </div>
-                                        <ul class="image-control">
-                                            <li v-for="(img, index) of images" :key="index" @click="changeImage(img)">
-                                                <img :src="img">
-                                            </li>
-                                        </ul>
+                                <div class="my-carousel-wrapper" id="product-slider">
+                                    <div class="slider" id="slider">
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="small-12 medium-5 columns">
+                    <div class="small-12 medium-5 columns aside-right">
                         <div class="scroll-section">
                             <h2 class="sale-details_title"><strong>C-Secure Kartenhalter Alu-Etui -</strong> Schwarz</h2>
 
@@ -106,7 +98,7 @@
                         </div>
                     </div>
 
-                    <div class="columns medium-7 f-left nopadding-left">
+                    <div class="columns medium-7 f-left nopadding-left description">
                         <div class="sale-details_description">
                             <h4 class="product-detail-title">Beschreibung</h4>
 
@@ -124,11 +116,12 @@
 @endsection
 
 @section('appFooter')
-    <script src="https://cdn.jsdelivr.net/npm/vue-h-zoom@0.1.1/dist/vue-h-zoom.min.js"></script>
+    <script src="{{ asset('vendor/zoomy/zoomy.js') }}"></script>
+
     <script>
-        Vue.use(VueHZoom)
+
         const app = new Vue({
-            el: '#slider',
+            el: '#product-slider',
             data: {
                 image: 'https://cosmos2.deindeal.ch/api/img?p=products/2021/2/AD49085A-2D1F-4259-8BAD-87DE8FD42BA8/8892623_1&st=11&v=1612511840',
                 images: [
@@ -139,53 +132,46 @@
                     position: 'center center',
                     size: 'contain',
                     repeat: false
+                },
+                urls: [
+                    'https://source.unsplash.com/h0s58n-8R6w/600x350',
+                    'https://source.unsplash.com/jQ2_DWnIX7Y/600x350',
+                    'https://source.unsplash.com/u4gwRbr2_j0/600x350'
+                ],
+                options: {
+                    //thumbLeft:true,
+                    //thumbRight:true,
+                    //thumbHide:true,
+                    //width:300,
+                    //height:500,
                 }
             },
             methods: {
                 changeImage(img){
                     this.image = img;
                 },
-                addZoom(target){
-                    var container = document.getElementById(target),
-                        imgsrc = container.currentStyle || window.getComputedStyle(container, false),
-                        imgsrc = imgsrc.backgroundImage.slice(4, -1).replace(/"/g, ""),
-                        img = new Image();
-
-                    img.src = imgsrc;
-                    img.onload = function(){
-                        var imgWidth = img.naturalWidth,
-                            imgHeight = img.naturalHeight,
-                            ratio = imgHeight / imgWidth,
-                            percentage = ratio * 100 + '%';
-
-                        // ZOOM ON MOUSE MOVE
-                        container.onmousemove = function (e) {
-                            var boxWidth = container.clientWidth,
-                                xPos = e.pageX - this.offsetLeft,
-                                yPos = e.pageY - this.offsetTop,
-                                xPercent = xPos / (boxWidth / 100) + '%',
-                                yPercent = yPos / (boxWidth * ratio / 100) + '%';
-
-                            Object.assign(container.style, {
-                                backgroundPosition: xPercent + ' ' + yPercent,
-                                backgroundSize: imgWidth + 'px'
-                            });
-                        };
-
-                        // RESET ON MOUSE LEAVE
-                        container.onmouseleave = function (e) {
-                            Object.assign(container.style, {
-                                backgroundPosition: 'center center',
-                                backgroundSize: 'contain',
-                                backgroundRepeat: 'no-repeat'
-                            });
-                        };
-
+                resizeContainer(container){
+                    var zoom = window.$('.zoom');
+                    if(window.$(window).outerWidth() <= 735){
+                        container[0].style.setProperty('height', container.find('img').outerHeight()+'px', 'important');
+                        zoom[0].style.setProperty('height', container.find('img').outerHeight()+'px', 'important');
+                    }else{
+                        container[0].style.setProperty('height', '541px', 'important');
+                        zoom[0].style.setProperty('height', '541px', 'important');
                     }
+                },
+                resizeImageContainer(selector){
+                    var container = window.$(selector);
+                    var self = this;
+                    window.$(window).resize(function(){
+                        self.resizeContainer(container);
+                    });
                 }
             },
             mounted(){
-                this.addZoom('image-preview');
+                window.$('#slider').zoomy(this.images,this.options);
+                this.resizeImageContainer('.slider .zoom-main');
+                this.resizeContainer(window.$('.slider .zoom-main'));
             }
         })
     </script>
