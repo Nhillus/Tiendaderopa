@@ -413,7 +413,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
                                                 </font>
                                             </div>
                                             <div class="Input__wrapper--password">
-                                                <label for="user-current-password" class="Input__label--password mandatory">
+                                                <label for="user-current-password" class="Input__label--password ">
                                                     <font style="vertical-align: inherit;">
                                                         <font style="vertical-align: inherit;">Contraseña actual</font>
                                                     </font>
@@ -426,7 +426,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
                                                 </div>
                                             </div>
                                             <div class="Input__wrapper--password">
-                                                <label for="user-new-password" class="Input__label--password mandatory">
+                                                <label for="user-new-password" class="Input__label--password ">
                                                     <font style="vertical-align: inherit;">
                                                         <font style="vertical-align: inherit;">Nueva contraseña</font>
                                                     </font>
@@ -440,7 +440,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
                                                     </div>
                                                 </div>
                                                 <div class="Input__wrapper--password">
-                                                    <label for="user-new-password-verification" class="Input__label--password mandatory">
+                                                    <label for="user-new-password-verification" class="Input__label--password">
                                                         <font style="vertical-align: inherit;">
                                                             <font style="vertical-align: inherit;">Confirme la nueva contraseña</font>
                                                         </font>

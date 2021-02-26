@@ -36,7 +36,7 @@ class AuthController extends Controller
         $contentString = $tokenResponse->content();
         $tokenContent = json_decode($contentString, true);
 
-        $credentials = $request->only(['email','password'],$remember);
+        $credentials = $request->only(['email','password']);
         Auth::attempt($credentials);
         
         if(!empty($tokenContent['access_token'])) {

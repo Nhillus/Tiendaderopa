@@ -1,7 +1,12 @@
 @extends('overall.layout')
 <style>
+    .row-outside{
+        width: 600px;  
+        max-width: 100%;
+        background-color: black;
+    }
     .modal-xl {
-    max-width: 50% !important;
+    max-width: 60% !important;
     }
 
 </style>
@@ -47,7 +52,7 @@
                         @foreach($promotions as $promotion)
                         <li>
                             <article class="sale standard-sale phantom-container timer-hidden">
-                                <a href="#" class="teaser seen">
+                                <a href="{{ url( $promotion->id.'/product/list')}}" class="teaser seen">
                                     <div class="sale-media media-552x224">
                                         <figure>
                                             <img src="{{ $promotion->image }}" alt="">
@@ -89,15 +94,8 @@
         <div class="modal fade" id="crud-modal" aria-hidden="true" >
             <div class="modal-dialog modal-xl" style="width:90%">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="customerCrudModal"></h4>
-                    </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="small-12 medium-centered columns a-center">
-                                <login-component/>
-                            </div>
-                        </div>
+                            <login-component/>
                     </div>
                 </div>
             </div>

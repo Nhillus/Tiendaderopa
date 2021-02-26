@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be17ca344ab82785f2ac0e40ece81ad3",
+    "content-hash": "af246229090bf90f294424df6948976a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3536,6 +3536,47 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "securionpay/securionpay-php",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/securionpay/securionpay-php.git",
+                "reference": "663e407852727153634b93c459bf1c6a228d6d55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/securionpay/securionpay-php/zipball/663e407852727153634b93c459bf1c6a228d6d55",
+                "reference": "663e407852727153634b93c459bf1c6a228d6d55",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SecurionPay\\": "lib/SecurionPay/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SecurionPay",
+                    "homepage": "https://securionpay.com/"
+                }
+            ],
+            "description": "SecurionPay PHP Library",
+            "homepage": "https://securionpay.com/",
+            "support": {
+                "issues": "https://github.com/securionpay/securionpay-php/issues",
+                "source": "https://github.com/securionpay/securionpay-php/tree/master"
+            },
+            "time": "2016-11-02T13:15:42+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

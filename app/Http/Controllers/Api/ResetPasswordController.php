@@ -44,7 +44,7 @@ class ResetPasswordController extends Controller
 
     protected function credentials(Request $request)
     {
-        dd($request);
+        //dd($request);
         return $request->only(
             'password', 'password_confirmation', 'token'
         );

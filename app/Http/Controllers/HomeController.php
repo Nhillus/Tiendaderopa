@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Promotion;
 
 class HomeController extends Controller
 {
@@ -27,4 +28,6 @@ class HomeController extends Controller
         $promotions = \App\Promotion::all();
         return view('home.home')->with('promotions', $promotions);
     }
+
+   
 }

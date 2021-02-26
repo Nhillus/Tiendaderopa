@@ -30,6 +30,16 @@ Route::patch('/userDetailsUpdated','UserDetailsController@update')->name('web.de
 
 Route::get('/send-reset-password', 'Api\ResetPasswordController@showResetForm')->name('password.request');
 
+Route::get('/product', 'ProductController@index')->name('show.product');
+
+Route::get('{id}/product/list', 'ProductListController@index')->name('find.brand.product');
+
+Route::get('/product/list', 'ProductListController@index')->name('show.list.product');
+
+Route::post('/secure-pay', 'Api\SecurionPayController@pagar')->name('api.securepay');
+
+
+
 Route::prefix('panel')->group(function () {
     Route::get('', 'Panel\DashboardController@index');
 

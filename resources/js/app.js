@@ -1,4 +1,4 @@
-
+//import User from '../js/store/user ' 
 
 require('./bootstrap');
 

@@ -47,6 +47,8 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
   Route::post('/reset-password', 'Api\ResetPasswordController@reset')->name('api.reset-password');
   
   Route::group(["middleware" => "auth:api" ], function () {
+
+  //Route::post('/secure-pay', 'Api\SecurionPayController@pagar')->name('api.securepay');
   
     });
   /*|-------------------------------------------------------------------------------

@@ -10,6 +10,12 @@
     background-color: #3B5998;
     text-decoration:none;
 }
+.button-google{
+    background-color:#dd4b39;
+}
+.button-facebook, .button-google {
+    margin: 5px;
+}
 .button-facebook, .button-twitter, .button-google, .button-instagram {
     vertical-align: bottom;
 }
@@ -43,25 +49,15 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
     padding: 0;
 }
 .row {
-    max-width: none;
+    max-width: 100%;
     flex-wrap: nowrap;
 }
 .row {
     margin: 0 auto;
-    max-width: 62.5rem;
+   
     width: 100%;
 }
-.row:before, .row:after {
-    content: " ";
-    display: table;
-}
-.row:after {
-    clear: both;
-}
-.row:before, .row:after {
-    content: " ";
-    display: table;
-}
+
 .reveal-modal .column, .reveal-modal .columns {
     min-width: 0;
 }
@@ -71,8 +67,6 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
 }
 .column, .columns {
     position: relative;
-   
-    
     float: left;
     width:34%;
 }
@@ -86,6 +80,13 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
     height: 40px;
     line-height: 35px;
     margin-bottom: 10px;
+    font-size:14px;
+}
+.btn-lebuya:hover {
+    background-color:#d0021b;
+}
+.btn-lebuya:active {
+    background-color:#d0021b;
 
 }
 .btn-fake-lebuya
@@ -98,12 +99,13 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
     line-height: 35px;
     border: 1px solid #c1203d;
 }
-.container-form {
-    padding: 0 40px;
-    display:grid;
-    
+.btn-fake-lebuya:hover {
+    background-color:#d0021b;
 }
-
+.container-form {
+    display:grid;
+    margin: 0px 35px;
+}
 #login
 {   
     border-right-color: #d3d3d3;
@@ -146,9 +148,7 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
 select {
 max-width: 50%; /* La clave para cambiar la dimension del container select esta aqui */
 width:auto;
-
 }
-
 .panel_connection .hide_register .cityregister {
     border: 1px solid #D4D4D4;
     background-color: #F8F8F8;
@@ -156,20 +156,24 @@ width:auto;
     padding: 5px 15px ;
     }
 
+.offer {
+     align: left;  
+}
+
 .panel_connection .hide_register .offer {
     font-size: 10px;
     font-weight: 600;
 }
-
 .row .row {
-    
     max-width: 100%;
     width: 100%;
+}
+.small-4 {
+    margin: 0px -25px;
 }
 .panel_connection .hide_register .small-4 {
     width: auto;
 }
-
 .panel_connection .hide_register .small-4 {
     width: auto;
 }
@@ -186,15 +190,23 @@ width:auto;
     vertical-align: top;
     margin-right: 0px;
 }
+span {
+    font-size:14px;
+
+}
 .panel_connection .hide_register .radio-container label span {
     margin-left: 0px;
     vertical-align: top;
     text-decoration:none;
 }
-
 .row .small-12 span:hover{
- color:#f8fafc; 
- text-decoration:none;
+    text-decoration:none;
+}
+
+.social-buttons-container_description
+{
+    margin:10px;
+    font-size: 13px;
 }
 .panel_connection .hide_login .social-buttons-container_description {
     padding-top: 20px;
@@ -206,21 +218,23 @@ width:auto;
     margin-right:1px;
 }
 label.inline {
-    margin: 0 0 1rem 0;
+    margin: 1rem 0 1rem 0;
     padding: 0.5625rem 0;
 }
 label {
     font-size: 1.2rem;
 }
 .radio-container label>input {
-    height: 20px;
-    width: 20px;
+    height: 13px;
+    width: 15px;
+}
+
+input[type="radio"] {
+    size:20px;
 }
 
 input[type="file"], input[type="checkbox"], input[type="radio"], select {
     margin: 0 0 1rem 0;
-    
-    
 }
 
 input[type=checkbox], input[type=radio] {
@@ -239,7 +253,8 @@ button, input, optgroup, select, textarea {
 }
 
 .resetpassword-container{
-    padding: 0px 115px;
+    text-align: center;
+    margin: 15px 0px;
     
     
 }
@@ -250,7 +265,7 @@ button, input, optgroup, select, textarea {
     -ms-transition: text-shadow 0.2s linear;
     -o-transition: text-shadow 0.2s linear;
     transition: text-shadow 0.2s linear;
-    font-size:16px;
+    font-size:12px;
     
 }
 .Other:hover{
@@ -323,6 +338,7 @@ button, input, optgroup, select, textarea {
 
 .button-facebook, .button-twitter, .button-google, .button-instagram {
     vertical-align: bottom;
+    
 }
 
 form .row .row .column, form .row .row .columns {
@@ -460,8 +476,9 @@ input[type='tel'], input[type='password'], input[type='email'], input[type='text
     max-width: none;
 }
 .row {
-    margin: 0 auto;
-    max-width: 62.5rem;
+    margin: 10 auto;
+    max-width: 100rem;
+
     width: 100%;
 }
 div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
@@ -518,13 +535,14 @@ iframe {
 {
   background-color: #f8fafc;   
 }
-{
-    background-color: #007095;
-}
-
 .button:hover {
     background-color:#d0021b;
 
+}
+.label-asterico
+{
+    color:#df0000;
+    font-size:15px;
 }
 </style>
 
@@ -532,22 +550,22 @@ iframe {
 <form>
     <div class="pannel pannel_connection">
         <div class="row">
-            <div id="login" class="colums small-12 small-centered medium-6">
+            <div id="login" class="colums small-12 small-centered medium-8">
                 <div class="container-form">
                     <div class="mb-3">
                         <h2 class="panel_conection__title">Bereits Lebuya-Mitglied? </h2>
-                        <label v-if="showLogin" for="email" class="form-label">Deine E-Mail Addresse</label>
+                        <label v-if="showLogin" for="email" class="form-label">Deine E-Mail Addresse</label>  <label v-if="showLogin" for="email" class="label-asterico">*</label>
                         <input v-if="showLogin" type="email" class="form-control" v-model="login.email" id="exampleInputEmail" aria-describedby="emailHelp" >
                     </div>
                     <div class="mb-3">
-                        <label v-if="showLogin" for="exampleInputPassword1" class="form-label">Passwort</label>
+                        <label v-if="showLogin" for="exampleInputPassword1" class="form-label">Passwort</label> <label v-if="showLogin" for="email" class="label-asterico">*</label>    
                         <input v-if="showLogin" type="password" class="form-control" v-model="login.password" id="exampleInputPassword">
                     </div>
                     <button v-if="showLogin" type="button" class="btn btn-lebuya"@click.prevent="loginUser()">Anmelden</button>
                     <button v-if="showRegister" class="btn btn-fake-lebuya" @click.prevent="visualizarLogin()">Anmelden </button>
                       <div class="mb-3 form-check">
                           <div v-if="showLogin" class="resetpassword-container">
-                            <label @click.prevent="visualizarOlvidoContraseña()"class="Other" >passwort vergessen?</label>
+                            <label @click.prevent="visualizarOlvidoContraseña()"class="Other" >Passwort vergessen?</label>
                         </div>
                     </div>
             <div class="row">
@@ -557,20 +575,15 @@ iframe {
                             <span>Oder Anmeldung via</span>
                         </p>
                         <div class="row">
-                            <div id="facebookbutton" class="small-12 medium-6 columns">
                                 <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
                                         Facebook                    
                                 </a>
-                            </div>
-                            <div id="googlebutton" class="small-12 medium-6 columns">
-                                <a id="inside-button-google" class="button button-xs button-google" href="#1" data-role="connect-google" >
-                                    <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
+                            
+                                <a  class="button button-xs button-google" href="#1" data-role="connect-google" >
                                
                                         Google   
-                                    </a>
                 
                                 </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -610,19 +623,19 @@ iframe {
                     <div class="container-form">
                         <div class="mb-3">
                             <h2  class="panel_conection__title">Neu Bei Lebuya? </h2>
-                            <label v-if="showRegister" for="exampleInputEmail1" class="form-label">Deine E-Mail Addresse</label>
+                            <label v-if="showRegister" for="exampleInputEmail1" class="form-label">Deine E-Mail Addresse</label> <label v-if="showRegister" for="email" class="label-asterico">*</label>
                             <input v-if="showRegister" type="email" class="form-control" id="exampleInputEmail1" v-model="form.email" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label v-if="showRegister" for="exampleInputPassword1" class="form-label">Passwort</label>
+                            <label v-if="showRegister" for="exampleInputPassword1" class="form-label">Passwort</label> <label v-if="showRegister" for="email" class="label-asterico">*</label>
                             <input v-if="showRegister" type="password" class="form-control" v-model="form.password" id="exampleInputPassword1">
                         </div>
                        
                         <div class="cityregister ">
                             <div v-if="showRegister" class="select-container not-empty ">
-                                <p class="offer">
+                                <div class="offer">
                                         Personalisiere Dein Angebot            
-                                </p>
+                                </div>
                                 <select id="ciudades" name="my_deals_default_region" title="Ihre Region" class="register-cityselect validate-select required-entry chosen" >
                                     <option id="city_disabled" value>Wähle deine Lieblingsstadt</option>
                                     <option value="basel">Basel</option>
@@ -653,7 +666,7 @@ iframe {
                                     </div>
                                 </div>
                              </div>
-                        <button v-if="showRegister" type="button" class="btn btn-lebuya" @click.prevent="saveForm()"  >Registrieren</button>
+                        <button v-if="showRegister" type="button" class="btn btn-lebuya" @click.prevent="saveForm()">Registrieren</button>
                         <button v-if="showLogin" class="btn btn-fake-lebuya" @click.prevent="visualizarRegistro()">Registrieren </button>
                         </div>
                     </div>
@@ -663,19 +676,14 @@ iframe {
                                 <p class="social-buttons-container_description">
                                     <span>Oder Anmeldung via</span>
                                 </p>
-                                <div class="row">
-                                    <div id="facebookbutton" class="small-12 medium-6 columns">
-                                        <a type="button" id="inside-button-facebook" class="button button-xs button-facebook" @click.stop="socialLogin('facebook')">
-                                            facebook
-                                        </a>
-                                    </div>
-                                    <div id="googlebutton" class="small-12 medium-6 columns">
-                                        <a id="inside-button-google" class="button button-xs button-google" @click.stop="socialLogin('google')">
-                                            Google                    
-                                        </a>
-                                    </div>
-                                
-                                </div> 
+                               <div class="row">
+                                <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
+                                        Facebook                    
+                                </a>
+                                <a  class="button button-xs button-google" href="#1" data-role="connect-google" >
+                                        Google   
+                                </a>
+                            </div>
                             </div>
                         </div>
                     </div> 
@@ -736,8 +744,13 @@ export default {
         loginUser()
         {
         axios.post('/api/login',this.login).then(() =>{
-          //  this.$router.push({name: "Dashboard"}); esto debe ser cambiado a routes de laravel mediante otro post a una ruta en web
-          window.location.href = '/';
+          if(response.message ="Unauthenthicated")
+          {
+            //muestra un aviso de error de inicio 
+          }
+          else {
+            window.location.href = '/'
+          }
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })

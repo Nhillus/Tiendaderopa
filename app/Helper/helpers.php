@@ -67,7 +67,9 @@ function percentOfValue($value, $percent){
  */
 function get_files_in_dir(string $dir, string $types = '') : array {
     $array = array();
+    //dd($dir);
     if (\is_dir($dir)) {
+       // dd('entre');
       foreach (\glob($dir . '*' . $types) as $file) {
         $array[] = $file;
       }
@@ -93,4 +95,8 @@ function getFilesWithName(string $dir, string $types = ''){
         ];
     }
     return $result;
+}
+
+ function fullDirectory($dir){
+    return \str_replace('\\', '/', public_path($dir))  . '/';
 }
