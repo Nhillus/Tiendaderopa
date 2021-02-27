@@ -1,4 +1,5 @@
 @extends('panel.overall.layout')
+@if(Auth::check() && Auth::user()->id_rol==1)
 
 @section('head')
 <link rel="stylesheet" href="{{ asset('vendor/datatables/datatables/css/dataTables.bootstrap4.min.css') }}">
@@ -91,3 +92,7 @@
     });
 </script>
 @endsection
+@else 
+<script>window.location = "/error404";</script>
+@endif
+

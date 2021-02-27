@@ -1,4 +1,6 @@
 @extends('panel.overall.layout')
+@if(Auth::check() && Auth::user()->id_rol==1)
+
 
 @section('head')
 <link rel="stylesheet" href="{{ asset('vendor/dropify/css/dropify.min.css') }}">
@@ -76,3 +78,6 @@
 </script>
 <script src="{{ asset('admin/jscontrollers/subcategories/create.js') }}"></script>
 @endsection
+@else 
+<script>window.location = "/error404";</script>
+@endif

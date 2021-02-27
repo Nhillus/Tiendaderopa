@@ -1,5 +1,6 @@
 @extends('panel.overall.layout')
 
+@if(Auth::check() && Auth::user()->id_rol==1)
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
@@ -11,3 +12,6 @@
     </div>
 </section>
 @endsection
+@else 
+<script>window.location = "/error404";</script>
+@endif

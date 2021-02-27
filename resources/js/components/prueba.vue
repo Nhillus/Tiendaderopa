@@ -744,13 +744,8 @@ export default {
         loginUser()
         {
         axios.post('/api/login',this.login).then(() =>{
-          if(response.message ="Unauthenthicated")
-          {
             //muestra un aviso de error de inicio 
-          }
-          else {
             window.location.href = '/'
-          }
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })

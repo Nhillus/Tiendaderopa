@@ -38,10 +38,16 @@ Route::get('/product/list', 'ProductListController@index')->name('show.list.prod
 
 Route::post('/secure-pay', 'Api\SecurionPayController@pagar')->name('api.securepay');
 
+Route::get('/error404', 'error\Error404Controller@redireccion')->name('error.404');
+
+Route::get('/paypal/pay', 'Paypal\PaymentController@payWithPayPal')->name('web.payPaypal');
+
+Route::get('/paypal/status', 'Paypal\PaymentController@payPalStatus');
+
 
 
 Route::prefix('panel')->group(function () {
-    Route::get('', 'Panel\DashboardController@index');
+    Route::get('', 'Panel\DashboardController@index')->name("web.panel");
 
     Route::resources([
         'promotions' => Panel\PromotionsController::class,

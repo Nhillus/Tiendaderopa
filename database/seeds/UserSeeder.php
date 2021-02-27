@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 
 class UserSeeder extends Seeder
@@ -22,6 +23,8 @@ class UserSeeder extends Seeder
             'password'=> Hash::make('lebuyaadmin'),
             'id_rol' => 1,
             'remember_token'=> Str::random(60), 
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }

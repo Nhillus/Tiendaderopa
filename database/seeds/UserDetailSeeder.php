@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class UserDetailSeeder extends Seeder
 {
@@ -25,7 +27,9 @@ class UserDetailSeeder extends Seeder
             'correo_eletronico' => 'lebuya@gmail.com',
             'idioma'=> 'German',
             'pueblo_favorito' => 'zurich', 
-            'user_id' => $user
+            'user_id' => $user,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
 }
