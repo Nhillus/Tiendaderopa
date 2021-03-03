@@ -126,6 +126,6 @@ class Promotion extends Model
         if(null != $image)
             return asset(self::DIRECTORY . $id . '/' . $image);
 
-        return null;
+        return asset(self::DIRECTORY . 'default.jpg');;
     }
 }

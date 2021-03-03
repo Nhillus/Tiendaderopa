@@ -13,17 +13,17 @@ use App\Http\Controllers\HomeController;
 
 class UserDetailsController extends Controller
 {
-    public function index() 
-    {   
-      
+    public function index()
+    {
+
         $UserDetails = UserDetails::findOrFail(Auth::user()->id);
-        
+
         return view('details')->with('UserDetail', $UserDetails);
     }
-    
-    
-    
-    
+
+
+
+
     public function store(Request $request)
     {
         $data = request()->all();
@@ -36,11 +36,11 @@ class UserDetailsController extends Controller
             'idioma' => $data['idioma'],
             'pueblo_favorito' => $data['pueblo_favorito'],
         ]);
-        
+
     }
 
     public function update(Request $request)
-    {   
+    {
         $array=$request->request->all();
 
         $UserDetails = UserDetails::findOrFail(Auth::user()->id);
@@ -51,7 +51,7 @@ class UserDetailsController extends Controller
         $UserDetails->idioma = $request->user_language;
         $UserDetails->pueblo_favorito = $request->user_favorite_city;
         $UserDetails->save();
-        
+
         return redirect()->action([HomeController::class, 'index']);
 ;    }
 }

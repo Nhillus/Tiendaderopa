@@ -71,7 +71,72 @@ input[type='text'] {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+input[type="radio"] {
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    display: inline;
+    outline: none;
+    border: 0;
+}
 
+
+input[type="checkbox"] {
+    position: relative;
+    margin-right: 5px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    outline: none;
+    margin-bottom: 0;
+}
+
+label{
+    font-size: 1.2rem;
+}
+
+.select-container,
+.textarea-container,
+.input-container {
+    padding-bottom: 20px;
+    position: relative;
+
+    input{
+        margin-bottom: 0;
+    }
+}
+
+.pac-target-input:not(:-webkit-autofill) {
+    animation-name: endBrowserAutofill;
+}
+
+.pac-target-input:not(:-webkit-autofill) {
+    animation-name: endBrowserAutofill;
+}
+
+.radio-container {
+    height: 40px;
+
+    .label{
+        display: inline-block;
+        margin-right: 20px;
+
+        & > input{
+            height: 25px;
+        width: 25px;
+        }
+
+        span {
+            margin-left: 15px;
+        }
+    }
+}
 .button {
     font-size: 1.8rem;
     text-decoration: none;
@@ -88,6 +153,27 @@ input[type='text'] {
     height: 50px;
     line-height: 50px;
     padding: 0 20px;
+}
+
+
+.button-ghost {
+    font-size: 2.4rem;
+    text-decoration: none;
+    outline: none;
+    height: auto;
+    top: auto;
+    width: 100%;
+    font-family: 'Open Sans',arial,sans-serif;
+    font-weight: 400;
+    border: 0;
+    background-color: transparent;
+    color: #2F2F2F;
+
+    &:hover {
+        color: #C01C3C;
+        background-color: transparent;
+        text-decoration: none;
+    }
 }
 
 .button-accent{
@@ -900,7 +986,23 @@ select.select-xl {
 	    color: #2F2F2F;
 	}
 }
+.table {
+    border: 0;
+    margin-bottom: 0;
 
+    tr{
+        border-bottom: 1px solid #D8D8D8;
+
+        td {
+            font-size: 1.4rem;
+            color: #2F2F2F;
+            line-height: normal;
+            padding: 10px 5px;
+            font-family: 'Open Sans',arial,sans-serif;
+            font-weight: 300;
+        }
+    }
+}
 .sale-media {
     position: relative;
     background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/ajax-loader.gif');
@@ -1478,4 +1580,260 @@ figure {
         }
     }
 
+}
+
+.checkout-container{
+    @media screen and (min-width: 40.063em) and (max-width: 64em) {
+        padding: 15px;
+    }
+
+    .steps{
+        border: 1px solid #4A90E2;
+        border-radius: 2px;
+        margin-bottom: 10px;
+
+
+
+        @media only screen and (max-width: 40em)  {
+            margin: 0;
+        }
+
+        ol {
+            counter-reset: step-number;
+            list-style-type: none;
+            margin: 0;
+            text-align: center;
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            font-size: 1.6rem;
+
+
+            li{
+                position: relative;
+                border: none;
+                font-style: italic;
+                color: #4A90E2;
+                vertical-align: middle;
+                display: table-cell;
+                text-align: center;
+                padding: 10px;
+
+                & > * {
+                    display: inline-block;
+                }
+
+
+                span {
+                    position: relative;
+                    z-index: 10;
+                    display: block;
+                    line-height: 1;
+                    font-style: normal;
+                    font-family: 'Helvetica Neue','Helvetica',Helvetica,Arial,sans-serif;
+
+                    &::before{
+                        content: counter(step-number);
+                        counter-increment: step-number;
+                        width: 4rem;
+                        height: 4rem;
+                        display: inline-block;
+                        margin: 0 20px 0 auto;
+                        line-height: 4rem;
+                        color: #4A90E2;
+                        text-align: center;
+                        border: 1px solid #4A90E2;
+                        border-radius: 50%;
+                    }
+
+                }
+
+                @media only screen and (max-width: 40em) {
+                    padding: 10px 5px;
+
+                    span{
+                        &::before{
+                            content: '';
+                            display: none;
+                        }
+                    }
+                }
+
+                &.current{
+                    color: white;
+                    border: none;
+                    border-radius: 2px;
+                    background-color: #4A90E2;
+
+                    span{
+                        &::before{
+                            border-color: white;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+.checkout-container {
+    .sale_title {
+        font-size: 1.6rem;
+    }
+    .checkout_title{
+        font-weight: bold;
+        font-size: 2rem;
+        color: #2f2f2f;
+    }
+
+    .checkout_subtitle {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #2f2f2f;
+    }
+
+    .checkout_expiration-time {
+        margin: 0 auto;
+        font-size: 1.6rem;
+        font-style: italic;
+        color: #C01C3C;
+    }
+
+    .panel{
+        background-color: transparent;
+        margin-bottom: 0;
+        margin-top: 20px;
+    }
+
+    .checkout{
+        .sale_title {
+            white-space: inherit;
+            font-weight: 600;
+
+            @media only screen and (max-width: 40em)  {
+                line-height: 1.4rem;
+                margin-bottom: .5rem;
+            }
+        }
+
+    }
+
+    .cart-content__items,
+    .cart-content__items {
+        .item,
+        .error{
+            margin: .4rem 0;
+        }
+
+        .product_name {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #2F2F2F;
+        }
+
+    }
+
+    .button-delete{
+        padding: 0 10px;
+        font-size: 2rem;
+    }
+
+    .price-box {
+        margin-bottom: 0;
+
+        tr {
+            border-bottom: 0;
+            background-color: #FFF;
+
+        }
+        .table{
+            width: 100%;
+
+        }
+        .price-box-accent {
+            color: #C01C3C;
+            font-size: 1.4rem;
+            line-height: 1;
+            font-family: 'Open Sans',arial,sans-serif;
+            font-weight: 300;
+        }
+
+        td {
+            padding: 2px 0;
+        }
+    }
+
+    .panel {
+        background-color: transparent;
+        margin-bottom: 0;
+        margin-top: 20px;
+
+
+        &.panel.address-shipping-billing  {
+            .shipping.customer-has-addresses{
+                min-height: 356px;
+
+                @media screen and (max-width: 40em) {
+                    min-height: 336px;
+                }
+
+                @media screen and (min-width: 40.063em) and (max-width: 64em) {
+                    min-height: 334px;
+                }
+            }
+
+
+            .form-section {
+                p.note {
+                    font-size: 1.2rem;
+                    margin-bottom: 0;
+                }
+            }
+
+            form.address {
+                .input-container {
+                    .columns{
+                        display: flex;
+                        min-height: 40px;
+
+                        label{
+                            align-items: center;
+                            display: flex;
+                            line-height: inherit;
+
+                            span{
+                                padding: 0 4px;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    select.address {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .button-set{
+        margin-top: 30px;
+
+        .button {
+            margin: 0;
+        }
+    }
+}
+
+.my-checkbox-container {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    span:first-child{
+        margin-right: 3px;
+    }
 }
