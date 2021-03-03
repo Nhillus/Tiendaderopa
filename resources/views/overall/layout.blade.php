@@ -19,7 +19,7 @@
     <body>
         <header class="header" id="header">
             <div class="header_background">
-                <div class="slider_carousel" id="carousel">
+                <div class="slider_carouselheader-title" id="carousel">
                     <agile :nav-buttons="false" :autoplay-speed="5000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" :dots="false" autoplay="autoplay">
 
                         <img class="slide" src="https://images.unsplash.com/photo-1509549649946-f1b6276d4f35?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ"/>
@@ -79,7 +79,7 @@
                     </button>
                     <h1 class="header-title">
                         <a href="{{url('/')}}">
-                            <img src="https://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/logo/logo-white-dd.png" class="logo">
+                            <img src="{{asset('img/lebuya/LebuyaLogo.png')}}"class="logo">
                         </a>
                     </h1>
                     <div class="navigation_top-menu_search-cart-block">

@@ -1,13 +1,5 @@
 @extends('overall.layout')
 <style>
-    .row-outside{
-        width: 600px;  
-        max-width: 100%;
-        background-color: black;
-    }
-    .modal-xl {
-    max-width: 60% !important;
-    }
 
 </style>
 @section('appBody')
@@ -90,9 +82,9 @@
             </div>
         </div>
     </div>
-    <div id="app">
+    <div id="app" >
         <div class="modal fade" id="crud-modal" aria-hidden="true" >
-            <div class="modal-dialog modal-xl" style="width:90%">
+            <div class="modal-dialog modal-xl" id="modal-xl" >
                 <div class="modal-content">
                     <div class="modal-body">
                             <login-component/>

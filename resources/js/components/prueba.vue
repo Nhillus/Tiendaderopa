@@ -363,7 +363,6 @@ form .row .row .column, form .row .row .columns {
     width:100%;
     color: #f8fafc;
     text-decoration:none;
-    max-width:80%;
     
 }
 
@@ -544,11 +543,23 @@ iframe {
     color:#df0000;
     font-size:15px;
 }
+
+@media only screen and (max-width: 60em)
+{
+    .row{ 
+        display:block;
+
+    }
+    #login{
+        height:auto;
+    }
+}
+
 </style>
 
 <template>
 <form>
-    <div class="pannel pannel_connection">
+    <div id="App" class="pannel pannel_connection">
         <div class="row">
             <div id="login" class="colums small-12 small-centered medium-8">
                 <div class="container-form">
@@ -567,7 +578,7 @@ iframe {
                           <div v-if="showLogin" class="resetpassword-container">
                             <label @click.prevent="visualizarOlvidoContraseña()"class="Other" >Passwort vergessen?</label>
                         </div>
-                    </div>
+                </div>
             <div class="row">
                 <div class="small-12 medium-centered columns a-center">
                     <div v-if="showLogin" class="social-buttons-container">
@@ -584,6 +595,7 @@ iframe {
                                         Google   
                 
                                 </a>
+                        
                         </div>
                     </div>
                 </div>
@@ -680,7 +692,7 @@ iframe {
                                 <a id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
                                         Facebook                    
                                 </a>
-                                <a  class="button button-xs button-google" href="#1" data-role="connect-google" >
+                                <a id="button-fb600c585ad5465" class="button button-xs button-google" href="#1" data-role="connect-google" >
                                         Google   
                                 </a>
                             </div>
@@ -795,7 +807,7 @@ export default {
                     });
                     this.isProcessing = false;
                 }
-    
+        
     }
   
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+    <fullnamespace>Klikandpay\Klikandpay</fullnamespace>
+    <descriptive locale="en_US">
+        <title>Payment method Klik&amp;Pay.</title>
+        <subtitle>Privileged by clients Worldwide, Klik &amp; Pay is a global secured gate-away payment solution accessible via CPU, tablet or smartphone.
+Partner of both International Banks and Acquiring Institution, Klik &amp; Pay offers you the possibility of simply choose your method of payment as well as adapting to your business needs no matter your area of expertise.</subtitle>
+    </descriptive>
+    <descriptive locale="fr_FR">
+        <title>Méthode de paiement Klik&amp;Pay.</title>
+        <subtitle>Privilégiée par les clients du monde entier, Klik &amp; Pay est une solution globale de paiement sécurisé accessible sur PC, Tablette ou Smartphone. Partenaire de banques et d’acquéreurs internationaux, Klik &amp; Pay offre à vos clients la possibilité de choisir leur moyen de paiement en toute simplicité et s’adapte à vous quelque soit votre activité.</subtitle>
+    </descriptive>
+    <version>1.0</version>
+    <author>
+        <name>Christophe Laffont</name>
+        <email>info@thelia.net</email>
+    </author>
+    <type>payment</type>
+    <thelia>2.0.0</thelia>
+    <stability>other</stability>
+</module>

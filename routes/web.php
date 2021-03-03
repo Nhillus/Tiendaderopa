@@ -44,6 +44,11 @@ Route::get('/paypal/pay', 'Paypal\PaymentController@payWithPayPal')->name('web.p
 
 Route::get('/paypal/status', 'Paypal\PaymentController@payPalStatus');
 
+Route::get('/klikandpay','klikandpay\klikandpaycontroller@index');
+
+Route::post('/klikandpaypay','klikandpay\klikandpaycontroller@pagar')->name('web.klikandpay.pay');
+
+Route::get('/address', 'AddresssController@index')->name('web.address');
 
 
 Route::prefix('panel')->group(function () {

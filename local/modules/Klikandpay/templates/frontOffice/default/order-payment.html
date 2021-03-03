@@ -1,0 +1,64 @@
+{extends file="layout.tpl"}
+
+{* Security *}
+{block name="no-return-functions" prepend}
+    {check_auth context="front" role="CUSTOMER" login_tpl="login"}
+{/block}
+
+{block name="meta"}
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+{/block}
+
+{* Body Class *}
+{block name="body-class"}page-order-payment{/block}
+
+{* Breadcrumb *}
+{block name='no-return-functions' append}
+    {$breadcrumbs = [
+        ['title' => {intl l="Cart"}, 'url'=>{url path="/cart"}],
+        ['title' => {intl l="Secure Payment"}, 'url'=>{url path="/order/invoice"}]
+    ]}
+{/block}
+
+{block name="main-content"}
+<div class="main">
+    <article class="col-main clearfix" role="main" aria-labelledby="main-label">
+
+        <h1 id="main-label" class="page-header">{config key='store_name'} -  {intl l='Secure payment'}</h1>
+
+        {include file="misc/checkout-progress.tpl" step="last"}
+
+        <div id="payment-success" class="panel" style="display:block">
+            <div class="panel-heading">
+                <h3 class="panel-title">{intl l="Payment"}</h3>
+            </div>
+            <div class="panel-body">
+                {* KLIK & PAY: KEEP THE FORM *}
+                <form method="post" id="frm_payment" action="{$action}" accept-charset="UTF8">
+                    {foreach from=$fields key=key item=value}<input type="hidden" name="{$key}" value="{$value}">{/foreach}
+                    <button type="submit" class="btn btn-primary">{intl l="Click here to send your payment"}</button>
+                </form>
+            </div>
+        </div>
+    </article>
+</div>
+{/block}
+
+{block name="javascript-initialization"}
+<script>
+// Automatically submit the form
+$(function() {
+    $('#frm_payment').each(function(){
+        // Display loader icon
+        $(this).addClass('loader').show();
+
+        // Submit the formulaire
+        $(this).submit();
+    });
+});
+</script>
+{/block}
+
+

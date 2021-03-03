@@ -2653,6 +2653,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2759,7 +2771,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n.button-facebook {\r\n    background-color: #3B5998;\r\n    text-decoration:none;\n}\n.button-google{\r\n    background-color:#dd4b39;\n}\n.button-facebook, .button-google {\r\n    margin: 5px;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\n.button {\r\n    font-size: 1.8rem;\r\n    text-decoration: none;\r\n    outline: none;\r\n    height: auto;\r\n    top: auto;\r\n    width: 100%;\r\n    font-family: 'Open Sans',arial,sans-serif;\r\n    font-weight: 400;\r\n    border-radius: 3px;\r\n    font-weight: normal;\r\n    height: 50px;\r\n    line-height: 50px;\r\n    padding: 0 20px;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n.row {\r\n    max-width: 100%;\r\n    flex-wrap: nowrap;\n}\n.row {\r\n    margin: 0 auto;\r\n   \r\n    width: 100%;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.columns {\r\n    padding-left: 5px;\r\n    padding-right: 5px;\n}\n.column, .columns {\r\n    position: relative;\r\n    float: left;\r\n    width:34%;\n}\n.btn-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#ffffff;\r\n    background-color: #c01c3c;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    margin-bottom: 10px;\r\n    font-size:14px;\n}\n.btn-lebuya:hover {\r\n    background-color:#d0021b;\n}\n.btn-lebuya:active {\r\n    background-color:#d0021b;\n}\n.btn-fake-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#c1203d;\r\n    background-color: #ffffff;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    border: 1px solid #c1203d;\n}\n.btn-fake-lebuya:hover {\r\n    background-color:#d0021b;\n}\n.container-form {\r\n    display:grid;\r\n    margin: 0px 35px;\n}\n#login\r\n{   \r\n    border-right-color: #d3d3d3;\r\n    border-right-style: solid;\r\n    border-right-width: 1px; \r\n    height: 495px;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\r\n    padding: 0px 10px;\r\n    -moz-text-align-last:center;\r\n         text-align-last:center;\r\n    padding-right: 29px;\n}\n.select-fake, select.dd-select, select {\r\n    height: 40px;\r\n    background-color: white;\r\n    font-size: 1.4rem;\r\n    padding: 0 40px 0 10px;\r\n    background-repeat: no-repeat;\r\n    background-size: 20px;\r\n    background-position: right 10px center;\r\n    top: auto;\r\n    margin: 0;\r\n    outline: none;\r\n    overflow: hidden;\r\n    border-radius: 3px;\n}\nselect {\r\nmax-width: 50%; /* La clave para cambiar la dimension del container select esta aqui */\r\nwidth:auto;\n}\n.panel_connection .hide_register .cityregister {\r\n    border: 1px solid #D4D4D4;\r\n    background-color: #F8F8F8;\r\n    margin-bottom: 20px;\r\n    padding: 5px 15px ;\n}\n.offer {\r\n     align: left;\n}\n.panel_connection .hide_register .offer {\r\n    font-size: 10px;\r\n    font-weight: 600;\n}\n.row .row {\r\n    max-width: 100%;\r\n    width: 100%;\n}\n.small-4 {\r\n    margin: 0px -25px;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.panel_connection .hide_register .radio-container {\r\n    padding-top: 10px;\n}\n.radio-container {\r\n    height: 40px;\n}\n.panel_connection .hide_register .radio-container label {\r\n    vertical-align: top;\r\n    margin-right: 0px;\n}\nspan {\r\n    font-size:14px;\n}\n.panel_connection .hide_register .radio-container label span {\r\n    margin-left: 0px;\r\n    vertical-align: top;\r\n    text-decoration:none;\n}\n.row .small-12 span:hover{\r\n    text-decoration:none;\n}\n.social-buttons-container_description\r\n{\r\n    margin:10px;\r\n    font-size: 13px;\n}\n.panel_connection .hide_login .social-buttons-container_description {\r\n    padding-top: 20px;\r\n    text-align: center;\r\n    font-size: 12px;\n}\n.radio-container label {\r\n    display: inline-block;\r\n    margin-right:1px;\n}\nlabel.inline {\r\n    margin: 1rem 0 1rem 0;\r\n    padding: 0.5625rem 0;\n}\nlabel {\r\n    font-size: 1.2rem;\n}\n.radio-container label>input {\r\n    height: 13px;\r\n    width: 15px;\n}\ninput[type=\"radio\"] {\r\n    size:20px;\n}\ninput[type=\"file\"], input[type=\"checkbox\"], input[type=\"radio\"], select {\r\n    margin: 0 0 1rem 0;\n}\ninput[type=checkbox], input[type=radio] {\r\n    box-sizing: border-box;\r\n    padding: 0;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n.resetpassword-container{\r\n    text-align: center;\r\n    margin: 15px 0px;\n}\n.Other{\r\n    text-decoration: underline;\r\n    transition: text-shadow 0.2s linear;\r\n    font-size:12px;\n}\n.Other:hover{\r\n     text-shadow: 0 0 1px #000000;\n}\n.form-check{\r\n    border-bottom-color: #d3d3d3;\r\n    border-bottom-style: solid;\r\n    border-bottom-width: 1px;\n}\n#ciudades\r\n{\r\n padding:0px 10px;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.a-center {\r\n    text-align: center !important;\n}\n.panel_connection .hide_login .social-buttons-container {\r\n    border-top: 1px solid #D8D8D8;\r\n    margin-top: 20px;\n}\n.small-12 {\r\n    width: 100%;\n}\n.column.medium-centered:last-child, .columns.medium-centered:last-child {\r\n    float: none;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    outline: none;\n}\n#facebookbutton\r\n{\r\n    background-color: #3B5998;\r\n    border-radius:7%;\r\n    margin-right:10px;\n}\n#facebookbutton:hover\r\n{\r\n    background-color:#2d4373;\n}\n#googlebutton{\r\n    background-color: #DD4B39;\r\n    border-radius:5%;\n}\n#googlebutton:hover\r\n{\r\n background-color: #c23321;\n}\n.button-facebook {\r\n    \r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\nform .row .row .column, form .row .row .columns {\r\n    padding: 0 0.5rem;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n.button-xs:hover {\r\n    text-decoration:none;\n}\n.button-google {\r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\r\n    max-width:80%;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\r\n/*----------------------zona de recuperar contraseña------------------------ */\nelement.style {\r\n    display: block;\n}\n.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p, .panel li, .panel dl {\r\n    color: #333;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\nform {\r\n    margin: 0 0 1rem;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\nform {\r\n    display: block;\r\n    margin-top: 0em;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ninput[type=\"hidden\" i] {\r\n    display: none;\r\n    -webkit-appearance: initial;\r\n       -moz-appearance: initial;\r\n            appearance: initial;\r\n    background-color: initial;\r\n    cursor: default;\r\n    padding: initial;\r\n    border: initial;\n}\ninput {\r\n    -webkit-writing-mode: horizontal-tb !important;\r\n    text-rendering: auto;\r\n    color: -internal-light-dark(black, white);\r\n    letter-spacing: normal;\r\n    word-spacing: normal;\r\n    text-transform: none;\r\n    text-indent: 0px;\r\n    text-shadow: none;\r\n    display: inline-block;\r\n    text-align: start;\r\n    -webkit-appearance: textfield;\r\n       -moz-appearance: textfield;\r\n            appearance: textfield;\r\n    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));\r\n    -webkit-rtl-ordering: logical;\r\n    cursor: text;\r\n    margin: 0em;\r\n    font: 400 13.3333px Arial;\r\n    padding: 1px 2px;\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\ndiv {\r\n    display: block;\n}\n.panel {\r\n    border-style: solid;\r\n    border-width: 1px;\r\n    border-color: #d8d8d8;\r\n    margin-bottom: 1.25rem;\r\n    padding: 1.25rem;\r\n    background: #f2f2f2;\r\n    color: #333;\n}\n.select-container input, .textarea-container input, .input-container input {\r\n    margin-bottom: 0;\n}\ninput[type='tel'], input[type='password'], input[type='email'], input[type='text'] {\r\n    border: 1px solid #C7C7C7;\r\n    color: #2F2F2F;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    font-size: 1.4rem;\r\n    box-shadow: none;\r\n    border-radius: 3px;\n}\n.row .row {\r\n    margin: 0 -0.9375rem;\r\n    max-width: none;\r\n    width: auto;\n}\n.row {\r\n    max-width: none;\n}\n.row {\r\n    margin: 10 auto;\r\n    max-width: 100rem;\r\n\r\n    width: 100%;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\nelement.style {\r\n    width: 256px;\r\n    height: 60px;\r\n    position: fixed;\r\n    visibility: hidden;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\niframe[Attributes Style] {\r\n    width: 256px;\r\n    height: 60px;\r\n    border-top-width: 0px;\r\n    border-right-width: 0px;\r\n    border-bottom-width: 0px;\r\n    border-left-width: 0px;\n}\niframe {\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: initial;\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\n#inside-button-google\r\n{\r\n color: #dd4b39;\n}\n#inside-button-facebook\r\n{\r\n  background-color: #f8fafc;\n}\n.button:hover {\r\n    background-color:#d0021b;\n}\n.label-asterico\r\n{\r\n    color:#df0000;\r\n    font-size:15px;\n}\r\n", ""]);
+exports.push([module.i, "\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n.button-facebook {\r\n    background-color: #3B5998;\r\n    text-decoration:none;\n}\n.button-google{\r\n    background-color:#dd4b39;\n}\n.button-facebook, .button-google {\r\n    margin: 5px;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\n.button {\r\n    font-size: 1.8rem;\r\n    text-decoration: none;\r\n    outline: none;\r\n    height: auto;\r\n    top: auto;\r\n    width: 100%;\r\n    font-family: 'Open Sans',arial,sans-serif;\r\n    font-weight: 400;\r\n    border-radius: 3px;\r\n    font-weight: normal;\r\n    height: 50px;\r\n    line-height: 50px;\r\n    padding: 0 20px;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n.row {\r\n    max-width: 100%;\r\n    flex-wrap: nowrap;\n}\n.row {\r\n    margin: 0 auto;\r\n   \r\n    width: 100%;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.columns {\r\n    padding-left: 5px;\r\n    padding-right: 5px;\n}\n.column, .columns {\r\n    position: relative;\r\n    float: left;\r\n    width:34%;\n}\n.btn-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#ffffff;\r\n    background-color: #c01c3c;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    margin-bottom: 10px;\r\n    font-size:14px;\n}\n.btn-lebuya:hover {\r\n    background-color:#d0021b;\n}\n.btn-lebuya:active {\r\n    background-color:#d0021b;\n}\n.btn-fake-lebuya\r\n{\r\n    width: 100%;\r\n    max-width: 100%;\r\n    color:#c1203d;\r\n    background-color: #ffffff;\r\n    height: 40px;\r\n    line-height: 35px;\r\n    border: 1px solid #c1203d;\n}\n.btn-fake-lebuya:hover {\r\n    background-color:#d0021b;\n}\n.container-form {\r\n    display:grid;\r\n    margin: 0px 35px;\n}\n#login\r\n{   \r\n    border-right-color: #d3d3d3;\r\n    border-right-style: solid;\r\n    border-right-width: 1px; \r\n    height: 495px;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\r\n    padding: 0px 10px;\r\n    -moz-text-align-last:center;\r\n         text-align-last:center;\r\n    padding-right: 29px;\n}\n.select-fake, select.dd-select, select {\r\n    height: 40px;\r\n    background-color: white;\r\n    font-size: 1.4rem;\r\n    padding: 0 40px 0 10px;\r\n    background-repeat: no-repeat;\r\n    background-size: 20px;\r\n    background-position: right 10px center;\r\n    top: auto;\r\n    margin: 0;\r\n    outline: none;\r\n    overflow: hidden;\r\n    border-radius: 3px;\n}\nselect {\r\nmax-width: 50%; /* La clave para cambiar la dimension del container select esta aqui */\r\nwidth:auto;\n}\n.panel_connection .hide_register .cityregister {\r\n    border: 1px solid #D4D4D4;\r\n    background-color: #F8F8F8;\r\n    margin-bottom: 20px;\r\n    padding: 5px 15px ;\n}\n.offer {\r\n     align: left;\n}\n.panel_connection .hide_register .offer {\r\n    font-size: 10px;\r\n    font-weight: 600;\n}\n.row .row {\r\n    max-width: 100%;\r\n    width: 100%;\n}\n.small-4 {\r\n    margin: 0px -25px;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.panel_connection .hide_register .small-4 {\r\n    width: auto;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.panel_connection .hide_register .radio-container {\r\n    padding-top: 10px;\n}\n.radio-container {\r\n    height: 40px;\n}\n.panel_connection .hide_register .radio-container label {\r\n    vertical-align: top;\r\n    margin-right: 0px;\n}\nspan {\r\n    font-size:14px;\n}\n.panel_connection .hide_register .radio-container label span {\r\n    margin-left: 0px;\r\n    vertical-align: top;\r\n    text-decoration:none;\n}\n.row .small-12 span:hover{\r\n    text-decoration:none;\n}\n.social-buttons-container_description\r\n{\r\n    margin:10px;\r\n    font-size: 13px;\n}\n.panel_connection .hide_login .social-buttons-container_description {\r\n    padding-top: 20px;\r\n    text-align: center;\r\n    font-size: 12px;\n}\n.radio-container label {\r\n    display: inline-block;\r\n    margin-right:1px;\n}\nlabel.inline {\r\n    margin: 1rem 0 1rem 0;\r\n    padding: 0.5625rem 0;\n}\nlabel {\r\n    font-size: 1.2rem;\n}\n.radio-container label>input {\r\n    height: 13px;\r\n    width: 15px;\n}\ninput[type=\"radio\"] {\r\n    size:20px;\n}\ninput[type=\"file\"], input[type=\"checkbox\"], input[type=\"radio\"], select {\r\n    margin: 0 0 1rem 0;\n}\ninput[type=checkbox], input[type=radio] {\r\n    box-sizing: border-box;\r\n    padding: 0;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n.resetpassword-container{\r\n    text-align: center;\r\n    margin: 15px 0px;\n}\n.Other{\r\n    text-decoration: underline;\r\n    transition: text-shadow 0.2s linear;\r\n    font-size:12px;\n}\n.Other:hover{\r\n     text-shadow: 0 0 1px #000000;\n}\n.form-check{\r\n    border-bottom-color: #d3d3d3;\r\n    border-bottom-style: solid;\r\n    border-bottom-width: 1px;\n}\n#ciudades\r\n{\r\n padding:0px 10px;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.a-center {\r\n    text-align: center !important;\n}\n.panel_connection .hide_login .social-buttons-container {\r\n    border-top: 1px solid #D8D8D8;\r\n    margin-top: 20px;\n}\n.small-12 {\r\n    width: 100%;\n}\n.column.medium-centered:last-child, .columns.medium-centered:last-child {\r\n    float: none;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\r\n    outline: none;\n}\n#facebookbutton\r\n{\r\n    background-color: #3B5998;\r\n    border-radius:7%;\r\n    margin-right:10px;\n}\n#facebookbutton:hover\r\n{\r\n    background-color:#2d4373;\n}\n#googlebutton{\r\n    background-color: #DD4B39;\r\n    border-radius:5%;\n}\n#googlebutton:hover\r\n{\r\n background-color: #c23321;\n}\n.button-facebook {\r\n    \r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\nform .row .row .column, form .row .row .columns {\r\n    padding: 0 0.5rem;\n}\n.reveal-modal .column, .reveal-modal .columns {\r\n    min-width: 0;\n}\n.button-xs {\r\n    width: 100%;\r\n    max-width: 240px;\r\n    font-size: 1.2rem;\r\n    height: 30px;\r\n    line-height: 30px;\n}\n.button-xs:hover {\r\n    text-decoration:none;\n}\n.button-google {\r\n    width:100%;\r\n    color: #f8fafc;\r\n    text-decoration:none;\n}\n.button-facebook, .button-twitter, .button-google, .button-instagram {\r\n    vertical-align: bottom;\n}\r\n/*----------------------zona de recuperar contraseña------------------------ */\nelement.style {\r\n    display: block;\n}\n.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p, .panel li, .panel dl {\r\n    color: #333;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\nform {\r\n    margin: 0 0 1rem;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\nform {\r\n    display: block;\r\n    margin-top: 0em;\n}\ninput {\r\n    line-height: normal;\n}\nbutton, input, optgroup, select, textarea {\r\n    color: inherit;\r\n    font: inherit;\r\n    margin: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ninput[type=\"hidden\" i] {\r\n    display: none;\r\n    -webkit-appearance: initial;\r\n       -moz-appearance: initial;\r\n            appearance: initial;\r\n    background-color: initial;\r\n    cursor: default;\r\n    padding: initial;\r\n    border: initial;\n}\ninput {\r\n    -webkit-writing-mode: horizontal-tb !important;\r\n    text-rendering: auto;\r\n    color: -internal-light-dark(black, white);\r\n    letter-spacing: normal;\r\n    word-spacing: normal;\r\n    text-transform: none;\r\n    text-indent: 0px;\r\n    text-shadow: none;\r\n    display: inline-block;\r\n    text-align: start;\r\n    -webkit-appearance: textfield;\r\n       -moz-appearance: textfield;\r\n            appearance: textfield;\r\n    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));\r\n    -webkit-rtl-ordering: logical;\r\n    cursor: text;\r\n    margin: 0em;\r\n    font: 400 13.3333px Arial;\r\n    padding: 1px 2px;\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\n.select-container, .textarea-container, .input-container {\r\n    padding-bottom: 20px;\r\n    position: relative;\n}\ndiv {\r\n    display: block;\n}\n.panel {\r\n    border-style: solid;\r\n    border-width: 1px;\r\n    border-color: #d8d8d8;\r\n    margin-bottom: 1.25rem;\r\n    padding: 1.25rem;\r\n    background: #f2f2f2;\r\n    color: #333;\n}\n.select-container input, .textarea-container input, .input-container input {\r\n    margin-bottom: 0;\n}\ninput[type='tel'], input[type='password'], input[type='email'], input[type='text'] {\r\n    border: 1px solid #C7C7C7;\r\n    color: #2F2F2F;\r\n    height: 40px;\r\n    line-height: 40px;\r\n    font-size: 1.4rem;\r\n    box-shadow: none;\r\n    border-radius: 3px;\n}\n.row .row {\r\n    margin: 0 -0.9375rem;\r\n    max-width: none;\r\n    width: auto;\n}\n.row {\r\n    max-width: none;\n}\n.row {\r\n    margin: 10 auto;\r\n    max-width: 100rem;\r\n\r\n    width: 100%;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\nelement.style {\r\n    width: 256px;\r\n    height: 60px;\r\n    position: fixed;\r\n    visibility: hidden;\n}\ndiv, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {\r\n    margin: 0;\r\n    padding: 0;\n}\n*, *:before, *:after {\r\n    box-sizing: border-box;\n}\ndiv {\r\n    display: block;\n}\niframe[Attributes Style] {\r\n    width: 256px;\r\n    height: 60px;\r\n    border-top-width: 0px;\r\n    border-right-width: 0px;\r\n    border-bottom-width: 0px;\r\n    border-left-width: 0px;\n}\niframe {\r\n    border-width: 2px;\r\n    border-style: inset;\r\n    border-color: initial;\r\n    -o-border-image: initial;\r\n       border-image: initial;\n}\n#inside-button-google\r\n{\r\n color: #dd4b39;\n}\n#inside-button-facebook\r\n{\r\n  background-color: #f8fafc;\n}\n.button:hover {\r\n    background-color:#d0021b;\n}\n.label-asterico\r\n{\r\n    color:#df0000;\r\n    font-size:15px;\n}\n@media only screen and (max-width: 60em)\r\n{\n.row{ \r\n        display:block;\n}\n#login{\r\n        height:auto;\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -21041,444 +21053,121 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("form", [
-    _c("div", { staticClass: "pannel pannel_connection" }, [
-      _c("div", { staticClass: "row" }, [
-        _c(
-          "div",
-          {
-            staticClass: "colums small-12 small-centered medium-8",
-            attrs: { id: "login" }
-          },
-          [
-            _c("div", { staticClass: "container-form" }, [
-              _c("div", { staticClass: "mb-3" }, [
-                _c("h2", { staticClass: "panel_conection__title" }, [
-                  _vm._v("Bereits Lebuya-Mitglied? ")
-                ]),
-                _vm._v(" "),
-                _vm.showLogin
-                  ? _c(
-                      "label",
-                      { staticClass: "form-label", attrs: { for: "email" } },
-                      [_vm._v("Deine E-Mail Addresse")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showLogin
-                  ? _c(
-                      "label",
-                      {
-                        staticClass: "label-asterico",
-                        attrs: { for: "email" }
-                      },
-                      [_vm._v("*")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showLogin
-                  ? _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.login.email,
-                          expression: "login.email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "email",
-                        id: "exampleInputEmail",
-                        "aria-describedby": "emailHelp"
-                      },
-                      domProps: { value: _vm.login.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.login, "email", $event.target.value)
-                        }
-                      }
-                    })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mb-3" }, [
-                _vm.showLogin
-                  ? _c(
-                      "label",
-                      {
-                        staticClass: "form-label",
-                        attrs: { for: "exampleInputPassword1" }
-                      },
-                      [_vm._v("Passwort")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showLogin
-                  ? _c(
-                      "label",
-                      {
-                        staticClass: "label-asterico",
-                        attrs: { for: "email" }
-                      },
-                      [_vm._v("*")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showLogin
-                  ? _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.login.password,
-                          expression: "login.password"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "password", id: "exampleInputPassword" },
-                      domProps: { value: _vm.login.password },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.login, "password", $event.target.value)
-                        }
-                      }
-                    })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _vm.showLogin
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-lebuya",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.loginUser()
-                        }
-                      }
-                    },
-                    [_vm._v("Anmelden")]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.showRegister
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-fake-lebuya",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.visualizarLogin()
-                        }
-                      }
-                    },
-                    [_vm._v("Anmelden ")]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "mb-3 form-check" }, [
-                _vm.showLogin
-                  ? _c("div", { staticClass: "resetpassword-container" }, [
-                      _c(
+    _c(
+      "div",
+      { staticClass: "pannel pannel_connection", attrs: { id: "App" } },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            {
+              staticClass: "colums small-12 small-centered medium-8",
+              attrs: { id: "login" }
+            },
+            [
+              _c("div", { staticClass: "container-form" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c("h2", { staticClass: "panel_conection__title" }, [
+                    _vm._v("Bereits Lebuya-Mitglied? ")
+                  ]),
+                  _vm._v(" "),
+                  _vm.showLogin
+                    ? _c(
+                        "label",
+                        { staticClass: "form-label", attrs: { for: "email" } },
+                        [_vm._v("Deine E-Mail Addresse")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showLogin
+                    ? _c(
                         "label",
                         {
-                          staticClass: "Other",
-                          on: {
-                            click: function($event) {
-                              $event.preventDefault()
-                              _vm.visualizarOlvidoContraseña()
-                            }
-                          }
+                          staticClass: "label-asterico",
+                          attrs: { for: "email" }
                         },
-                        [_vm._v("Passwort vergessen?")]
+                        [_vm._v("*")]
                       )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "small-12 medium-centered columns a-center" },
-                  [
-                    _vm.showLogin
-                      ? _c("div", { staticClass: "social-buttons-container" }, [
-                          _vm._m(0),
-                          _vm._v(" "),
-                          _vm._m(1)
-                        ])
-                      : _vm._e()
-                  ]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _vm.showForgot
-              ? _c(
-                  "div",
-                  {
-                    staticClass: "hide",
-                    staticStyle: { display: "block" },
-                    attrs: { id: "container-forgotPassword" }
-                  },
-                  [
-                    _vm._m(2),
-                    _vm._v(" "),
-                    _c(
-                      "form",
-                      {
-                        attrs: {
-                          action:
-                            "https://www.deindeal.ch/de/customer/account/forgotpasswordpost/",
-                          method: "post",
-                          id: "form-customer-forgot-password6028adc54aac9",
-                          "data-abide": "ajax",
-                          novalidate: "novalidate"
-                        }
-                      },
-                      [
-                        _c("input", {
-                          attrs: {
-                            name: "form_key",
-                            type: "hidden",
-                            value: "zEnIhZZjjg1m5sme"
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showLogin
+                    ? _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.login.email,
+                            expression: "login.email"
                           }
-                        }),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "input-container empty" }, [
-                          _c(
-                            "label",
-                            { staticClass: "inline label-required" },
-                            [_vm._v("Bitte gib Deine E-Mail-Adresse ein")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.emailForgot.email,
-                                expression: "emailForgot.email"
-                              }
-                            ],
-                            attrs: {
-                              type: "email",
-                              name: "email_address",
-                              required: ""
-                            },
-                            domProps: { value: _vm.emailForgot.email },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.emailForgot,
-                                  "email",
-                                  $event.target.value
-                                )
-                              }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "email",
+                          id: "exampleInputEmail",
+                          "aria-describedby": "emailHelp"
+                        },
+                        domProps: { value: _vm.login.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
                             }
-                          }),
-                          _vm._v(" "),
-                          _c("small", { staticClass: "error" }, [
-                            _vm._v("Bitte geben Sie eine E-Mail-Adresse ein.")
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          { staticClass: "form-submit-container row" },
-                          [
-                            _vm._m(3),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "columns small-12 " }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "button button-accent button-md",
-                                  attrs: {
-                                    type: "submit",
-                                    "data-button": "initmdp"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.forgotPassword()
-                                    }
-                                  }
-                                },
-                                [_vm._v("Zurücksetzen")]
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "columns small-12 " }, [
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "button button-md button-dark",
-                                  attrs: { href: "#", id: "showLogin" },
-                                  on: {
-                                    click: function($event) {
-                                      $event.preventDefault()
-                                      _vm.visualizarOlvidoContraseña()
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    "\r\n                        Abbrechen                "
-                                  )
-                                ]
-                              )
-                            ])
-                          ]
-                        )
-                      ]
-                    )
-                  ]
-                )
-              : _vm._e()
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "colums small-12 small-centered medium-6",
-            attrs: { id: "registro" }
-          },
-          [
-            _c("div", { staticClass: "container-form" }, [
-              _c("div", { staticClass: "mb-3" }, [
-                _c("h2", { staticClass: "panel_conection__title" }, [
-                  _vm._v("Neu Bei Lebuya? ")
+                            _vm.$set(_vm.login, "email", $event.target.value)
+                          }
+                        }
+                      })
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
-                _vm.showRegister
-                  ? _c(
-                      "label",
-                      {
-                        staticClass: "form-label",
-                        attrs: { for: "exampleInputEmail1" }
-                      },
-                      [_vm._v("Deine E-Mail Addresse")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showRegister
-                  ? _c(
-                      "label",
-                      {
-                        staticClass: "label-asterico",
-                        attrs: { for: "email" }
-                      },
-                      [_vm._v("*")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showRegister
-                  ? _c("input", {
-                      directives: [
+                _c("div", { staticClass: "mb-3" }, [
+                  _vm.showLogin
+                    ? _c(
+                        "label",
                         {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.email,
-                          expression: "form.email"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "email",
-                        id: "exampleInputEmail1",
-                        "aria-describedby": "emailHelp"
-                      },
-                      domProps: { value: _vm.form.email },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.form, "email", $event.target.value)
-                        }
-                      }
-                    })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "mb-3" }, [
-                _vm.showRegister
-                  ? _c(
-                      "label",
-                      {
-                        staticClass: "form-label",
-                        attrs: { for: "exampleInputPassword1" }
-                      },
-                      [_vm._v("Passwort")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showRegister
-                  ? _c(
-                      "label",
-                      {
-                        staticClass: "label-asterico",
-                        attrs: { for: "email" }
-                      },
-                      [_vm._v("*")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.showRegister
-                  ? _c("input", {
-                      directives: [
+                          staticClass: "form-label",
+                          attrs: { for: "exampleInputPassword1" }
+                        },
+                        [_vm._v("Passwort")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showLogin
+                    ? _c(
+                        "label",
                         {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.form.password,
-                          expression: "form.password"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "password", id: "exampleInputPassword1" },
-                      domProps: { value: _vm.form.password },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                          staticClass: "label-asterico",
+                          attrs: { for: "email" }
+                        },
+                        [_vm._v("*")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showLogin
+                    ? _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.login.password,
+                            expression: "login.password"
                           }
-                          _vm.$set(_vm.form, "password", $event.target.value)
+                        ],
+                        staticClass: "form-control",
+                        attrs: { type: "password", id: "exampleInputPassword" },
+                        domProps: { value: _vm.login.password },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.login, "password", $event.target.value)
+                          }
                         }
-                      }
-                    })
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "cityregister " }, [
-                _vm.showRegister
-                  ? _c("div", { staticClass: "select-container not-empty " }, [
-                      _c("div", { staticClass: "offer" }, [
-                        _vm._v(
-                          "\r\n                                        Personalisiere Dein Angebot            \r\n                                "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(4),
-                      _vm._v(" "),
-                      _vm._m(5)
-                    ])
-                  : _vm._e(),
+                      })
+                    : _vm._e()
+                ]),
                 _vm._v(" "),
-                _vm.showRegister
+                _vm.showLogin
                   ? _c(
                       "button",
                       {
@@ -21487,15 +21176,15 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.saveForm()
+                            return _vm.loginUser()
                           }
                         }
                       },
-                      [_vm._v("Registrieren")]
+                      [_vm._v("Anmelden")]
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.showLogin
+                _vm.showRegister
                   ? _c(
                       "button",
                       {
@@ -21503,35 +21192,372 @@ var render = function() {
                         on: {
                           click: function($event) {
                             $event.preventDefault()
-                            return _vm.visualizarRegistro()
+                            return _vm.visualizarLogin()
                           }
                         }
                       },
-                      [_vm._v("Registrieren ")]
+                      [_vm._v("Anmelden ")]
                     )
-                  : _vm._e()
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                { staticClass: "small-12 medium-centered columns a-center" },
-                [
-                  _vm.showRegister
-                    ? _c("div", { staticClass: "social-buttons-container" }, [
-                        _vm._m(6),
-                        _vm._v(" "),
-                        _vm._m(7)
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-3 form-check" }, [
+                  _vm.showLogin
+                    ? _c("div", { staticClass: "resetpassword-container" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "Other",
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                _vm.visualizarOlvidoContraseña()
+                              }
+                            }
+                          },
+                          [_vm._v("Passwort vergessen?")]
+                        )
                       ])
                     : _vm._e()
-                ]
-              )
-            ])
-          ]
-        )
-      ])
-    ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "small-12 medium-centered columns a-center"
+                    },
+                    [
+                      _vm.showLogin
+                        ? _c(
+                            "div",
+                            { staticClass: "social-buttons-container" },
+                            [_vm._m(0), _vm._v(" "), _vm._m(1)]
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.showForgot
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "hide",
+                      staticStyle: { display: "block" },
+                      attrs: { id: "container-forgotPassword" }
+                    },
+                    [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "form",
+                        {
+                          attrs: {
+                            action:
+                              "https://www.deindeal.ch/de/customer/account/forgotpasswordpost/",
+                            method: "post",
+                            id: "form-customer-forgot-password6028adc54aac9",
+                            "data-abide": "ajax",
+                            novalidate: "novalidate"
+                          }
+                        },
+                        [
+                          _c("input", {
+                            attrs: {
+                              name: "form_key",
+                              type: "hidden",
+                              value: "zEnIhZZjjg1m5sme"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "input-container empty" }, [
+                            _c(
+                              "label",
+                              { staticClass: "inline label-required" },
+                              [_vm._v("Bitte gib Deine E-Mail-Adresse ein")]
+                            ),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.emailForgot.email,
+                                  expression: "emailForgot.email"
+                                }
+                              ],
+                              attrs: {
+                                type: "email",
+                                name: "email_address",
+                                required: ""
+                              },
+                              domProps: { value: _vm.emailForgot.email },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.emailForgot,
+                                    "email",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("small", { staticClass: "error" }, [
+                              _vm._v("Bitte geben Sie eine E-Mail-Adresse ein.")
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "form-submit-container row" },
+                            [
+                              _vm._m(3),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "columns small-12 " }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "button button-accent button-md",
+                                    attrs: {
+                                      type: "submit",
+                                      "data-button": "initmdp"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.forgotPassword()
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Zurücksetzen")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "columns small-12 " }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "button button-md button-dark",
+                                    attrs: { href: "#", id: "showLogin" },
+                                    on: {
+                                      click: function($event) {
+                                        $event.preventDefault()
+                                        _vm.visualizarOlvidoContraseña()
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\r\n                        Abbrechen                "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ]
+                  )
+                : _vm._e()
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "colums small-12 small-centered medium-6",
+              attrs: { id: "registro" }
+            },
+            [
+              _c("div", { staticClass: "container-form" }, [
+                _c("div", { staticClass: "mb-3" }, [
+                  _c("h2", { staticClass: "panel_conection__title" }, [
+                    _vm._v("Neu Bei Lebuya? ")
+                  ]),
+                  _vm._v(" "),
+                  _vm.showRegister
+                    ? _c(
+                        "label",
+                        {
+                          staticClass: "form-label",
+                          attrs: { for: "exampleInputEmail1" }
+                        },
+                        [_vm._v("Deine E-Mail Addresse")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showRegister
+                    ? _c(
+                        "label",
+                        {
+                          staticClass: "label-asterico",
+                          attrs: { for: "email" }
+                        },
+                        [_vm._v("*")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showRegister
+                    ? _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.email,
+                            expression: "form.email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "email",
+                          id: "exampleInputEmail1",
+                          "aria-describedby": "emailHelp"
+                        },
+                        domProps: { value: _vm.form.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "email", $event.target.value)
+                          }
+                        }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-3" }, [
+                  _vm.showRegister
+                    ? _c(
+                        "label",
+                        {
+                          staticClass: "form-label",
+                          attrs: { for: "exampleInputPassword1" }
+                        },
+                        [_vm._v("Passwort")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showRegister
+                    ? _c(
+                        "label",
+                        {
+                          staticClass: "label-asterico",
+                          attrs: { for: "email" }
+                        },
+                        [_vm._v("*")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showRegister
+                    ? _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.password,
+                            expression: "form.password"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "password",
+                          id: "exampleInputPassword1"
+                        },
+                        domProps: { value: _vm.form.password },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "password", $event.target.value)
+                          }
+                        }
+                      })
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cityregister " }, [
+                  _vm.showRegister
+                    ? _c(
+                        "div",
+                        { staticClass: "select-container not-empty " },
+                        [
+                          _c("div", { staticClass: "offer" }, [
+                            _vm._v(
+                              "\r\n                                        Personalisiere Dein Angebot            \r\n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _vm._m(4),
+                          _vm._v(" "),
+                          _vm._m(5)
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showRegister
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-lebuya",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.saveForm()
+                            }
+                          }
+                        },
+                        [_vm._v("Registrieren")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.showLogin
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-fake-lebuya",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              return _vm.visualizarRegistro()
+                            }
+                          }
+                        },
+                        [_vm._v("Registrieren ")]
+                      )
+                    : _vm._e()
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "small-12 medium-centered columns a-center" },
+                  [
+                    _vm.showRegister
+                      ? _c("div", { staticClass: "social-buttons-container" }, [
+                          _vm._m(6),
+                          _vm._v(" "),
+                          _vm._m(7)
+                        ])
+                      : _vm._e()
+                  ]
+                )
+              ])
+            ]
+          )
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -21765,7 +21791,11 @@ var staticRenderFns = [
         "a",
         {
           staticClass: "button button-xs button-google",
-          attrs: { href: "#1", "data-role": "connect-google" }
+          attrs: {
+            id: "button-fb600c585ad5465",
+            href: "#1",
+            "data-role": "connect-google"
+          }
         },
         [
           _vm._v(

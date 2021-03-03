@@ -1201,3 +1201,22 @@ figure {
     transform: translateY(-20px);
     opacity: 0;
 }
+
+//------------------------------------------------------------------------------Zona modal del login------------------------------------------------------------
+.row-outside{
+	width: 600px;  
+	max-width: 100%;
+	background-color: black;
+}
+.modal-xl {
+max-width: 60% !important;
+
+}
+@media only screen and (min-width: 641px){
+	.MyAddress__geolocation {
+	width: 60%;
+	}
+}
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------

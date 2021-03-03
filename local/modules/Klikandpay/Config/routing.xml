@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns="http://symfony.com/schema/routing"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <!-- Admin Configuration -->
+    <route id="klikandpay.config.default" path="/admin/module/Klikandpay">
+        <default key="_controller">Klikandpay\Controller\KlikandpayAdminController::defaultAction</default>
+    </route>
+
+    <route id="klikandpay.config.save" path="/admin/module/klikandpay/save" methods="post">
+        <default key="_controller">Klikandpay\Controller\KlikandpayAdminController::saveAction</default>
+    </route>
+
+    <!-- Klik & Pay Response -->
+    <route id="klikandpay.order.placed" path="/klikandpay/order/placed/{hash}" methods="get">
+        <default key="_controller">Klikandpay\Controller\KlikandpayFrontController::placedAction</default>
+    </route>
+
+    <route id="klikandpay.order.failed" path="/klikandpay/order/failed/{hash}" methods="get">
+        <default key="_controller">Klikandpay\Controller\KlikandpayFrontController::failedAction</default>
+    </route>
+
+    <!-- Klik & Pay Confirmation -->
+    <route id="klikandpay.confirmation" path="/klikandpay/confirmation" methods="get">
+        <default key="_controller">Klikandpay\Controller\KlikandpayFrontController::confirmAction</default>
+    </route>
+
+</routes>

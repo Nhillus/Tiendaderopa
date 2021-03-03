@@ -1,0 +1,43 @@
+{extends file="layout.tpl"}
+
+{* Security *}
+{block name="no-return-functions" prepend}
+    {check_auth context="front" role="CUSTOMER" login_tpl="login"}
+{/block}
+
+{* Body Class *}
+{block name="body-class"}page-order-payment{/block}
+
+{* Breadcrumb *}
+{block name='no-return-functions' append}
+    {$breadcrumbs = [
+        ['title' => {intl l="Cart"}, 'url'=>{url path="/cart"}],
+        ['title' => {intl l="Secure Payment"}, 'url'=>{url path="/order/invoice"}],
+        ['title' => {intl l="Transaction Failed"}]
+    ]}
+{/block}
+
+{block name="main-content"}
+<div class="main">
+    <article class="col-main clearfix" role="main" aria-labelledby="main-label">
+
+        <h1 id="main-label" class="page-header">{intl l="Your Cart"}</h1>
+
+        {include file="misc/checkout-progress.tpl" step="last"}
+
+        <div id="payment-failed" class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{intl l="Transaction failed"}</span></h3>
+            </div>
+            <div class="panel-body">
+                <h3>{intl l="An error occured while handling your payment."}</h3>
+                <p>{intl l="To continue with this order, we advise you try again using a different credit/debit card or payment method."}</p>
+
+                <a href="{url path="/order/invoice"}" role="button" class="btn btn-back"><span>{intl l="Try again"}</span></a>
+                <a href="{navigate to="index"}" role="button" class="btn btn-checkout"><span>{intl l="Go home"}</span></a>
+            </div>
+        </div>
+
+    </article>
+</div>
+{/block}
