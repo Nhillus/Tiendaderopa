@@ -1,5 +1,3 @@
-Vue.use(VueAgile)
-
 app = new Vue({
 	el: '#header',
     data: {

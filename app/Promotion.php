@@ -125,6 +125,11 @@ class Promotion extends Model
     public function getImage($id, $image){
         if(null != $image)
             return asset(self::DIRECTORY . $id . '/' . $image);
+<<<<<<< HEAD
         return asset(self::DIRECTORY .'/none/no-photo-available-3.png');
+=======
+
+        return asset(self::DIRECTORY . 'default.jpg');;
+>>>>>>> armando
     }
 }

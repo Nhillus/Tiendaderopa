@@ -50,6 +50,11 @@ Route::post('/klikandpaypay','klikandpay\klikandpaycontroller@pagar')->name('web
 
 Route::get('/address', 'AddresssController@index')->name('web.address');
 
+Route::get('/cart', 'CartController@index');
+
+Route::get('/product/{id}', function($id){
+    return view('product/product');
+});
 
 Route::prefix('panel')->group(function () {
     Route::get('', 'Panel\DashboardController@index')->name("web.panel");
