@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use RobertHucks\SelfDestruct\Traits\SelfDestruct;
 
 class Rol extends Model
 {
+    use SelfDestruct;
+
+    protected $life_time = 60;
    /**
      * The attributes that are mass assignable.
      *

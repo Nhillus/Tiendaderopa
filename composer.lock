@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "01d25db22d22198dba6c9d10d54b3e1e",
+    "content-hash": "20a0f9efd4c0ffb1f69038939d45d1af",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3590,6 +3590,55 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "roberthucks/selfdestruct",
+            "version": "v1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Robert-Hucks/SelfDestruct.git",
+                "reference": "301e9083c375dcee11bcfe111f2503794076603c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Robert-Hucks/SelfDestruct/zipball/301e9083c375dcee11bcfe111f2503794076603c",
+                "reference": "301e9083c375dcee11bcfe111f2503794076603c",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "RobertHucks\\SelfDestruct\\SelfDestructServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RobertHucks\\SelfDestruct\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robert Hucks",
+                    "email": "rahucks@gmail.com"
+                }
+            ],
+            "description": "A package used to give Laravel Models the ability to self-delete after a specified time.",
+            "homepage": "https://github.com/Robert-Hucks/SelfDestruct",
+            "keywords": [
+                "roberthucks",
+                "selfdestruct"
+            ],
+            "support": {
+                "issues": "https://github.com/Robert-Hucks/SelfDestruct/issues",
+                "source": "https://github.com/Robert-Hucks/SelfDestruct/tree/master"
+            },
+            "time": "2019-01-15T14:39:18+00:00"
         },
         {
             "name": "securionpay/securionpay-php",
