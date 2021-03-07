@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(UserDetailSeeder::class);
 
-       // $this->call([PromotionSeeder::class, CategorySeeder::class, SubcategorySeeder::class,RolSeeder::class, UserSeeder::class, UserDetailSeeder::class]); // ProductSeeder::class
+        $this->call([PromotionSeeder::class, CategorySeeder::class,ProductSeeder::class]); // ProductSeeder::class  SubcategorySeeder::class
+        $this->call(CompraSeeder::class);
        // Nhillus: Comente la de arriba porque taradaba mucho en seedear hay que modificarla para que sean menos semillas y que sean medianamente reales
     }
 
@@ -33,7 +34,7 @@ class DatabaseSeeder extends Seeder
             DB::table($table)->truncate(); 
         }
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');    
         
     }
 }

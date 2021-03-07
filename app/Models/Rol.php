@@ -19,7 +19,7 @@ class Rol extends Model
         'nombre'
     ];
 
-    public function user()
+    public function users()
     {
         return $this->hasMany(User::class);
     }

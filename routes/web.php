@@ -40,6 +40,9 @@ Route::post('/secure-pay', 'Api\SecurionPayController@pagar')->name('api.securep
 
 Route::get('/error404', 'error\Error404Controller@redireccion')->name('error.404');
 
+Route::get('/error403', 'error\Error403Controller@redireccion')->name('error.404');
+
+
 Route::get('/paypal/pay', 'Paypal\PaymentController@payWithPayPal')->name('web.payPaypal');
 
 Route::get('/paypal/status', 'Paypal\PaymentController@payPalStatus');
@@ -51,6 +54,8 @@ Route::post('/klikandpaypay','klikandpay\klikandpaycontroller@pagar')->name('web
 Route::get('/address', 'AddresssController@index')->name('web.address');
 
 Route::get('/cart', 'CartController@index');
+
+Route::get('/orders', 'CompraController@index');
 
 Route::get('/product/{id}', function($id){
     return view('product/product');

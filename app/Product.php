@@ -334,4 +334,9 @@ class Product extends Model
         $this->copyFiles($tmp_dir, $files);
     }
 
+    public function compras() {
+
+        return $this->hasMany(Compra::class);
+    }
+
 }

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'name' => 'Ivan',
             'email'=> 'lebuya@gmail.com',
             'password'=> Hash::make('lebuyaadmin'),
-            'id_rol' => 1,
+            'rol_id' => 1,
             'remember_token'=> Str::random(60), 
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')

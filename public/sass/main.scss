@@ -1340,6 +1340,112 @@ max-width: 60% !important;
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------Zona de ordenes------------------------------------------------------------------
+@media only screen and (min-width: 1025px)
+{
+    .MyOrders__table-head-row, .ReturnList__table-head-row, .ReturnRequest__table-head-row {
+        display: -webkit-flex;
+        display: -moz-box;
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .MyOrders__table-cell-name {
+        width: 25%;
+    }
+}
+@media only screen and (min-width: 1025px) {
+    .MyOrders__table-cell-details, .MyOrders__table-cell-name, .MyOrders__table-cell-shipping, .MyOrders__table-cell-status, .MyOrders__table-cell-title, .ReturnDetails__table-cell-article, .ReturnList__table-cell-name, .ReturnList__table-cell-refund, .ReturnRequest__table-cell-item {
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1025px)
+{
+    .MyOrders__table-cell-details {
+        width: 15%;
+    }
+}
+@media only screen and (min-width: 1025px) 
+{
+    .MyOrders__table-cell-details, .MyOrders__table-cell-name, .MyOrders__table-cell-shipping, .MyOrders__table-cell-status, .MyOrders__table-cell-title, .ReturnDetails__table-cell-article, .ReturnList__table-cell-name, .ReturnList__table-cell-refund, .ReturnRequest__table-cell-item {
+        -webkit-justify-content: center;
+        -moz-box-pack: center;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 1025px) {
+    .MyOrders__table-cell-status {
+        width: 25%;
+}
+}
+@media only screen and (max-width: 1024px) {
+    .MyOrders__filters {
+        -webkit-flex-direction: column;
+        -moz-box-orient: vertical;
+        -moz-box-direction: normal;
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .MyOrders__table-head-row, .ReturnList__table-head-row, .ReturnRequest__table-head-row {
+        display: none;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .MyOrders__table-cell-name {
+        font-weight: 700;
+        padding-bottom: 10px;
+        padding-right: 65px;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 1024px)
+{
+    .MyOrders__table-cell-details {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .MyOrders__table-cell-status {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .MyOrders__table-cell-status {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .MyOrders__table-cell-shipping:not(:empty) {
+        padding-top: 10px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .MyOrders__table-cell-shipping {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .MyOrders__table-cell-actions {
+        -webkit-justify-content: flex-end;
+        -moz-box-pack: end;
+        justify-content: flex-end;
+        position: absolute;
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1025px)
+{
+    .MyOrders__filters-order-type {
+        width: 224px;
+    }
+}
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
 .breadcrumbs{
     background-color: transparent;
     border: 0;
