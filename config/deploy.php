@@ -117,6 +117,7 @@ return [
             'deploy_path' => '/home/lebuurrf/Lebuya',
             'user' => 'lebuurrf',
             'strategy' => 'firstdeploy',
+            'identityFile' => '/ssh/id_rsa',
             'port' => 21098, // Port provided by cPanel ssh
             'http_user' => 'lebuurrf',
             'writable_mode' => 'chmod'
