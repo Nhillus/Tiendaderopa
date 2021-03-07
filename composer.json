@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
         "laraveles/spanish": "^1.5",
+        "lorisleiva/laravel-deployer": "^0.3.5",
         "paypal/rest-api-sdk-php": "^1.14",
         "roberthucks/selfdestruct": "^1.3",
         "securionpay/securionpay-php": " 2.2.0",
