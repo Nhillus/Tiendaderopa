@@ -66,6 +66,7 @@ return [
         // Deployment is done and live
         'done' => [
             //
+            'app:symlink_public_html'
         ],
         
         // Deployment succeeded.
