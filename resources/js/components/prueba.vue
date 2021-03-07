@@ -757,7 +757,7 @@ export default {
         {
         axios.post('/api/login',this.login).then(() =>{
             //muestra un aviso de error de inicio 
-            window.location.href = '/'
+            //window.location.href = '/'
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })

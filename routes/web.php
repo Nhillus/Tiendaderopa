@@ -15,6 +15,7 @@ use Laravel\Socialite\Facades\Socialite;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/logout', 'Api\AuthController@logout')->name('logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -42,7 +43,6 @@ Route::get('/error404', 'error\Error404Controller@redireccion')->name('error.404
 
 Route::get('/error403', 'error\Error403Controller@redireccion')->name('error.404');
 
-
 Route::get('/paypal/pay', 'Paypal\PaymentController@payWithPayPal')->name('web.payPaypal');
 
 Route::get('/paypal/status', 'Paypal\PaymentController@payPalStatus');
@@ -56,6 +56,8 @@ Route::get('/address', 'AddresssController@index')->name('web.address');
 Route::get('/cart', 'CartController@index');
 
 Route::get('/orders', 'CompraController@index');
+
+Route::post('/login', 'Api\AuthController@login')->name('api.login');
 
 Route::get('/product/{id}', function($id){
     return view('product/product');

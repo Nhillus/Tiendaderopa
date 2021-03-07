@@ -70,7 +70,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     | Description:    Login a user after its create a passWordGrantClient provided for passport API, validate by UserLoginRequest  and return the token
     */
 
-  Route::post('/login', 'Api\AuthController@login')->name('api.login');
+  //Route::post('/login', 'Api\AuthController@login')->name('api.login');
 
   Route::get('/logout', 'Api\AuthController@logout')->name('logout');
 
