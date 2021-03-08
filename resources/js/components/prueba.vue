@@ -755,7 +755,7 @@ export default {
             },    
         loginUser()
         {
-        axios.post('/api/login',this.login).then(() =>{
+        axios.post('/login',this.login).then(() =>{
             //muestra un aviso de error de inicio 
             //window.location.href = '/'
         }).catch((error) =>{

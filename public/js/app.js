@@ -2700,7 +2700,7 @@ __webpack_require__.r(__webpack_exports__);
     loginUser: function loginUser() {
       var _this = this;
 
-      axios.post('/api/login', this.login).then(function () {//muestra un aviso de error de inicio 
+      axios.post('/login', this.login).then(function () {//muestra un aviso de error de inicio 
         //window.location.href = '/'
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;

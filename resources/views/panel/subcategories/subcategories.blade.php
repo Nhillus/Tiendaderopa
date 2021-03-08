@@ -1,7 +1,5 @@
 @extends('panel.overall.layout')
-@if(Auth::check() && Auth::user()->id_rol==1)
-
-
+@if(Auth::check() && Auth::user()->rol_id==1)
 @section('head')
 <link rel="stylesheet" href="{{ asset('vendor/datatables/datatables/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/datatables/responsive/css/responsive.dataTables.min.css') }}">
@@ -43,11 +41,9 @@
                 <tbody></tbody>
           </table>
         </div>
-
     </div>
 </section>
 @endsection
-
 
 @section('footer')
 <script src="{{ asset('vendor/datatables/datatables/js/jquery.dataTables.min.js') }}"></script>
@@ -90,5 +86,6 @@
     });
 </script>
 @endsection
-<script>window.location = "/error404";</script>
+@else
+    <script>window.location = "/error404";</script>
 @endif

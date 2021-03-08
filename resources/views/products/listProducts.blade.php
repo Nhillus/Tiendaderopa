@@ -1,6 +1,10 @@
 @extends('overall.layout')
 
-
+<style>
+   img {  
+        object-fit: cover;  
+    }  
+</style>
 
 @section('appBody')
 <div class="wrapper">
@@ -23,7 +27,7 @@
                 <div class="row">
                     <div class="small-12 medium-6 columns">
                         <div class="listing_picture hide-for-small-only">
-                                <img type="image" src="{{'$Url'}}l" alt="Woolrich_Fev21" width="554" height="232">
+                                <img type="image" src="{{ asset( '/img/promotions'. '/'.$Promotion->id.'/'.$Promotion->image) }}" alt="Woolrich_Fev21" width="554" height="232">
                         </div>
                                             </div>
                     <div class="small-12 medium-6 columns">
@@ -67,6 +71,9 @@
                                                 <li >
                                                     <div class="row">
                                                         <div class="col-sm-8">
+                                                           <div class="img"> 
+                                                               <img class="img" type="image" src="{{($Product->Imagen) }}">
+                                                            </div>
                                                             <hr>
                                                             <article>
                                                                 <h1>{{$Product->title}}</h1>
@@ -75,16 +82,12 @@
                                                             </article>
                                                         </div>
                                                     <hr>
-                                                    <form action="{{route('api.securepay')}}"  method="post">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <input type="hidden" name="Objecto" value="{{$Product->id   }}"> 
-                                                        <button>Pagar</button>
-                                                    </form> 
+                                                    
                                                     <form action="{{route('web.payPaypal')}}" method="get" target="_top">
                                                         <input type="hidden" name="cmd" value="_s-xclick">
                                                         <input type="hidden" name="hosted_button_id" value="3CBNKNSR89VH6">
                                                         <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                                                        </form>
+                                                    </form>
                                                         
                                                 @endforeach
                                                 </li>

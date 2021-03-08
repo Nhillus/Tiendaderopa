@@ -22,8 +22,17 @@ class ProductListController extends Controller
                     {   
                         echo($category->id);
                         $Products =  Product::all()->where('category_id',$category->id);
+                        //dd($Products);
+                        foreach($Products as $Product)
+                        {
+                            
+                            $rutaImagen = getFilesWithName(public_path(Product::SERVICES_FILES_ROUTE . '/' . $Product->id) . '/');;
+                            $rutaImagenArreglada = ($rutaImagen[0]['fullFile']);
+                            $Product->setAttribute('Imagen',$rutaImagenArreglada );
+                            
+                        }
                         if ($Products->isNotEmpty()) {
-
+                            //dd($Product->Imagen[0]);
                         $CollectProducts = $CollectProducts->push($Products);
                         }
                     }
@@ -31,19 +40,17 @@ class ProductListController extends Controller
                     $unidoCollectProducts= $CollectProducts->collapse();
                     //dd($unidoCollectProducts->all());
                     $promotion = Promotion::findOrFail($id);
-                    $url = $promotion->getImage($id, $promotion->image);
+                    //$url = $promotion->getImage($id, $promotion->image);
                     //dd($url);
-                    $img = get_files_in_dir(public_path(Product::SERVICES_FILES_ROUTE . '/' . $id) . '/');
-                    //dd($img);
                     //$img = get_files_in_dir(asset("/img/products/1") . '/');
                     //dd(asset('/img/products/1/'));
                     
-                    $arrayImg = array();
-                     foreach($unidoCollectProducts as $unidoCollectProduct )
-                     {  $img = get_files_in_dir(public_path(Product::SERVICES_FILES_ROUTE . '/' . $unidoCollectProduct->id) . '/');
+                    //$arrayImg = array();
+                     //foreach($unidoCollectProducts as $unidoCollectProduct )
+                     //{  $img = get_files_in_dir(public_path(Product::SERVICES_FILES_ROUTE . '/' . $unidoCollectProduct->id) . '/');
                         //$img = fullDirectory(Product::SERVICES_FILES_ROUTE . '/' . $unidoCollectProduct->id);
-                        $arrayImg[] = $img;
-                     }
+                       // dd($img);
+                     //}
                      //dd($arrayImg[1][0]);
 
                   
@@ -51,7 +58,9 @@ class ProductListController extends Controller
 
                 }
         //$Products = \App\Product::all();
-        return view('/products/listProducts')->with(['Products'=> $unidoCollectProducts, 'Url'=>$url, 'Img'=>$arrayImg ]);
+        $Promotion = Promotion::find($id);
+        //dd($Promotion);
+        return view('/products/listProducts')->with(['Products'=> $unidoCollectProducts, 'Promotion'=> $Promotion ]);
     }
 
     public function mostrarLista($id) {

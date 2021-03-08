@@ -181,9 +181,9 @@
 
                         <div class="row">
                             <div class="small-12 medium-3 columns">
-                                <h5>Deindeal</h5>
+                                <h5>Lebuya</h5>
                                 <ul>
-                                    <li><a href="#">Wie funktioniert DeinDeal?</a></li>
+                                    <li><a href="#">Wie funktioniert Lebuya?</a></li>
                                     <li><a href="#">Stellen</a></li>
                                 </ul>
                             </div>
@@ -207,7 +207,7 @@
 
                             <div class="small-12 medium-3 columns a-center">
                                 <div class="footer-social-icons">
-                                    <h5>Folge DeinDeal</h5>
+                                    <h5>Folge Lebuya</h5>
                                     <a href="#" class="dd-icon-facebook"></a>
                                 </div>
 
@@ -236,7 +236,7 @@
 
                     <div class="footer-bottom">
                         <div class="copyright-container a-center">
-                            <span class="copyright">©2021 Deindeal AG</span>
+                            <span class="copyright">©2021 Lebuya AG</span>
                         </div>
                     </div>
                 </footer>

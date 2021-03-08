@@ -98,5 +98,5 @@ function getFilesWithName(string $dir, string $types = ''){
 }
 
  function fullDirectory($dir){
-    return \str_replace('\\', '/', public_path($dir))  . '/';
+    return \str_replace('\\', '/', ($dir))  . '/';
 }

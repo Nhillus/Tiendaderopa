@@ -1,5 +1,5 @@
 @extends('panel.overall.layout')
-@if(Auth::check() && Auth::user()->id_rol==1)
+@if(Auth::check() && Auth::user()->rol_id==1)
 
 @section('head')
 <link rel="stylesheet" href="{{ asset('admin/plugins/daterangepicker/daterangepicker.css') }}">

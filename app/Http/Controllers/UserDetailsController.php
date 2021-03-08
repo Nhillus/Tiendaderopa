@@ -15,8 +15,9 @@ class UserDetailsController extends Controller
 {
     public function index()
     {
-
-        $UserDetails = UserDetails::findOrFail(Auth::user()->id);
+        
+        if(Auth::check())$UserDetails = UserDetails::findOrFail(Auth::user()->id);
+        else  $UserDetails = null;
 
         return view('details')->with('UserDetail', $UserDetails);
     }

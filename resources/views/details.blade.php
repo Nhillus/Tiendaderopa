@@ -296,6 +296,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
 .hide-me[aria-expanded="true"] {display: none;}
 
 </style>
+@if(Auth::user()) 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -462,7 +463,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
                                         </div>
                                        
                                 </form>
-                            @if (Auth::user()->id_rol==1)
+                            @if (Auth::Check() && Auth::user()->rol_id==1)
                                     <button  class="Button__highlighted MyProfile__submit" >
                                             <a href="{{route('web.panel')}}" class="Button__label" text-decoration:none >Panel</a>
                                     </button>
@@ -472,6 +473,9 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
                     </div>
                 </div>
             </div>
-        @endsection  
+        @endsection
+    @else 
+        <script>window.location = "/error404";</script>
+    @endif
 </body>
 </html>

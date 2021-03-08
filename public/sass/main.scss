@@ -1012,7 +1012,15 @@ select.select-xl {
     img {
 	    display: block;
 	    width: 100%;
-	}
+        
+    }
+    .img {
+        float: left;
+        width:  100px;
+        height: 100px;
+        object-fit: cover;
+    }
+    
 
 	&.media-552x224{
 		overflow: hidden;
