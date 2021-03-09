@@ -1,5 +1,18 @@
 @extends('overall.layout')
 
+
+<style>
+.material-icons-button {
+    background-color: aliceblue;
+}
+
+.material-icons-button:hover {
+    background-color: rgb(39, 5, 14);
+}
+
+
+
+</style>
 @section('appBody')
     <div class="checkout-container wrapper">
         <div class="checkout">
@@ -34,9 +47,9 @@
                                 </p>
 
                                 <p class="sale_conditions columns text-left"></p>
-
+                            @foreach ($Items as $item) 
                                 <p class="item-shipping columns medium-8 medium-text-right large-text-right">
-                                    Envío estimado: esperado en 3 a 6 días
+                                    Envío estimado: {{($item->attributes[1])}} días
                                 </p>
                             </div>
 
@@ -44,17 +57,16 @@
                                 <div class="row item nomarge">
                                     <div class="cart-content__item cart-content__item--46291847">
                                         <div class="columns small-3 medium-2">
-                                            <img src="https://cosmos2.deindeal.ch/api/img?p=products/2021/2/35CED947-95A2-4E17-816D-BDBAF5C38C33/8905284_1&st=11&v=1612778660" alt="">
+                                            <img src="{{($item->attributes->first())}}" alt="">
                                         </div>
 
                                         <div class="columns small-9 medium-5">
                                             <div class="product_name">
                                                 <span>
-                                                    <strong>T-Shirt Seile -</strong>
-                                                    Schwarz
+                                                    <strong>{{($item->name)}}</strong>
+                                                    
                                                 </span>
                                                 <strong>-</strong>
-                                                L
                                             </div>
                                         </div>
 
@@ -68,9 +80,11 @@
                                                     <option value="5">5</option>
                                                 </select>
                                                 <div class="column medium-3">
-                                                    <a href="#" class="delete-btn button button-ghost button-icon my-icon-close button-delete">
-                                                        <span class="material-icons">clear</span>
-                                                    </a>
+                                                    <form action="{{route('cart.removeitem')}}" method="POST">  
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{$item->id}}">
+                                                        <button type="submit" class="material-icons-button" background-color:whitw>x</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,7 +98,7 @@
                                                         </td>
                                                         <td class="price-box-accent">
                                                             <span class="price">
-                                                                60.00 CHF
+                                                                {{($item->price)}} CHF
                                                             </span>
 
                                                         </td>
@@ -97,7 +111,7 @@
                                                         <td class="price-box-accent">
                                                             <strong>
                                                                 <span class="price">
-                                                                    60.00 CHF
+                                                                    {{($item->price)}} CHF
                                                                 </span>
                                                             </strong>
                                                         </td>
@@ -110,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        @endforeach
                         <div class="row panel address-shipping-billing " id="address_area">
                             <div class="my-panel my-delivery small-12 medium-6 columns shipping customer-has-addresses">
                                 <p class="checkout_title">Entrega</p>
@@ -466,8 +480,101 @@
                                     </div>
                                 </form>
                             </div>
-
-
+<!--------------------------------------------------------------------------------------------Inicia pago--------------------------------------------------->
+                            <div class="row panel">
+                                <div class="columns small-12 medium-7">
+                <div class="my-discount" data-discount-block="">
+                    <p class="checkout_title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descuento</font></font></p>
+                    <form action="https://www.deindeal.ch/de/checkout/discount/ajaxDiscountPost/" method="post" data-abide="ajax" class="discount" novalidate="novalidate">
+                        <div class="my-discount-form" data-discount-form="">
+                <input type="hidden" name="validate-order" class="validate_order" value="0">
+                <div class="my-discount-code">
+                    <div class="row">
+                        <div class="columns small-12 medium-6">
+                            <input data-url="https://www.deindeal.ch/de/checkout/discount/ajaxDiscountPost/" type="text" id="discount-code" name="discount-code" placeholder="Ingrese su código de promoción aquí" value="">
+                            <span class="remove-discount hidden"></span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                        <div class="container-validate-button">
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input id="validate-discount" class="button button-accent button-xs" type="submit" value="Redimir"></font></font>
+                        </div>
+                    </form>
+                </div>
+                                    
+                                    <div id="gift-advertisement-container" class="gift-advertisement-container">
+                                                            </div>
+                                </div>
+                
+                                <div class="columns small-12 medium-5">
+                                    <div class=" total-order">
+                                        <div id="my-totals" class="my-cart my-totals clearfix">
+                                            <ul id="list-totals" class="list-totals">
+                
+                <li class="total row">
+                    <div class="small-8 columns">
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Valor de los bienes</font></font></p>
+                    </div>
+                    <div class="small-4 columns a-right">
+                        <p class="a-right total-price"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{($Subtotal)}} CHF</font></font></p>
+                    </div>
+                </li>
+                
+                <li class="total row">
+                            <div class="small-8 columns">
+                            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gastos de envío</font></font></p>
+                        </div>
+                        <div class="small-4 columns a-right">
+                            <p class="a-right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{($item->attributes[2])}} CHF</font></font></p>
+                        </div>
+                    </li>
+                                
+                <li class="grand-total total row">
+                    <div class="small-8 columns">
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Importe total </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(IVA incluido)</font></font></span></p>
+                    </div>
+                    <div class="small-4 columns">
+                        <p class="my-price a-right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                            {{($Subtotal +$item->attributes[2] )}}     </font></font></p>
+                    </div>
+                
+                        <input type="hidden" name="is_quote_has_error" value="">
+                </li>
+                
+                <li class="total-spared total nopadding row">
+                    <div class="small-8 columns">
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ahorras</font></font></p>
+                    </div>
+                    <div class="small-4 columns a-right">
+                        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                             CHF        </font></font></p>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="small-12 medium-5 columns nopadding-right">
+        <form action="{{route('Compra')}}" method="POST" target="_top">
+            @csrf
+            @foreach($Items as $item) 
+                <input type="hidden"name="cartItems[]" value="{{ $item->id }}">
+                <input type="hidden" name="Subtotal" value="{{$Subtotal}}">
+            @endforeach
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        </form>
+        <div class="button-set payment-link a-right">
+            <div class="validate-step1">
+            <a href="#" class="button button-accent button-expanded"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                    confirmar pedido        
+                </font></font>
+            </a>
+                </div>
+        </div>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------------Termina pago-------------------------------------------------->
                             <div class="button-set small-12 columns my-panel my-billing">
                                 <form class="same-billing">
                                     <div class="row">
@@ -489,6 +596,7 @@
             </div>
         </div>
     </div>
+    
 @endsection
 
 

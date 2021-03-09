@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -233,6 +234,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Tinker' => Laravel\Tinker\TinkerServiceProvider::class,
         'Passport' => Laravel\Passport\PassportServiceProvider::class,
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
 
     ],
 

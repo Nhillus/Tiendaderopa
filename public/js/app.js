@@ -2700,8 +2700,9 @@ __webpack_require__.r(__webpack_exports__);
     loginUser: function loginUser() {
       var _this = this;
 
-      axios.post('/login', this.login).then(function () {//muestra un aviso de error de inicio 
-        //window.location.href = '/'
+      axios.post('/login', this.login).then(function () {
+        //muestra un aviso de error de inicio 
+        window.location.href = '/';
       })["catch"](function (error) {
         _this.errors = error.response.data.errors;
       });
@@ -2722,6 +2723,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.post('/api/register', this.form).then(function () {
         console.log('saved');
+        window.location.href = '/';
       })["catch"](function (error) {
         _this3.errors = error.response.data.errors;
       });

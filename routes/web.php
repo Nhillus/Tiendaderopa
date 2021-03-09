@@ -55,9 +55,19 @@ Route::get('/address', 'AddresssController@index')->name('web.address');
 
 Route::get('/cart', 'CartController@index');
 
-Route::get('/orders', 'CompraController@index');
+Route::post('/cart-add','CartController@add')->name('cart.add');
+
+Route::get('/cart-checkout','CartController@cart')->name('cart.checkout');
+
+Route::post('/cart-clear', 'CartController@clear')->name('cart.clear');
+
+Route::post('/cart-removeitem', 'CartController@removeitem')->name('cart.removeitem');
+
+Route::get('/orders', 'CompraController@index')->name('orders');
 
 Route::post('/login', 'Api\AuthController@login')->name('api.login');
+
+Route::post('/compra','CompraController@saveCompra')->name('Compra');
 
 Route::get('/product/{id}', function($id){
     return view('product/product');

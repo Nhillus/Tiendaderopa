@@ -757,7 +757,7 @@ export default {
         {
         axios.post('/login',this.login).then(() =>{
             //muestra un aviso de error de inicio 
-            //window.location.href = '/'
+            window.location.href = '/'
         }).catch((error) =>{
             this.errors = error.response.data.errors;   
         })
@@ -775,6 +775,7 @@ export default {
         saveForm(){
                 axios.post('/api/register', this.form).then(() =>{
                     console.log('saved');
+                window.location.href = '/'
                 }).catch((error) =>{
                     this.errors = error.response.data.errors;
             })

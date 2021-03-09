@@ -83,6 +83,12 @@
                                                         </div>
                                                     <hr>
                                                     
+                                                    <form action="{{route('cart.add')}}" method="POST" target="_top">
+                                                        @csrf
+                                                        <input type="hidden" name="Product_id" value="{{$Product->id}}"> 
+                                                        <input type="submit" name="btn" class="btn btn-success" value="ADD TO CART" > 
+                                                    </form>
+
                                                     <form action="{{route('web.payPaypal')}}" method="get" target="_top">
                                                         <input type="hidden" name="cmd" value="_s-xclick">
                                                         <input type="hidden" name="hosted_button_id" value="3CBNKNSR89VH6">

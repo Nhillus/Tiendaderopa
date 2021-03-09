@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Cart;
+use Cart;
+use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class CartController extends Controller
 {
@@ -14,9 +17,43 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart/cart');
+        $user= Auth::user();
+        $icarrito = Cart::session($user->id)->getContent();
+        $subtotal = Cart::session($user->id)->getSubTotal();
+        //dd( Cart::getContent($user->id));
+        
+   
+        return view('cart/cart')->with(['Items'=> Cart::getContent(Auth::user()->id),'Subtotal'=> $subtotal]);
     }
 
+    public function add(Request $request) {
+        $Product = Product::find($request->Product_id);
+            $user= Auth::user();
+           //dd($user->id);
+           //dd($Product);
+           $rutaImagen = getFilesWithName(public_path(Product::SERVICES_FILES_ROUTE . '/' . $Product->id) . '/');
+           $rutaImagenArreglada = ($rutaImagen[0]['fullFile']);
+
+            Cart::session($user->id)->add([
+                'id' => $Product->id,
+                'name' => $Product->title,
+                'price' => $Product->offer_price,
+                'quantity' => 1,
+                'attributes' => array($rutaImagenArreglada,$Product->shipping_days,$Product->shipping_price),
+                'associatedModel' => $Product,
+                 ]);
+                //dd( Cart::getContent($user->id));
+                return back()->with('success',"$Product->title !Se ha agregado con exito al carrito de compra" );
+                
+        
+    }
+
+
+    public function removeitem(Request $request) {
+        $Product = Product::find($request->id);
+        Cart::session(Auth::user()->id)->remove($request->id);
+        return back()->with('success',"$Product->title !Se ha quitado con exito al carrito de compra" );
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -26,7 +26,7 @@ class ProductListController extends Controller
                         foreach($Products as $Product)
                         {
                             
-                            $rutaImagen = getFilesWithName(public_path(Product::SERVICES_FILES_ROUTE . '/' . $Product->id) . '/');;
+                            $rutaImagen = getFilesWithName(public_path(Product::SERVICES_FILES_ROUTE . '/' . $Product->id) . '/');
                             $rutaImagenArreglada = ($rutaImagen[0]['fullFile']);
                             $Product->setAttribute('Imagen',$rutaImagenArreglada );
                             

@@ -15,7 +15,7 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->double('monto');
+            $table->double('monto', 10, 5);
             $table->string('tipoDePago');
             $table->string('status');
             $table->timestamps();
