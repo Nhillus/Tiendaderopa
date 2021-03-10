@@ -53,7 +53,7 @@ Route::post('/klikandpaypay','klikandpay\klikandpaycontroller@pagar')->name('web
 
 Route::get('/address', 'AddresssController@index')->name('web.address');
 
-Route::get('/cart', 'CartController@index');
+Route::get('/cart', 'CartController@index')->name('cart');
 
 Route::post('/cart-add','CartController@add')->name('cart.add');
 

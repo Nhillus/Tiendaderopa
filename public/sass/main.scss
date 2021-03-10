@@ -276,6 +276,10 @@ label{
 	}
 }
 
+.banner {
+    height: 110%;
+}
+
 .header_background{
     position: fixed;
     top: 0;
@@ -552,8 +556,11 @@ label{
         margin-top: 20px;
     }
 
+    
+
     .navigation_top-menu_search-cart-block{
         display: flex;
+        margin-right: 65;
 
         @media only screen and (min-width: 641px) {
             align-items: center;
@@ -573,8 +580,14 @@ label{
             }
         }
     }
+    .route-cart {
+        width: 50%;
+        height: 50%;
+        
+    }
     .my-cart {
         text-align: center;
+       
 
         & > a {
             display: block;
@@ -610,7 +623,7 @@ label{
 }
 .search-container{
     @media only screen and (min-width: 641px) {
-        margin-right: 10px;
+       
     }
 
     @media only screen and (max-width: 640px) {

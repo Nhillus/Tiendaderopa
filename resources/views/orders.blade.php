@@ -532,8 +532,9 @@ element.style {
                             <div class="MyOrders__table-cell-actions">
                                 </div>
                             </div>
+                            @foreach ($Products as $Product)
                             <div class="MyOrders__table-row">
-                                @foreach ($Products as $Product)
+                                
                                 <div class="MyOrders__table-cell-name"> 
                                     <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$Product->title}}</font>
                                 </font>
@@ -600,9 +601,9 @@ element.style {
                                 </div>
                             </div>
                         </div>
-                        @endforeach
                     </div>
-                </div>>
+                    @endforeach
+                </div>
             </div>
         @endsection  
 </body>

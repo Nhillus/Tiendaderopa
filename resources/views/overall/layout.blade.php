@@ -20,6 +20,7 @@
     <body>
         <header class="header" id="header">
             <div class="header_background">
+                <div class="slider_carousel" id="carousel">
                 <div class="slider_carouselheader-title" id="carousel">
                     <agile :nav-buttons="false" :autoplay-speed="5000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" :dots="false" autoplay="autoplay">
 
@@ -34,7 +35,10 @@
                         <img class="slide" src="https://images.unsplash.com/photo-1517677129300-07b130802f46?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"/>
                     </agile>
                 </div>
-                <div class="banner_header"></div>
+                </div>
+                <div class="banner_header">
+                    <img src="{{asset('img/lebuya/a_ok.jpg')}}" class="banner" >
+                </div>
             </div>
             <div class="header_login-block hide-for-small-only" v-if="topHeader">
                 <div class="header_login-block_inner wrapper">
@@ -84,7 +88,19 @@
                         </a>
                     </h1>
                     <div class="navigation_top-menu_search-cart-block">
-                        <div class="my-cart has-dropdown my-cart-header hide-for-small-only not-click"></div>
+                        <div class="my-cart has-dropdown my-cart-header hide-for-small-only not-click">
+                            @if (Auth::user())
+                            <a class="route-cart" href="{{route('cart')}}">
+                                <img src="{{asset('img/lebuya/lebuyacart.png')}}"  class="my-cart">
+                            </a>
+                            @else
+                            <a href="javascript:void(0)" class="route-cart" class="signin hide-for-small-only" id="new-customer" data-toggle="modal">
+                                <img src="{{asset('img/lebuya/lebuyacart.png')}}"  class="my-cart">
+                            </a>
+                            @endif
+                            
+                            
+                        </div>
                         <div class="search-container">
                             <form action="#" class="form">
                                 <input type="text" class="search_field" placeholder="Was suchst Du?">
@@ -95,6 +111,9 @@
                         </div>
                     </div>
                 </section>
+                <div>
+                    hola
+                </div>  
             </transition>
 
             <div class="sticky navigation_wrapper" id="navbar_wrapper">
@@ -251,7 +270,7 @@
     <script>
         $(document).ready(function () {
 
-        /* When click New customer button */
+        /* When click login  button */
         $('#new-customer').click(function () {
         $('#crud-modal').modal('show');
         });
