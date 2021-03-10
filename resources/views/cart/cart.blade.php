@@ -556,12 +556,12 @@
         </div>
     </div>
     <div class="small-12 medium-5 columns nopadding-right">
-        <form action="{{route('Compra')}}" method="POST" target="_top">
+        <form action="{{route('web.payPaypal')}}" method="GET" target="_top">
             @csrf
             @foreach($Items as $item) 
                 <input type="hidden"name="cartItems[]" value="{{ $item->id }}">
-                <input type="hidden" name="Subtotal" value="{{$Subtotal}}">
             @endforeach
+            <input type="hidden" name="Subtotal" value="{{$Subtotal}}">
             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
         </form>
         <div class="button-set payment-link a-right">

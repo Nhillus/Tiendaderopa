@@ -44,9 +44,9 @@
                 <div class="header_login-block_inner wrapper">
                     <ul class="header_login-block_elements columns large-6 hide-for-medium-only">
                         @auth
-                           {{Auth::user()->email}}
+                          Bienvenido {{Auth::user()->name}}
                         @else
-                            Desconectado
+                            Ususario
                         @endauth
                         <li class="home-delivery">Bis zu 70% günstiger *</li>
                         <li>Lokaltarif 0848 500 501</li>
@@ -85,7 +85,7 @@
                     <h1 class="header-title">
                         <a href="{{url('/')}}">
                             <img src="{{asset('img/lebuya/LebuyaLogo.png')}}"class="logo">
-                        </a>
+                        </a> 
                     </h1>
                     <div class="navigation_top-menu_search-cart-block">
                         <div class="my-cart has-dropdown my-cart-header hide-for-small-only not-click">
@@ -94,7 +94,7 @@
                                 <img src="{{asset('img/lebuya/lebuyacart.png')}}"  class="my-cart">
                             </a>
                             @else
-                            <a href="javascript:void(0)" class="route-cart" class="signin hide-for-small-only" id="new-customer" data-toggle="modal">
+                            <a class="route-cart" href="{{route('/')}}">
                                 <img src="{{asset('img/lebuya/lebuyacart.png')}}"  class="my-cart">
                             </a>
                             @endif

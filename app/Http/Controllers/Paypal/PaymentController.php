@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Paypal;
 
+use Illuminate\Support\Facades\Auth;
+use Cart;
+use App\Product;
+use App\Models\Compra;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -18,6 +22,7 @@ use PayPal\Api\PaymentExecution;
 
 class PaymentController extends Controller
 {
+    private $Itemsid;
     private $apiContext;
 
     public function __construct()
@@ -36,14 +41,15 @@ class PaymentController extends Controller
 
     // ...
 
-    public function payWithPayPal()
+    public function payWithPayPal(request $Request)
     {
+        
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
         $amount = new Amount();
-        $amount->setTotal('3.99');
-        $amount->setCurrency('USD');
+        $amount->setTotal($Request->Subtotal);
+        $amount->setCurrency('CHF');
 
         $transaction = new Transaction();
         $transaction->setAmount($amount);
@@ -68,6 +74,25 @@ class PaymentController extends Controller
             echo $ex->getData();
         }
     }
+     public function saveCompra(Request $request) {
+        //dd($request->Subtotal);
+        $float_value_of_Subtotal = floatval($request->Subtotal);
+        //echo $float_value_of_var; // 122.34343
+        $cartItems = $request->cartItems;
+        foreach($cartItems as $item) {
+            $Compra = Compra::create([
+                'monto' => $float_value_of_Subtotal,
+                'tipoDePago' => 'P',
+                'status' => 'por enviar',
+                'user_id' => Auth::user()->id,
+                'products_id'=> $item,
+            ]);
+            
+
+        }
+        index();
+        
+    }
 
     public function payPalStatus(Request $request)
     {
@@ -89,6 +114,20 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->apiContext);
 
         if ($result->getState() === 'approved') {
+            $cartItems = Cart::session(Auth::user()->id)->getContent();
+            //dd($cartItems);
+            $Subtotal=Cart::getSubTotal();
+            foreach($cartItems as $item) {
+                //dd($item->id);  
+                $Compra = Compra::create([
+                    'monto' => $Subtotal,
+                    'tipoDePago' => 'P',
+                    'status' => 'por enviar',
+                    'user_id' => Auth::user()->id,
+                    'products_id'=> $item->id,
+                ]);
+            }
+            //dd($Compra);
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
             return view('/PayPal/result')->with('status',$status);
         }

@@ -43,6 +43,17 @@ class Compra extends Model
         //dd($lProducts->first());
         return  $lProducts;
     }
+
+    function setMonto() {
+
+    }
+    function tipoDePago(String $tipoDePago) {
+        
+    }
+    function status(String $status ) {
+        
+    }
+
     public function  user() {
         return $this->belongsTo(User::class);
     }
