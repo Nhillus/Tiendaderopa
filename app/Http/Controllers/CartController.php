@@ -18,12 +18,24 @@ class CartController extends Controller
     public function index()
     {
         $user= Auth::user();
-        $icarrito = Cart::session($user->id)->getContent();
-        $subtotal = Cart::session($user->id)->getSubTotal();
+        if ($user) {
+            $icarrito = Cart::session($user->id)->getContent();
+            $subtotal = Cart::session($user->id)->getSubTotal();
+            if(Cart::session($user->id)->getTotalQuantity()!=0)
+                {
+                    $Items=Cart::getContent(Auth::user()->id);
+                    //dd($Items);
+                }
+            else {
+                $Items=null;
+                //dd($Items);
+            }
+        }
+        else {
+            $subtotal=0;
+        }
         //dd( Cart::getContent($user->id));
-        
-   
-        return view('cart/cart')->with(['Items'=> Cart::getContent(Auth::user()->id),'Subtotal'=> $subtotal]);
+        return view('cart/cart')->with(['Items'=>$Items ,'Subtotal'=> $subtotal]);
     }
 
     public function add(Request $request) {

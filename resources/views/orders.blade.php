@@ -439,13 +439,19 @@ element.style {
                         <li class="Breadcrumb__item--active">Mein Kundenprofil</li>
                     </ul>
                 </aside>
-                    <div class="MyAccount__wrapper"><div class="MyAccount__menu"><div class="MyAccount__menu-title">Mein Konto</div><div class="MyAccountMenu stack">
-                        <ul class="MyAccountMenu__stack"><li class="MyAccountMenu__stack-item active"><a class="Link" data-look="default" href="/de/customer/account/edit" id="link-header-sub-menu-customer-edit-account">Mein Kundenprofil</a></li>
+                    <div class="MyAccount__wrapper">
+                        <div class="MyAccount__menu">
+                            <div class="MyAccount__menu-title">Mein Konto</div>
+                            <div class="MyAccountMenu stack">
+                        <ul class="MyAccountMenu__stack">
+                            <li class="MyAccountMenu__stack-item">
+                                <a class="Link" data-look="default" href="/micuenta" id="link-header-sub-menu-customer-edit-account">Mein Kundenprofil</a>
+                            </li>
                             <li class="MyAccountMenu__stack-item">
                                 <a class="Link" data-look="default" href="/de/customer/address" id="link-header-sub-menu-customer-address">Meine Adresse</a>
                             </li>
-                            <li class="MyAccountMenu__stack-item">
-                                <a class="Link" data-look="default" href="/de/sales/order/history" id="link-header-sub-menu-order-history">Meine Bestellungen</a>
+                            <li class="MyAccountMenu__stack-item active">
+                                <a class="Link" data-look="default" href="/orders" id="link-header-sub-menu-order-history">Meine Bestellungen</a>
                             </li>
                             <li class="MyAccountMenu__stack-item">
                                 <a class="Link" data-look="default" href="/de/awrma/customer_rma/list" id="link-header-sub-menu-customer_rma-list">Meine Rücksendungen</a>

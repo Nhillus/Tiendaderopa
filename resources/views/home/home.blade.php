@@ -47,7 +47,7 @@
                                 <a href="{{ url( $promotion->id.'/product/list')}}" class="teaser seen">
                                     <div class="sale-media media-552x224">
                                         <figure>
-                                            <img src="{{ asset( '/img/promotions'. '/'.$promotion->id.'/'.$promotion->image) }}" alt="">
+                                            <img src="{{ asset( '/img/promotions'.'/'.$promotion->id.'/'.$promotion->image) }}" alt="">
                                         </figure>
                                         <div class="sale-infos">
                                             <div class="row nomarge">

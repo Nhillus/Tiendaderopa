@@ -129,6 +129,7 @@ class PaymentController extends Controller
             }
             //dd($Compra);
             $status = 'Gracias! El pago a través de PayPal se ha ralizado correctamente.';
+            Cart::session(Auth::user()->id)->clear();
             return view('/PayPal/result')->with('status',$status);
         }
 

@@ -89,17 +89,9 @@
                     </h1>
                     <div class="navigation_top-menu_search-cart-block">
                         <div class="my-cart has-dropdown my-cart-header hide-for-small-only not-click">
-                            @if (Auth::user())
                             <a class="route-cart" href="{{route('cart')}}">
                                 <img src="{{asset('img/lebuya/lebuyacart.png')}}"  class="my-cart">
                             </a>
-                            @else
-                            <a class="route-cart" href="{{route('/')}}">
-                                <img src="{{asset('img/lebuya/lebuyacart.png')}}"  class="my-cart">
-                            </a>
-                            @endif
-                            
-                            
                         </div>
                         <div class="search-container">
                             <form action="#" class="form">
@@ -111,9 +103,6 @@
                         </div>
                     </div>
                 </section>
-                <div>
-                    hola
-                </div>  
             </transition>
 
             <div class="sticky navigation_wrapper" id="navbar_wrapper">

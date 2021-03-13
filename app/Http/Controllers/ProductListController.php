@@ -18,6 +18,7 @@ class ProductListController extends Controller
                     //dd($categories);
                    //$products= new Product;
                    $CollectProducts = new Collection;
+                   $numeroP = 0;
                     foreach($categoris as $category)
                     {   
                         echo($category->id);
@@ -25,13 +26,14 @@ class ProductListController extends Controller
                         //dd($Products);
                         foreach($Products as $Product)
                         {
-                            
+                            $numeroP = $numeroP + 1;
                             $rutaImagen = getFilesWithName(public_path(Product::SERVICES_FILES_ROUTE . '/' . $Product->id) . '/');
                             $rutaImagenArreglada = ($rutaImagen[0]['fullFile']);
                             $Product->setAttribute('Imagen',$rutaImagenArreglada );
                             
                         }
                         if ($Products->isNotEmpty()) {
+
                             //dd($Product->Imagen[0]);
                         $CollectProducts = $CollectProducts->push($Products);
                         }
@@ -60,7 +62,7 @@ class ProductListController extends Controller
         //$Products = \App\Product::all();
         $Promotion = Promotion::find($id);
         //dd($Promotion);
-        return view('/products/listProducts')->with(['Products'=> $unidoCollectProducts, 'Promotion'=> $Promotion ]);
+        return view('/products/listProducts')->with(['Products'=> $unidoCollectProducts, 'Promotion'=> $Promotion, 'TotalArticulos'=>$numeroP ]);
     }
 
     public function mostrarLista($id) {

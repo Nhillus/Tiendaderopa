@@ -12,6 +12,8 @@
 
 
 
+
+
 </style>
 @section('appBody')
     <div class="checkout-container wrapper">
@@ -47,6 +49,7 @@
                                 </p>
 
                                 <p class="sale_conditions columns text-left"></p>
+                            @if ($Items)                                
                             @foreach ($Items as $item) 
                                 <p class="item-shipping columns medium-8 medium-text-right large-text-right">
                                     Envío estimado: {{($item->attributes[1])}} días
@@ -57,7 +60,7 @@
                                 <div class="row item nomarge">
                                     <div class="cart-content__item cart-content__item--46291847">
                                         <div class="columns small-3 medium-2">
-                                            <img src="{{($item->attributes->first())}}" alt="">
+                                            <img src="{{($item->attributes->first())}}" class="img-orders" width="500" height="300" alt="">
                                         </div>
 
                                         <div class="columns small-9 medium-5">
@@ -125,6 +128,7 @@
                             </div>
                         </div>
                         @endforeach
+                        @endif
                         <div class="row panel address-shipping-billing " id="address_area">
                             <div class="my-panel my-delivery small-12 medium-6 columns shipping customer-has-addresses">
                                 <p class="checkout_title">Entrega</p>
@@ -526,7 +530,11 @@
                             <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gastos de envío</font></font></p>
                         </div>
                         <div class="small-4 columns a-right">
-                            <p class="a-right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{($item->attributes[2])}} CHF</font></font></p>
+                            @if ($Items)
+                            <p class="a-right"><font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">{{($item->attributes[2])}} CHF</font>
+                            </font></p>
+                            @endif
                         </div>
                     </li>
                                 
@@ -535,8 +543,10 @@
                         <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Importe total </font></font><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(IVA incluido)</font></font></span></p>
                     </div>
                     <div class="small-4 columns">
+                        @if ($Items)
                         <p class="my-price a-right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
                             {{($Subtotal +$item->attributes[2] )}}     </font></font></p>
+                        @endif
                     </div>
                 
                         <input type="hidden" name="is_quote_has_error" value="">
@@ -558,9 +568,12 @@
     <div class="small-12 medium-5 columns nopadding-right">
         <form action="{{route('web.payPaypal')}}" method="GET" target="_top">
             @csrf
+            @if ($Items)               
             @foreach($Items as $item) 
                 <input type="hidden"name="cartItems[]" value="{{ $item->id }}">
             @endforeach
+            @endif
+
             <input type="hidden" name="Subtotal" value="{{$Subtotal}}">
             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
         </form>

@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(UserDetailSeeder::class);
 
-        $this->call([PromotionSeeder::class, CategorySeeder::class,ProductSeeder::class]); // ProductSeeder::class  SubcategorySeeder::class
-        $this->call(CompraSeeder::class);
+        //$this->call([PromotionSeeder::class, CategorySeeder::class,ProductSeeder::class]); // ProductSeeder::class  SubcategorySeeder::class
+        //$this->call(CompraSeeder::class);
        // Nhillus: Comente la de arriba porque taradaba mucho en seedear hay que modificarla para que sean menos semillas y que sean medianamente reales
     }
 
