@@ -256,16 +256,52 @@
         <script src="{{ asset('js/header.js') }}"></script>
         @yield('appFooter')
         @yield('scripts')
-    <script>
+        <script>
         $(document).ready(function () {
-
         /* When click login  button */
-        $('#new-customer').click(function () {
-        $('#crud-modal').modal('show');
+            $('#new-customer').click(function () {
+                $('#crud-modal').modal('show');
+            });
         });
-
-      });
-
+        </script>
+        <script src="{{ asset('vendor/datatables/datatables/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('vendor/datatables/responsive/js/dataTables.responsive.min.js') }}"></script>
+        <script>
+            $(function () {
+                $('.datatable').DataTable({
+                    ajax: "{{ url('api/promotions') }}",
+                    responsive: true,
+                    initComplete: function(settings, json) {},
+                    columnDefs: [
+                        { width: '10%', targets: 3 }
+                    ],
+                    language : {
+                        "sProcessing":     "Procesando...",
+                        "sLengthMenu":     "Mostrar _MENU_ registros",
+                        "sZeroRecords":    "No se encontraron resultados",
+                        "sEmptyTable":     "No hay resultados.",
+                        "sInfo":           "Mostrando _START_ al _END_ de _TOTAL_ registros",
+                        "sInfoEmpty":      "Mostrando del 0 al 0 de 0 registros",
+                        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                        "sInfoPostFix":    "",
+                        "sSearch":         "Was suchst Du?",
+                        "sUrl":            "",
+                        "sInfoThousands":  ",",
+                        "sLoadingRecords": "Cargando...",
+                        "oPaginate": {
+                            "sFirst":    "Primero",
+                            "sLast":     "Último",
+                            "sNext":     "Siguiente",
+                            "sPrevious": "Anterior"
+                        },
+                        "oAria": {
+                            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                        },
+                    }
+                });
+            });
         </script>
 
     </body>

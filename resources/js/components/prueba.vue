@@ -536,9 +536,9 @@ iframe {
 
 }
 .video_container_willkommen {
-    display:flex;
     margin-top:95px;
-    margin-left:45px;
+    margin-left:23px;
+    width: 88%;
 }
 .Register__fieldset {
     background-color: #f8f8f8;
