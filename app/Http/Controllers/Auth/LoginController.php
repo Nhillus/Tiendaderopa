@@ -52,9 +52,9 @@ class LoginController extends Controller
         if(in_array($redSocial, $redSociales)){
             # code...
             //$usersocial= Socialite::driver($redSocial)->stateless()->user();
-            console.log("entre a array");
+            dd("entre a array");
             $prueba = Socialite::driver($provider)->stateless()->redirect()->getTargetUrl();
-            console.log($prueba);
+            dd($prueba);
             return response()->json([
                 'redirectUrl' => Socialite::driver($provider)->stateless()->redirect()->getTargetUrl()
             ]);
