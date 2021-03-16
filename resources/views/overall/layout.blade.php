@@ -55,8 +55,20 @@
                     <div class="header_menu columns large-4 medium-6">
                         <div class="header_menu_account">
                             @auth
-                            <a href="{{ route('web.details') }}" class="signin hide-for-small-only">mein konto</a>
-
+                            <div class="dropdown">
+                                <a href="{{ route('web.details') }}" class="signin hide-for-small-only">mein konto</a>                                
+                                <div class="dropdown-content">
+                                        <a class="Link__header-sub-menu" data-look="default" href="/micuenta" id="link-header-sub-menu-customer-edit-account">Mein Kundenprofil</a>
+                                        <a class="Link__header-sub-menu" data-look="default" href="/de/customer/address" id="link-header-sub-menu-customer-address">Meine Adresse</a>
+                                        <a class="Link__header-sub-menu" data-look="default" href="/orders" id="link-header-sub-menu-order-history">Meine Bestellungen</a>
+                                        <a class="Link__header-sub-menu" data-look="default" href="/de/awrma/customer_rma/list" id="link-header-sub-menu-customer_rma-list">Meine Rücksendungen</a>
+                                        <a class="Link__header-sub-menu" data-look="default" href="/de/gift" id="link-header-sub-menu-gift">Mein Guthaben</a>
+                                        <a class="Link__header-sub-menu" data-look="default" href="/de/contact" id="link-header-sub-menu-contact">Kontakt</a>
+                                        <a class="Link__header-sub-menu" data-look="default" href="/de/newsletter/manage" id="link-header-sub-menu-manage-newsletter">Newsletter</a>
+                                        <a class="Link__header-sub-menu" data-look="default" href="{{ url('/api/logout') }}" class="signin hide-for-small-only">Abmelden</a>
+                                    </li>
+                                </div>
+                            </div>
                             <a href="{{ url('/api/logout') }}" class="signin hide-for-small-only">Abmelden</a>
                             @else
                             <a href="javascript:void(0)" class="signin hide-for-small-only" id="new-customer" data-toggle="modal" >Anmelden</a>
