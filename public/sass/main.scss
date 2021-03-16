@@ -555,9 +555,13 @@ label{
         }
     }
     .route-cart {
-        width: 25%;
-        height: 25%;
+        width: 30%;
+        height: 30%;
         
+    }
+    .my-cart-icon {
+        width: 40px;
+        height: 40px;
     }
     .my-cart {
         text-align: center;
@@ -1710,8 +1714,25 @@ max-width: 55% !important;
     font-weight: 600;
     margin-right: 40px;
 }
+.my-cart-icon  {
+    padding: 0; 
+    margin:0;
+}
+.Button__add-to-cart--icon {
+    background-color: #fff;
+    border: 1px solid #2f2f2f;
+    background-size: 100%;
+    padding: 0; 
+    
+}
+.Button__add-to-cart--icon img {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    bottom:0;
+}
 .OneProduct__add-to-cart-wrapper .Button__add-to-cart--icon {
-    bottom: 10px;
+    bottom: 5px;
     position: absolute;
     right: 10px;
 }

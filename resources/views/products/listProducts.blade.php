@@ -143,7 +143,9 @@
                                                                         <span class="OneProduct__crossed-out-price">{{($Product->real_price)}}</span>
                                                                         <span class="OneProduct__price">{{($Product->offer_price)}}</span>
                                                                         <div class="OneProduct__add-to-cart-wrapper">
-                                                                            <button class="Button__add-to-cart--icon" data-look="block disc" type="button"></button>
+                                                                            <button class="Button__add-to-cart--icon" data-look="block disc" type="button">
+                                                                                <img src="{{asset('img/lebuya/lebuyacart.png')}}"  class="my-cart">
+                                                                            </button>
                                                                             <div class="OneProduct__quantity-selector">
                                                                                 <p class="OneProduct__quantity-selector-label"></p>
                                                                                 <!--<select autocomplete="off" class="Select" id="one-product-select-type-16391610" name="one-product-select-type-16391610">
