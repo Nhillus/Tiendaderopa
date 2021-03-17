@@ -26,9 +26,6 @@ h1, h2, h3, h4, h5, p, body {
     color: #2F2F2F;
 }
 
-
-
-
 ul,
 ol,
 dl {
@@ -2072,12 +2069,6 @@ max-width: 55% !important;
         color: #C01C3C;
     }
 
-    .panel{
-        background-color: transparent;
-        margin-bottom: 0;
-        margin-top: 20px;
-    }
-
     .checkout{
         .sale_title {
             white-space: inherit;
@@ -2099,6 +2090,7 @@ max-width: 55% !important;
         }
 
         .product_name {
+            width: 75px;
             font-size: 1.2rem;
             font-weight: 300;
             color: #2F2F2F;
@@ -2140,6 +2132,7 @@ max-width: 55% !important;
         background-color: transparent;
         margin-bottom: 0;
         margin-top: 20px;
+        margin-right:0;
 
 
         &.panel.address-shipping-billing  {

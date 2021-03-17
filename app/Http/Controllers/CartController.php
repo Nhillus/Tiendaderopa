@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Cart;
+use \Darryldecode\Cart\CartCondition;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,18 +19,15 @@ class CartController extends Controller
     public function index()
     {
         $user= Auth::user();
+        $Items=null;
         if ($user) {
             $icarrito = Cart::session($user->id)->getContent();
             $subtotal = Cart::session($user->id)->getSubTotal();
+            //dd($subtotal);
             if(Cart::session($user->id)->getTotalQuantity()!=0)
                 {
                     $Items=Cart::getContent(Auth::user()->id);
-                    //dd($Items);
                 }
-            else {
-                $Items=null;
-                //dd($Items);
-            }
         }
         else {
             $subtotal=0;
@@ -45,16 +43,34 @@ class CartController extends Controller
            //dd($Product);
            $rutaImagen = getFilesWithName(public_path(Product::SERVICES_FILES_ROUTE . '/' . $Product->id) . '/');
            $rutaImagenArreglada = ($rutaImagen[0]['fullFile']);
-
+            
+           if (($Product->offer_percent)!=0) {
+            $conditionDescuento = new CartCondition(array(
+                'name' => 'Descuento '.$Product->offer_percent.'%' ,
+                'type' => 'decuento',
+                'value' => -$Product->offer_percent.'%',
+                'attributes' => array( // attributes field is optional
+                    'description' => 'Descuento de promocion',
+                    'more_data' => 'Decuento en el producto',
+                    'precio_descuento' => $Product->offer_price
+                )
+            ));
+            //dd($condition);
+            }
+            else{
+                $conditionDescuento=null;
+            }
             Cart::session($user->id)->add([
                 'id' => $Product->id,
                 'name' => $Product->title,
-                'price' => $Product->offer_price,
+                'price' => $Product->real_price,
                 'quantity' => 1,
                 'attributes' => array($rutaImagenArreglada,$Product->shipping_days,$Product->shipping_price),
-                'associatedModel' => $Product,
+                'conditions' => $conditionDescuento,
+                'associatedModel' => $Product
                  ]);
                 //dd( Cart::getContent($user->id));
+                
                 return back()->with('success',"$Product->title !Se ha agregado con exito al carrito de compra" );
                 
         

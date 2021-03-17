@@ -600,7 +600,8 @@ element.style {
                                 <button class="Button__print" data-look="inline icon" id="print-order-invoice-5543652" type="button">
                                     </button>
                                     <div id="tooltip-print-order-invoice-5543652" class="Tooltip__wrapper bottom-left">
-                                        <span class="Tooltip bottom-left" role="tooltip"><font style="vertical-align: inherit;">
+                                    <span class="Tooltip bottom-left" role="tooltip">
+                                        <font style="vertical-align: inherit;">
                                             <font style="vertical-align: inherit;">Imprime la factura</font>
                                         </font>
                                     </span>
