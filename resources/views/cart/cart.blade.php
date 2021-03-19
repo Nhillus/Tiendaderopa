@@ -49,9 +49,11 @@
                     <ol class="steps-wrapper">
                         <li class="current">
                             <span>
+                                <a href="{{route('cart')}}">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">Carrito y entrega</font>
                                 </font>
+                                </a>
                             </span>
                         </li>
 
@@ -679,7 +681,7 @@
                 </div>
                     <div class="button-set payment-link a-right">
                         <div class="validate-step1">
-                            <a href="#" class="button button-accent button-expanded">
+                            <a href="{{route('cart2')}}" class="button button-accent button-expanded">
                                 <font style="vertical-align: inherit;">
                                     <font style="vertical-align: inherit;">
                                         confirmar pedido        

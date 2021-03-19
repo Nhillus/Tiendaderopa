@@ -55,6 +55,8 @@ Route::get('/address', 'AddresssController@index')->name('web.address');
 
 Route::get('/cart', 'CartController@index')->name('cart');
 
+Route::get('/cart2', 'CartController@index2')->name('cart2');
+
 Route::post('/cart-add','CartController@add')->name('cart.add');
 
 Route::get('/cart-checkout','CartController@cart')->name('cart.checkout');

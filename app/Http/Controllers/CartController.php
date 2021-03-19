@@ -35,6 +35,25 @@ class CartController extends Controller
         //dd( Cart::getContent($user->id));
         return view('cart/cart')->with(['Items'=>$Items ,'Subtotal'=> $subtotal]);
     }
+    public function index2()
+    {
+        $user= Auth::user();
+        $Items=null;
+        if ($user) {
+            $icarrito = Cart::session($user->id)->getContent();
+            $subtotal = Cart::session($user->id)->getSubTotal();
+            //dd($subtotal);
+            if(Cart::session($user->id)->getTotalQuantity()!=0)
+                {
+                    $Items=Cart::getContent(Auth::user()->id);
+                }
+        }
+        else {
+            $subtotal=0;
+        }
+        //dd( Cart::getContent($user->id));
+        return view('cart/cart2')->with(['Items'=>$Items ,'Subtotal'=> $subtotal]);
+    }
 
     public function add(Request $request) {
         $Product = Product::find($request->Product_id);
