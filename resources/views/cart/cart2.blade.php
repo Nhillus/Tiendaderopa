@@ -638,7 +638,7 @@ input {
                                         </font>
                                     </p>
 
-                                    <form class="my-payment-form" method="POST" action="https://www.deindeal.ch/de/datatrans/prepare/payment/" data-abide="" novalidate="novalidate">
+                                    <form class="my-payment-form" method="get" action="{{route('web.payPaypal')}}" data-abide="" novalidate="novalidate">
                                         <input type="hidden" id="pmethod" name="payment[method]" value="datatranscw_visa" required="">
                                             <input type="hidden" id="alias_select" name="alias_select" value="">
                                                 
@@ -818,12 +818,20 @@ input {
                                                 <img src="https://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/verified-by-geotrust.png" alt="Verified by GeoTrust">
                                             </div>
                                         </div>
+                                            @csrf
+                                            @if ($Items)               
+                                                @foreach($Items as $item) 
+                                                    <input type="hidden"name="cartItems[]" value="{{ $item->id }}">
+                                                @endforeach
+                                            @endif  
+                                            <input type="hidden" name="Subtotal" value="{{$Subtotal}}">
+                                            <div class="button-set">
+                                                <div class="validate-payment-container">
+                                                    <button type="submit" class="button button-accent button-expanded">Bezahlung bestätigen</button>                                        </div>
+                                                </div>
+                                            </div>
                                     </form>
-                                    <div class="button-set">
-                                        <div class="validate-payment-container">
-                                            <button type="submit" class="button button-accent button-expanded validate-payment">Bezahlung bestätigen</button>                                        </div>
-                                    </div>
-                                </div>
+                                    
                             </div>
                         </div>
                     </div>
