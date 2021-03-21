@@ -37,19 +37,19 @@ Route::get('/usuarios/buscar', 'Api\UserController@show');
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     Route::get('/user', function( Request $request ){
           return $request->user();
-   
+
         });
 
 });
 
   Route::post('/forgot-password', 'Api\ForgotPasswordController@sendResetLinkEmail')->name('api.forgot-password');
- 
+
   Route::post('/reset-password', 'Api\ResetPasswordController@reset')->name('api.reset-password');
-  
+
   Route::group(["middleware" => "auth:api" ], function () {
 
   //Route::post('/secure-pay', 'Api\SecurionPayController@pagar')->name('api.securepay');
-  
+
     });
   /*|-------------------------------------------------------------------------------
   | Register a User in the app.
@@ -152,3 +152,28 @@ Route::get('/products', function(){
         'data' => $product->get()
     ]);
 });
+
+
+
+/*|-------------------------------------------------------------------------------
+  | Listado de productos para el fronend
+  |-------------------------------------------------------------------------------
+*/
+
+Route::get('/products/list/{id}', function($id){
+    # Encontrar categorias
+    $categories = \App\Category::all()->where('promotion_id', $id);
+
+    # Datos a revolver
+    $data = [];
+
+    # Recorrer categorias y armar el array de cada categoría con sus productos
+    foreach($categories as $category){
+        $c= $category->toArray();
+        $c['products'] = $category->products()->get()->toArray();
+        $data[] = $c;
+    }
+
+    return response()->json($data);
+});
+

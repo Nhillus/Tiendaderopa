@@ -12,29 +12,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->truncateTables([
-            'rols',
-            'users',
-            'user_details' 
-        ]);
+        // $this->truncateTables([
+        //     'rols',
+        //     'users',
+        //     'user_details'
+        // ]);
 
-        $this->call(RolSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(UserDetailSeeder::class);
+        // $this->call(RolSeeder::class);
+        // $this->call(UserSeeder::class);
+        // $this->call(UserDetailSeeder::class);
 
-        //$this->call([PromotionSeeder::class, CategorySeeder::class,ProductSeeder::class]); // ProductSeeder::class  SubcategorySeeder::class
-        //$this->call(CompraSeeder::class);
-       // Nhillus: Comente la de arriba porque taradaba mucho en seedear hay que modificarla para que sean menos semillas y que sean medianamente reales
+        $this->call([PromotionSeeder::class, CategorySeeder::class, SubcategorySeeder::class, ProductSeeder::class]); // ProductSeeder::class  SubcategorySeeder::class
+        $this->call(CompraSeeder::class);
+       //Nhillus: Comente la de arriba porque taradaba mucho en seedear hay que modificarla para que sean menos semillas y que sean medianamente reales
     }
 
     protected function truncateTables(array $tables) {
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
         foreach ($tables as $table) {
-            DB::table($table)->truncate(); 
+            DB::table($table)->truncate();
         }
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');    
-        
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
     }
 }

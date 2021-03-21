@@ -35,7 +35,7 @@ Route::get('/product', 'ProductController@index')->name('show.product');
 
 Route::get('{id}/product/list', 'ProductListController@index')->name('find.brand.product');
 
-Route::get('/product/list', 'ProductListController@index')->name('show.list.product');
+Route::get('/product/list/{id}', 'ProductListController@index')->name('show.list.product');
 
 Route::post('/secure-pay', 'Api\SecurionPayController@pagar')->name('api.securepay');
 

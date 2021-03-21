@@ -5,8 +5,8 @@ app = new Vue({
         search: true
     },
 	components: {
-		agile: VueAgile,
-	},
+
+    },
     methods: {
         opacityHeader(){
             var header = document.querySelector('#header');

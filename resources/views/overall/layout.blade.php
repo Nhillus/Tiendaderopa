@@ -7,12 +7,9 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/vendor/foundation/foundation.css') }}">
         <link rel="stylesheet" href="{{ asset('/vendor/normalize/normalize.css') }}">
-        <link rel="stylesheet" href="https://unpkg.com/vue-agile/dist/VueAgile.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" /> 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> 
+        <link rel="stylesheet" href="{{ asset('/vendor/slick/slick/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('/vendor/slick/slick/slick-theme.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
         @yield('appHeader')
 
         <link rel="stylesheet" href="{{ asset('/css/main.min.css') }}">
@@ -22,7 +19,7 @@
             <div class="header_background">
                 <div class="slider_carousel" id="carousel">
                 <div class="slider_carouselheader-title" id="carousel">
-                    <agile :nav-buttons="false" :autoplay-speed="5000" :speed="2500" fade="fade" pause-on-hover="pause-on-hover" :dots="false" autoplay="autoplay">
+                    <div class="slider-carousel">
 
                         <img class="slide" src="https://images.unsplash.com/photo-1509549649946-f1b6276d4f35?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE0NTg5fQ"/>
 
@@ -33,7 +30,7 @@
                         <img class="slide" src="https://images.unsplash.com/photo-1511231683436-44735d14c11c?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"/>
 
                         <img class="slide" src="https://images.unsplash.com/photo-1517677129300-07b130802f46?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1600&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjEyMDd9"/>
-                    </agile>
+                    </div>
                 </div>
                 </div>
                 <div class="banner_header">
@@ -85,7 +82,7 @@
                     <h1 class="header-title">
                         <a href="{{url('/')}}">
                             <img src="{{asset('img/lebuya/LebuyaLogo.png')}}"class="logo">
-                        </a> 
+                        </a>
                     </h1>
                     <div class="navigation_top-menu_search-cart-block">
                         <div class="my-cart has-dropdown my-cart-header hide-for-small-only not-click">
@@ -250,15 +247,32 @@
                 </footer>
             </div>
         </div>
+        <script>
+            var api_url = "{{ url('api') }}/"
+        </script>
         <script src="{{ asset('/vendor/vuejs/vue.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/vue-agile"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <script src="{{ asset('/vendor/slick/slick/slick.min.js') }}""></script>
         <script src="{{ asset('js/header.js') }}"></script>
         @yield('appFooter')
         @yield('scripts')
     <script>
         $(document).ready(function () {
-
+            $('.slider-carousel').slick({
+                dots: false,
+                infinite: true,
+                speed: 1000,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                fade: true,
+                autoplaySpeed: 5000,
+            })
         /* When click login  button */
         $('#new-customer').click(function () {
         $('#crud-modal').modal('show');
