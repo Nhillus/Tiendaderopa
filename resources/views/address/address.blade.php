@@ -359,7 +359,7 @@ form {
                 <aside class="MyAccount__breadcrumbs">
                     <ul class="Breadcrumb">
                         <li class="Breadcrumb__item">
-                            <a class="Link__breadcrumb" data-look="inline" href="https://www.deindeal.ch/de/">Trends</a>
+                            <a class="Link__breadcrumb" data-look="inline" >Trends</a>
                         </li>
                          <li class="Breadcrumb__item">
                                 <a class="Link__breadcrumb" data-look="inline" href="/de/customer/account/edit">Mein Konto</a>

@@ -108,7 +108,11 @@ div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, t
     border-right-color: #d3d3d3;
     border-right-style: solid;
     border-right-width: 1px; 
-    height: 495px;
+    height: 535px;
+}
+#register
+{
+    height:535px;
 }
 .Select {
     display: flex;
@@ -530,15 +534,20 @@ iframe {
     }
 }
 .video_container_mujer {
-    display:flex;
     margin-top:95px;
-    margin-left:10px;
-
+    margin-left:4px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
 }
 .video_container_willkommen {
     margin-top:95px;
-    margin-left:23px;
-    width: 88%;
+    margin-left:4px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
 }
 .Register__fieldset {
     background-color: #f8f8f8;
@@ -555,7 +564,6 @@ iframe {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 15px;
-    width:250px;
     max-width:50%;
 }
 .Register__fieldset .Select {
@@ -624,7 +632,6 @@ iframe {
     outline: none;
     position: relative;
 }
-
 .Input, .Input__checkbox, .Input__password, .Input__radio, .Input__radio--food-filter, .Input__radio--food-popular-filter, .Input__radio--product, .InputLocation, .Textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -694,7 +701,6 @@ input[type="radio" i] {
     display: -moz-inline-box;
     display: inline-flex;
 }
-
 /*-----------------------------------------------------------------Zona de recuperar contraseña----------------------------------------------------------------------------------------*/
 .box-subhead {
     margin: 0px 35px;
@@ -708,13 +714,38 @@ input[type="radio" i] {
     margin: 0 auto;
     width: 88%;
 }
-.video_container_lebuya {
-    margin-top:95px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 88%;
+.video_container_lebugreen {
+    margin-top:85px;
+    margin-left:10px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%;
+    
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/**---------------------------------------------------------------zona de videos en el login ------------------------------------------------------------------------------------------ */
+iframe {
+    border: 1px solid black;
+}
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+/**----------------------------------------------------------------------Termina ------------------------------------------------------------------------------------------ */
+@media only screen and (max-width: 961px)
+    {
+    .video_container_willkommen {
+        margin-top:5px;
+        margin-left:0px;
+    }
+    
+}
 
 </style>
 
@@ -735,143 +766,141 @@ input[type="radio" i] {
                     </div>
                     <button v-if="showLogin" type="button" class="btn btn-lebuya"@click.prevent="loginUser()">Anmelden</button>
                     <button v-if="showRegister" class="btn btn-fake-lebuya" @click.prevent="visualizarLogin()">Anmelden </button>
-                    <div style="text-align: center" class="video_container">
-                        <div  class="row" v-if="showRegister" >
-                            <iframe class="video_container_willkommen" width="320" height="180" src="https://www.youtube.com/embed/Ddh8gmFp1tY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                        </div>
-                    </div> 
-                      <div class="mb-3 form-check">
-                          <div v-if="showLogin" class="resetpassword-container">
+                    <div class="video_container_willkommen" v-if="showRegister">     
+                        <div  class="row"  >
+                            <iframe class="responsive-iframe" width="358" height="220" src="https://www.youtube.com/embed/Ddh8gmFp1tY?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>    
+                    </div>
+                    <div class="mb-3 form-check">
+                        <div v-if="showLogin" class="resetpassword-container">
                             <label @click.prevent="visualizarOlvidoContraseña()"class="Other" >Passwort vergessen?</label>
                         </div>
-                </div>
-            <div class="row">
-                <div class="small-12 medium-centered columns a-center">
-                    <div v-if="showLogin" class="social-buttons-container">
-                        <p class="social-buttons-container_description">
-                            <span>Oder Anmeldung via</span>
-                        </p>
-                        <div class="row">
-                                <a @click.prevent="socialLogin('facebook')" id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
-                                        Facebook                    
-                                </a>
-                            
-                                <a  class="button button-xs button-google" href="#1" data-role="connect-google" >
-                               
-                                        Google   
-                
-                                </a>
-                        
-                        </div>
                     </div>
-                </div>
-            </div> 
-        </div>
-    <!-- Empieza--->
-    
-    <div id="container-forgotPassword" class="hide" style="display: block;" v-if="showForgot">
-        <div class="box-subhead">
-            <p>Um Dein Passwort zurückzusetzen, gib bitte nachfolgend die E-Mail-Adresse Deines My-store.ch Kontos an und wir senden Dir einen Link, um das Passwort zu ändern.</p>
-        </div>
-
-        <form action="https://www.deindeal.ch/de/customer/account/forgotpasswordpost/" method="post" id="form-customer-forgot-password6028adc54aac9" data-abide="ajax" novalidate="novalidate">
-            <input name="form_key" type="hidden" value="zEnIhZZjjg1m5sme">
-            <div class="input-container empty">
-                <label class="inline label-required">Bitte gib Deine E-Mail-Adresse ein</label>
-                <input type="email" name="email_address" required=""v-model="emailForgot.email">
-                <small class="error">Bitte geben Sie eine E-Mail-Adresse ein.</small>
-            </div>
-            <div class="form-submit-container row">
-                                <div id="recaptcha_forgot_password" class="g-recaptcha" data-sitekey="6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue" data-callback="callbackUniqueId6028adc54aacb" data-size="invisible"><div class="grecaptcha-badge" data-style="none" style="width: 256px; height: 60px; position: fixed; visibility: hidden;"><div class="grecaptcha-logo"><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue&amp;co=aHR0cHM6Ly93d3cuZGVpbmRlYWwuY2g6NDQz&amp;hl=en&amp;v=2Mfykwl2mlvyQZQ3PEgoH710&amp;size=invisible&amp;cb=8vtrwagpo61k" width="256" height="60" role="presentation" name="a-w8z8b129nyy3" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-2" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
-                            <div class="columns small-12 ">
-                    <button type="submit" data-button="initmdp" class="button button-accent button-md" @click.prevent="forgotPassword()">Zurücksetzen</button>
-                </div>
-                <div class="columns small-12 ">
-                    <a href="#" id="showLogin" class="button button-md button-dark" @click.prevent="visualizarOlvidoContraseña()">
-                        Abbrechen                </a>
-                </div>
-            </div>
-        </form>
-    </div>
-<!-- Termina--->
-        </div>
-            <div id="registro" class="colums small-12 small-centered medium-6">
-                    <div class="container-form">
-                        <div class="mb-3">
-                            <h2  class="panel_conection__title">Neu Bei Lebuya? </h2>
-                            <label v-if="showRegister" for="exampleInputEmail1" class="form-label">Deine E-Mail Addresse</label> <label v-if="showRegister" for="email" class="label-asterico">*</label>
-                            <input v-if="showRegister" type="email" class="form-control" id="exampleInputEmail1" v-model="form.email" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label v-if="showRegister" for="exampleInputPassword1" class="form-label">Passwort</label> <label v-if="showRegister" for="email" class="label-asterico">*</label>
-                            <input v-if="showRegister" type="password" class="form-control" v-model="form.password" id="exampleInputPassword1">
-                        </div>
-                    
-                        <div class="Register__fieldset" v-if="showRegister"  >
-                            <span class="Register__fieldset-label" v-if="showRegister" >Personalisiere Dein Angebot</span>
-                            <select autocomplete="off" class="Select" id="register-city" name="register-city" v-if="showRegister">
-                                <option class="Select__option" value="default">Wähle deine Lieblingsstadt</option>
-                                <option class="Select__option" value="zurich">Zürich</option>
-                                <option class="Select__option" value="basel">Basel</option>
-                                <option class="Select__option" value="geneve">Genf</option>
-                                <option class="Select__option" value="luzern_zug">Luzern / Zug</option>
-                                <option class="Select__option" value="st_gallen">St. Gallen</option>
-                                <option class="Select__option" value="bern">Bern</option>
-                                <option class="Select__option" value="lausanne">Lausanne</option>
-                                <option class="Select__option" value="winterthur">Winterthur</option>
-                            </select>
-                                <div class="Register__fieldset-inputs" v-if="showRegister">
-                                    <div class="Input__wrapper--radio">
-                                        <input class="Input__radio" id="gender-man" name="register[gender]" type="radio" value="male">
-                                        <label for="gender-man" class="Input__label--radio">
-                                            <span class="Input__label-content">Mann</span>
-                                        </label>
-                                    </div>
-                                    <div class="Input__wrapper--radio">
-                                        <input class="Input__radio" id="gender-woman" name="register[gender]" type="radio" value="female">
-                                        <label for="gender-woman" class="Input__label--radio">
-                                            <span class="Input__label-content">Frau</span>
-                                        </label>
-                                    </div>
+                    <div class="row">
+                        <div class="small-12 medium-centered columns a-center">
+                            <div v-if="showLogin" class="social-buttons-container">
+                                <p class="social-buttons-container_description">
+                                    <span>Oder Anmeldung via</span>
+                                </p>
+                                <div class="row">
+                                        <a @click.prevent="socialLogin('facebook')" id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
+                                                Facebook                    
+                                        </a>
+                                    
+                                        <a  class="button button-xs button-google" href="#1" data-role="connect-google" >
+                                        
+                                                Google   
+                        
+                                        </a>
+                                
                                 </div>
+                            </div>
                         </div>
-                            
-                            <button v-if="showRegister" type="button" class="btn btn-lebuya" @click.prevent="saveForm()">Registrieren</button>
-                            <button v-if="showLogin" class="btn btn-fake-lebuya" @click.prevent="visualizarRegistro()">Registrieren </button>
-                            <button v-if="showForgot" class="btn btn-fake-lebuya" @click.prevent="visualizarOlvidoContraseñaRegistro()">Registrieren </button>
-                    <div style="text-align: center" class="video_container">
-                        <div  class="row" v-if="showForgot" >
-                            <iframe class="video_container_lebuya" width="320" height="180" src="https://www.youtube.com/embed/mOP6Sf-4_pE?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
+                    </div> 
+                </div>
+    
+                <div id="container-forgotPassword" class="hide" style="display: block;" v-if="showForgot">
+                    <div class="box-subhead">
+                        <p>Um Dein Passwort zurückzusetzen, gib bitte nachfolgend die E-Mail-Adresse Deines My-store.ch Kontos an und wir senden Dir einen Link, um das Passwort zu ändern.</p>
                     </div>
-                    <div class="video_container_mujer" v-if="showLogin" >
-                        <div class="row">
-                            <iframe width="388" height="220" src="https://www.youtube.com/embed/WXflWhWYetg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    <form  method="post" id="form-customer-forgot-password6028adc54aac9" data-abide="ajax" novalidate="novalidate">
+                        <input name="form_key" type="hidden" value="zEnIhZZjjg1m5sme">
+                        <div class="input-container empty">
+                            <label class="inline label-required">Bitte gib Deine E-Mail-Adresse ein</label>
+                            <input type="email" name="email_address" required=""v-model="emailForgot.email">
+                            <small class="error">Bitte geben Sie eine E-Mail-Adresse ein.</small>
                         </div>
-                    </div>                        
-                  <div class="row">
-                <div class="small-12 medium-centered columns a-center">
-                    <div v-if="showRegister" class="social-buttons-container">
-                        <p class="social-buttons-container_description">
-                            <span>Oder Anmeldung via</span>
-                        </p>
-                        <div class="row">
-                                <a @click.prevent="socialLogin('facebook')" id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
-                                        Facebook                    
-                                </a>
-                            
-                                <a  class="button button-xs button-google" href="#1" data-role="connect-google" >
-                               
-                                        Google   
-                
-                                </a>
+                        <div class="form-submit-container row">
+                                            <div id="recaptcha_forgot_password" class="g-recaptcha" data-sitekey="6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue" data-callback="callbackUniqueId6028adc54aacb" data-size="invisible"><div class="grecaptcha-badge" data-style="none" style="width: 256px; height: 60px; position: fixed; visibility: hidden;"><div class="grecaptcha-logo"><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdW2GUUAAAAAK9cq7gJolpFGFXGRKViuEo3_Kue&amp;co=aHR0cHM6Ly93d3cuZGVpbmRlYWwuY2g6NDQz&amp;hl=en&amp;v=2Mfykwl2mlvyQZQ3PEgoH710&amp;size=invisible&amp;cb=8vtrwagpo61k" width="256" height="60" role="presentation" name="a-w8z8b129nyy3" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-2" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div>
+                                        <div class="columns small-12 ">
+                                <button type="submit" data-button="initmdp" class="button button-accent button-md" @click.prevent="forgotPassword()">Zurücksetzen</button>
+                            </div>
+                            <div class="columns small-12 ">
+                                <a href="#" id="showLogin" class="button button-md button-dark" @click.prevent="visualizarOlvidoContraseña()">
+                                    Abbrechen                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="registro" class="colums small-12 small-centered medium-6">
+                <div class="container-form">
+                    <div class="mb-3">
+                        <h2  class="panel_conection__title">Neu Bei Lebuya? </h2>
+                        <label v-if="showRegister" for="exampleInputEmail1" class="form-label">Deine E-Mail Addresse</label> <label v-if="showRegister" for="email" class="label-asterico">*</label>
+                        <input v-if="showRegister" type="email" class="form-control" id="exampleInputEmail1" v-model="form.email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label v-if="showRegister" for="exampleInputPassword1" class="form-label">Passwort</label> <label v-if="showRegister" for="email" class="label-asterico">*</label>
+                        <input v-if="showRegister" type="password" class="form-control" v-model="form.password" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                    <div class="Register__fieldset" v-if="showRegister"  >
+                        <span class="Register__fieldset-label" v-if="showRegister" >Personalisiere Dein Angebot</span>
+                        <select autocomplete="off" class="Select" id="register-city" name="register-city" v-if="showRegister">
+                            <option class="Select__option" value="default">Wähle deine Lieblingsstadt</option>
+                            <option class="Select__option" value="zurich">Zürich</option>
+                            <option class="Select__option" value="basel">Basel</option>
+                            <option class="Select__option" value="geneve">Genf</option>
+                            <option class="Select__option" value="luzern_zug">Luzern / Zug</option>
+                            <option class="Select__option" value="st_gallen">St. Gallen</option>
+                            <option class="Select__option" value="bern">Bern</option>
+                            <option class="Select__option" value="lausanne">Lausanne</option>
+                            <option class="Select__option" value="winterthur">Winterthur</option>
+                        </select>
+                            <div class="Register__fieldset-inputs" v-if="showRegister">
+                                <div class="Input__wrapper--radio">
+                                    <input class="Input__radio" id="gender-man" name="register[gender]" type="radio" value="male">
+                                    <label for="gender-man" class="Input__label--radio">
+                                        <span class="Input__label-content">Mann</span>
+                                    </label>
+                                </div>
+                                <div class="Input__wrapper--radio">
+                                    <input class="Input__radio" id="gender-woman" name="register[gender]" type="radio" value="female">
+                                    <label for="gender-woman" class="Input__label--radio">
+                                        <span class="Input__label-content">Frau</span>
+                                    </label>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                        <button v-if="showRegister" type="button" class="btn btn-lebuya" @click.prevent="saveForm()">Registrieren</button>
+                        <button v-if="showLogin" class="btn btn-fake-lebuya" @click.prevent="visualizarRegistro()">Registrieren </button>
+                        <button v-if="showForgot" class="btn btn-fake-lebuya" @click.prevent="visualizarOlvidoContraseñaRegistro()">Registrieren </button>
+                <div class="video_container_mujer" v-if="showLogin" >
+                    <div class="row">
+                        <iframe class="responsive-iframe" width="358" height="220" src="https://www.youtube.com/embed/WXflWhWYetg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>                        
+                    <div class="row">
+                        <div class="small-12 medium-centered columns a-center">
+                            <div v-if="showRegister" class="social-buttons-container">
+                                <p class="social-buttons-container_description">
+                                    <span>Oder Anmeldung via</span>
+                                </p>
+                                <div class="row">
+                                        <a @click.prevent="socialLogin('facebook')" id="button-fb600c585ad5465" class="button button-xs button-facebook" href="#1" data-role="connect-fb" >
+                                                Facebook                    
+                                        </a>
+                                    
+                                        <a  class="button button-xs button-google" href="#1" data-role="connect-google" >
+                                    
+                                                Google   
                         
+                                        </a>
+                                
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div style="text-align: center" class="video_container_lebugreen">
+                        <div  class="row" v-if="showForgot" >
+                            <iframe class="responsive-iframe"  width="358" height="220" src="https://www.youtube.com/embed/mOP6Sf-4_pE?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>  
                 </div>
-            </div>  
-                </div>
+            </div>
             </div>
         </div>
     </div>

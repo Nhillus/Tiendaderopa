@@ -52,7 +52,7 @@
                                 </div>
                                 <div class="price-box">
                                     <p class="my-price special-price">
-                                        <span class="price-label">Deindeal.ch Preis</span>
+                                        <span class="price-label">Lebuya.ch Preis</span>
                                         <span class="price">19,90 CHF</span>
                                     </p>
                                     <p class="my-instead-price old-price">

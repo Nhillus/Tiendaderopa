@@ -17,7 +17,66 @@
 
         <link rel="stylesheet" href="{{ asset('/css/main.min.css') }}">
     </head>
+    <style>
+        .close-button {
+            border: none;
+            display: inline-block;
+            padding: 8px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            background-color: inherit;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap
+        }
+
+        .topright {
+            position: absolute;
+            right: 0;
+            top: 0
+        }
+
+        .container_X {
+            width: 5px;
+            height: 5px;
+            border:1px solid #9b9b9b; 
+            color:rgb(185, 105, 105);
+            font-size: 15px;
+        }
+        .modal-body {
+            height:585px;
+        }
+    </style>
     <body>
+        <div id="app" >
+            <div class="modal fade" id="crud-modal" aria-hidden="true" >
+                <div class="modal-dialog modal-lg modal-dialog-centered"  >
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                                <login-component/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="crud-modal2" aria-hidden="true" >
+                <div class="modal-dialog modal-lg modal-dialog-centered"  >
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">X</span>
+                            </button>
+                                <login-component/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <header class="header" id="header">
             <div class="header_background">
                 <div class="slider_carousel" id="carousel">
@@ -71,7 +130,7 @@
                             </div>
                             <a href="{{ url('/api/logout') }}" class="signin hide-for-small-only">Abmelden</a>
                             @else
-                            <a href="javascript:void(0)" class="signin hide-for-small-only" id="new-customer" data-toggle="modal" >Anmelden</a>
+                            <a href="new-customer" class="signin hide-for-small-only" id="new-customer" data-toggle="modal" >Anmelden</a>
                             @endauth
                         </div>
 
@@ -91,7 +150,7 @@
 
             <transition name="slide-fade">
                 <section v-if="search" class="navigation_top-menu wrapper top-bar-section" id="search">
-                    <button type="button" class="left-off-canvas-toggle show-for-small-only navigation_top-menu_button">
+                    <button  href="new-customer2" type="button" class="left-off-canvas-toggle show-for-small-only navigation_top-menu_button" id="new-customer2" data-toggle="modal">
                         <span class="material-icons icon">menu</span>
                     </button>
                     <h1 class="header-title">
@@ -188,7 +247,7 @@
                             <div class="small-12 medium-3 columns">
                                 <div class="a-center apptodate">
                                     <h5>Bleib immer App-to-Date!</h5>
-                                    <p>Jetzt die DeinDeal-App herunterladen und auch unterwegs nie wieder einen Deal verpassen!</p>
+                                    <p>Jetzt die Lebuya-App herunterladen und auch unterwegs nie wieder einen Deal verpassen!</p> <!---Aqui va el link a la app de lebuya-->
                                     <div class="columns small-6 medium-12 large-6">
                                         <a href="#" class="button button-appstore">Aus dem App Store herunterladen</a>
                                     </div>
@@ -243,9 +302,9 @@
                         <div class="row">
                             <div class="small-12 medium-6 columns">
                                 <ul class="terms">
-                                    <li><a href="https://www.deindeal.ch/de/terms-and-conditions" data-link-code="terms-and-conditions">Allgemeine Geschäftsbedingungen</a></li>
-                                    <li><a href="https://www.deindeal.ch/de/privacy" data-link-code="privacy">Datenschutzbestimmungen</a></li>
-                                    <li><a href="https://www.deindeal.ch/de/impressum" data-link-code="impressum">Impressum</a></li>
+                                    <li><a href="" data-link-code="terms-and-conditions">Allgemeine Geschäftsbedingungen</a></li>
+                                    <li><a href="" data-link-code="privacy">Datenschutzbestimmungen</a></li>
+                                    <li><a href="" data-link-code="impressum">Impressum</a></li>
                                 </ul>
                             </div>
                             <div class="small-12 medium-6 columns payment-container">
@@ -273,6 +332,12 @@
         /* When click login  button */
             $('#new-customer').click(function () {
                 $('#crud-modal').modal('show');
+            });
+        });
+        $(document).ready(function () {
+        /* When click login  button */
+            $('#new-customer2').click(function () {
+                $('#crud-modal2').modal('show');
             });
         });
         </script>

@@ -1,34 +1,4 @@
 @extends('overall.layout')
-<style>
-.close-button {
-  border: none;
-  display: inline-block;
-  padding: 8px 16px;
-  vertical-align: middle;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  background-color: inherit;
-  text-align: center;
-  cursor: pointer;
-  white-space: nowrap
-}
-
-.topright {
-  position: absolute;
-  right: 0;
-  top: 0
-}
-
-.container_X {
-    width: 5px;
-    height: 5px;
-    border:1px solid #9b9b9b; 
-    color:rgb(67, 67, 67);
-    font-size: 15px;
-}
-
-</style>    
 @section('appBody')
     <div class="std">
         <div class="wrapper">
@@ -109,20 +79,7 @@
             </div>
         </div>
     </div>
-    <div id="app" >
-        <div class="modal fade" id="crud-modal" aria-hidden="true" >
-            <div class="modal-dialog modal-xl" id="modal-xl" >
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">X</span>
-                          </button>
-                            <login-component/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <script src="/js/app.js"></script>
 @endsection
 

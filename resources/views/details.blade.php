@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -310,7 +309,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
                 <aside class="MyAccount__breadcrumbs">
                     <ul class="Breadcrumb">
                         <li class="Breadcrumb__item">
-                            <a class="Link__breadcrumb" data-look="inline" href="https://www.deindeal.ch/de/">Trends</a>
+                            <a class="Link__breadcrumb" data-look="inline" >Trends</a>
                         </li>
                          <li class="Breadcrumb__item">
                                 <a class="Link__breadcrumb" data-look="inline" href="/de/customer/account/edit">Mein Konto</a>

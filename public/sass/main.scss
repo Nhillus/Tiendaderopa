@@ -264,7 +264,6 @@ label{
         height: 100%;
     }
     .slider_carousel{
-        background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/desktop_nouvelan_21.jpg&v=1609156539);
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: auto 444px;
@@ -301,13 +300,7 @@ label{
 	    height: 190px;
 	}
 
-	// @media only screen and (min-width: 40.063em) {
-	//     background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/desktop_nouvelan_21.jpg&v=1609156539);
-	// }
 
-	// @media only screen and (max-width: 40.062em) {
-	//     background-image: url(https://cosmos.deindeal.ch/api/img?p=channels/mobile_nouvelan-21.jpg&v=1609156526);
-	// }
 }
 
 .header_login-block{
@@ -461,17 +454,7 @@ label{
 
 		}
 
-		&.flag-de{
-			&::after{
-				background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/flags/de.svg');
-			}
-		}
-
-		&.flag-fr{
-			&::after{
-				background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/flags/fr.svg');
-			}
-		}
+	
 	}
 }
 
@@ -1022,7 +1005,6 @@ select.select-xl {
 }
 .sale-media {
     position: relative;
-    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/ajax-loader.gif');
     background-repeat: no-repeat;
     background-position: center center;
 
@@ -1275,7 +1257,6 @@ figure {
 	}
 
 	.payment {
-	    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/payment.gif');
 	    background-repeat: no-repeat;
 	    vertical-align: middle;
 	    width: 299px;
@@ -1295,7 +1276,6 @@ figure {
 }
 
 .button-appstore {
-    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/appstore.gif');
     background-repeat: no-repeat;
     background-position: center center;
     text-indent: -5000em;
@@ -1305,7 +1285,6 @@ figure {
 }
 
 .button-googleplay {
-    background-image: url('http://static.deindeal.ch/skin/frontend/mystore/outlet_md/images/googleplay.gif');
     background-repeat: no-repeat;
     background-position: center center;
     text-indent: -5000em;
@@ -1353,14 +1332,44 @@ figure {
 	max-width: 100%;
 	background-color: black;
 }
-.modal-xl {
-max-width: 55% !important;
-
+@media only screen and ( max-width: 960px) {
+    .modal-body {
+        height: 900px;
+    }
+    .modal-content{
+        height: 900px;
+        border: 1px solid #666;
+    }
 }
 @media only screen and (min-width: 641px){
 	.MyAddress__geolocation {
 	width: 60%;
 	}
+}
+@media only screen and (max-width: 639px)
+    {
+    .modal-content{
+        height: 900px;
+        border: 1px solid #666;
+        min-height: 100vh;
+        width: 100vw;
+        
+    }
+    #crud-modal, #modal-xl{
+        width: 100%;
+        max-width:961;
+    }
+    .modal-xl {
+        max-width: 100% !important;
+    }
+}
+@media only screen and (max-width: 640px)
+    {
+    .video_container_willkommen {
+        margin-top:5px;
+        margin-left:0px;
+    }
+    
 }
 
 
@@ -2201,3 +2210,5 @@ max-width: 55% !important;
         margin-right: 3px;
     }
 }
+
+

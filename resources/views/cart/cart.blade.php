@@ -564,13 +564,13 @@
                                             <font style="vertical-align: inherit;">Descuento</font>
                                         </font>
                                     </p>
-                                <form action="https://www.deindeal.ch/de/checkout/discount/ajaxDiscountPost/" method="post" data-abide="ajax" class="discount" novalidate="novalidate">
+                                <form action="#" method="post" data-abide="ajax" class="discount" novalidate="novalidate">
                                     <div class="my-discount-form" data-discount-form="">
                                         <input type="hidden" name="validate-order" class="validate_order" value="0">
                                             <div class="my-discount-code">
                                                 <div class="row">
                                                     <div class="columns small-12 medium-6">
-                                                        <input data-url="https://www.deindeal.ch/de/checkout/discount/ajaxDiscountPost/" type="text" id="discount-code" name="discount-code" placeholder="Ingrese su código de promoción aquí" value="">
+                                                        <input data-url="#" type="text" id="discount-code" name="discount-code" placeholder="Ingrese su código de promoción aquí" value="">
                                                         <span class="remove-discount hidden"></span>
                                                     </div>
                                                 </div>
