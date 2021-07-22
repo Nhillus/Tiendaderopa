@@ -131,13 +131,13 @@
                                                 <!---Empieza ---->
                                                     <div class="row">
                                                         @foreach ($Products as $Product)
-                                                            <div id="product-16391610" class="ProductsList__wrapper" style="position: relative; left: 0px; top: 0px; height: 414.827px; width: 275.833px;">
+                                                            <div id="product-{{$Product->id}}"  class="ProductsList__wrapper" style="position: relative; left: 0px; top: 0px; height: 414.827px; width: 275.833px;">
                                                                 <article class="OneProduct">
-                                                                    <a class="Link" data-look="default" href="" id="link-16391610">
+                                                                    <a class="Link" data-look="default" href="{{ url( '/product'.'/'.$Product->id)}}" id="link-{{$Product->id}}">
                                                                         <img class="OneProduct__image" src="{{($Product->Imagen) }}" alt="">
                                                                     </a>
                                                                     <h4 class="OneProduct__title">
-                                                                        <a class="Link" data-look="default" href="#" id="link-16391610">{{($Product->title) }}</a>
+                                                                        <a class="Link" data-look="default" href="#" id="link-{{$Product->id}}">{{($Product->title) }}</a>
                                                                     </h4>
                                                                     <footer class="OneProduct__footer">
                                                                         <span class="OneProduct__crossed-out-price">{{($Product->real_price)}}</span>

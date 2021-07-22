@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         $product = Product::all();
         return $product;
-        //Esta función nos devolvera todas las tareas que tenemos en nuestra BD
+        //Esta función nos devolvera todas los productos que tenemos en nuestra BD
     }
 
     public function store(Request $request)
@@ -25,13 +25,13 @@ class ProductController extends Controller
         $product->category = $request->category;
 
         $product->save();
-        //Esta función guardará las tareas que enviaremos mediante vuejs
+        //Esta función guardará los productos que enviaremos mediante vuejs
     }
     public function show(Request $request)
     {
         $product = Product::findOrFail($request->id);
         return $product;
-        //Esta función devolverá los datos de una tarea que hayamos seleccionado para cargar el formulario con sus datos
+        //Esta función devolverá los datos de una productos que hayamos seleccionado para cargar el formulario con sus datos
     }
 
     public function update(Request $request)
@@ -45,7 +45,7 @@ class ProductController extends Controller
         $product->save();
 
         return $product;
-        //Esta función actualizará la tarea que hayamos seleccionado
+        //Esta función actualizará la productos que hayamos seleccionado
        
     }
 
@@ -53,6 +53,6 @@ class ProductController extends Controller
     {
         $product = Product::destroy($request->id);
         return $product;
-        //Esta función obtendra el id de la tarea que hayamos seleccionado y la borrará de nuestra BD
+        //Esta función obtendra el id del producto que hayamos seleccionado y la borrará de nuestra BD
     }
 }

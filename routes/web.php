@@ -67,13 +67,13 @@ Route::post('/cart-removeitem', 'CartController@removeitem')->name('cart.removei
 
 Route::get('/orders', 'CompraController@index')->name('orders');
 
+Route::get('/login', 'Api\AuthController@index')->name('api.ver.login');
+
 Route::post('/login', 'Api\AuthController@login')->name('api.login');
 
 Route::post('/compra','CompraController@saveCompra')->name('Compra');
 
-Route::get('/product/{id}', function($id){
-    return view('product/product');
-});
+Route::get('/product/{id}','ProductController@productIndex')->name('Productos');
 
 Route::prefix('panel')->group(function () {
     Route::get('', 'Panel\DashboardController@index')->name("web.panel");

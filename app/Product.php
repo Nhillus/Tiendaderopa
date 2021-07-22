@@ -39,7 +39,6 @@ class Product extends Model
         'shipping_days',
         'description'
     ];
-
     /**
 	 * Relación con la categoria
 	 */

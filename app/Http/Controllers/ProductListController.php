@@ -61,7 +61,7 @@ class ProductListController extends Controller
                 }
         //$Products = \App\Product::all();
         $Promotion = Promotion::find($id);
-        //dd($Promotion);
+        //dd($unidoCollectProducts);
         return view('/products/listProducts')->with(['Products'=> $unidoCollectProducts, 'Promotion'=> $Promotion, 'TotalArticulos'=>$numeroP ]);
     }
 
